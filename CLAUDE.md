@@ -22,6 +22,7 @@ C# namespace: Remnant (sub-namespaces per module, e.g. Remnant.Player).
 - Prefer small, single-purpose MonoBehaviours and ScriptableObjects for data.
 - Use [SerializeField] private fields, not public fields, for Inspector references.
 - After each change, list exactly what the human must do in the Editor (create objects, assign references, layers/tags, scene setup), because you cannot click in the Editor.
+- InputActionReference fields must point to actions inside Assets/InputSystem_Actions.inputactions, never to scene-local objects. After creating or editing a prefab, verify its input references are still assigned.
 - Code must compile without warnings. The human will confirm by checking the Unity Console.
 - Batch mode (Unity.exe -batchmode) cannot run while the project is open in the Editor. Ask the human to close the Editor first.
 
@@ -69,6 +70,7 @@ MV sheets (TopDown, 2.0x): 768x768, 4x2 characters, each 3 columns x 4 rows of 6
 ## Architecture
 - One central game state holds: current perspective, current timeline, story flags, recorded choices. Systems read it and react to its change events instead of polling.
 - The player controller supports both perspective modes and switches when the game state changes.
+- Each scene declares its perspective and time period with SceneSettings. Mid-scene shifts happen only through story events triggered by the Shadow. No player key ever changes perspective.
 
 ## Workflow
 - Unity MCP (MCP for Unity v10.3.0) is connected on http://127.0.0.1:8081. Port 8080 is taken by another program (AgentService), so never switch back to 8080.

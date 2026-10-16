@@ -27,6 +27,12 @@ namespace Remnant.Interaction
 
         public Interactable Target => target;
 
+        private void Awake()
+        {
+            // The player is a prefab, so the dialogue UI is found at runtime when not assigned.
+            if (dialogueRunner == null) dialogueRunner = FindFirstObjectByType<DialogueRunner>();
+        }
+
         private void OnEnable()
         {
             if (interactAction != null) interactAction.action.Enable();

@@ -46,6 +46,8 @@ namespace Remnant.Dialogue
         private void Awake()
         {
             if (panel != null) panel.SetActive(false);
+            // The UI lives in a prefab, so the player is found at runtime when not assigned.
+            if (player == null) player = FindFirstObjectByType<PlayerController>();
         }
 
         private void OnEnable()

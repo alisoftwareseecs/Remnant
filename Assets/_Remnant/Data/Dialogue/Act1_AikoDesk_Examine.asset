@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc52de155aabcf749855155a676eef12, type: 3}
+  m_Name: Act1_AikoDesk_Examine
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Dialogue.DialogueData
+  lines:
+  - speaker: 0
+    text: Her desk. The lid has been scratched, then rubbed down, as if someone tried
+      to hide it.
+  - speaker: 2
+    text: Her bag is still hanging from the side. It looks heavier than it should.

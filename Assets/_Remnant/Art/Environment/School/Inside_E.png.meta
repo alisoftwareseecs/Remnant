@@ -2171,6 +2171,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: obj_classroom_door
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 48
+        width: 48
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 540474cd8135c8644b47976a3b7919f2
+      internalID: 524379790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -2276,6 +2298,7 @@ TextureImporter:
       Inside_E_r14_c13: -131258666
       Inside_E_r14_c14: -1849990742
       Inside_E_r14_c15: -174027341
+      obj_classroom_door: 524379790
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

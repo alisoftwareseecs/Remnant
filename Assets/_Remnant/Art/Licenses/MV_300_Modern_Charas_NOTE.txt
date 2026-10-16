@@ -1,4 +1,4 @@
-300 Modern Charas (RPG Maker MV format) (PackCharasMV.zip)
-No license or readme file was included in the archive, so the terms and the author are unknown.
-TODO (human): find the original download page, record its license here, and fill in CREDITS.md.
+RPG Maker VX ACE: FREE 300 Modern Charas (MV pack) by adanoliva
+https://adanoliva.itch.io/rpg-maker-free-300-modern-charas
+Free for commercial and non-commercial use. No license file was included in the archive.
 Files used: Characters/TopDown/Charas81-88b, Charas89-96b, Charas105-112b, Charas193-200b, Charas249-256b (2.0x versions)

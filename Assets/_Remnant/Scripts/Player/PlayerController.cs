@@ -32,6 +32,8 @@ namespace Remnant.Player
         public bool IsMoving => moveInput.sqrMagnitude > 0.0001f;
         public bool IsMovementLocked => movementLocked;
         public int FacingDirection { get; private set; } = 1;
+        /// <summary>Last non-zero movement direction (unit vector). Starts facing down. Used for sprite facing.</summary>
+        public Vector2 LastMoveDirection { get; private set; } = Vector2.down;
 
         private void Awake()
         {
@@ -84,6 +86,8 @@ namespace Remnant.Player
                 : Vector2.ClampMagnitude(raw, 1f);
 
             isRunning = sprintAction != null && sprintAction.action.IsPressed() && IsMoving;
+
+            if (IsMoving) LastMoveDirection = moveInput.normalized;
 
             if (moveInput.x > 0.01f) FacingDirection = 1;
             else if (moveInput.x < -0.01f) FacingDirection = -1;
