@@ -80,6 +80,19 @@ namespace Remnant.Core
             return !string.IsNullOrEmpty(flag) && flags.Contains(flag);
         }
 
+        /// <summary>True when any flag in a comma separated list is set (a single flag name works too).</summary>
+        public bool HasAnyFlag(string commaSeparatedFlags)
+        {
+            if (string.IsNullOrWhiteSpace(commaSeparatedFlags)) return false;
+
+            foreach (string flag in commaSeparatedFlags.Split(','))
+            {
+                if (flags.Contains(flag.Trim())) return true;
+            }
+
+            return false;
+        }
+
         public void SetFlag(string flag)
         {
             if (string.IsNullOrEmpty(flag)) return;

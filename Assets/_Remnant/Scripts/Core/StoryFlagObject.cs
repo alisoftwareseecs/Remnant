@@ -11,6 +11,7 @@ namespace Remnant.Core
     {
         public enum Mode { ShowIfFlagSet, HideIfFlagSet }
 
+        [Tooltip("One flag, or several separated by commas (any of them counts as set).")]
         [SerializeField] private string flag;
         [SerializeField] private Mode mode = Mode.ShowIfFlagSet;
         [Tooltip("Optional. Defaults to this GameObject.")]
@@ -34,12 +35,12 @@ namespace Remnant.Core
 
         private void OnFlagChanged(string changedFlag, bool value)
         {
-            if (changedFlag == flag) Apply();
+            if (flag != null && flag.Contains(changedFlag)) Apply();
         }
 
         private void Apply()
         {
-            bool isSet = subscribedState != null && subscribedState.HasFlag(flag);
+            bool isSet = subscribedState != null && subscribedState.HasAnyFlag(flag);
             bool visible = mode == Mode.ShowIfFlagSet ? isSet : !isSet;
             Target.SetActive(visible);
         }

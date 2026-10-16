@@ -570,6 +570,118 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!1001 &82542031
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941029954073444556, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6612395380875500142, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_Name
+      value: DiaryUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7046054439670319865, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+--- !u!114 &82542032 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4879903849967925501, guid: 7bd00b9951c0b894b8d207af183b25fc, type: 3}
+  m_PrefabInstance: {fileID: 82542031}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af52a56206568af41bf89ae63d55f17f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Story.DiaryPanel
 --- !u!1 &163651427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,9 +1400,15 @@ MonoBehaviour:
   timePeriod: 0
   allowRunning: 1
   walkSpeedMultiplier: 1
+  liftLimitsFlag: 
   debugStartFlags:
+  - epilogue
   - act4
+  - act4_dark
+  - act4_confronted
+  - act4_done
   - shadow_awake
+  - shadow_normal
 --- !u!4 &250539575
 Transform:
   m_ObjectHideFlags: 0
@@ -2627,6 +2745,17 @@ MonoBehaviour:
   promptOffset: {x: 0, y: 1.3, z: 0}
   dialogueRunner: {fileID: 1180829029}
   variants:
+  - requiresFlag: epilogue
+    forbidsFlag: 
+    dialogue: {fileID: 11400000, guid: cc58666c705209747ac28bd6ead1fa31, type: 2}
+    setFlag: 
+    sequence: {fileID: 0}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
   - requiresFlag: day2
     forbidsFlag: shadow_awake
     dialogue: {fileID: 11400000, guid: e9e66f22bf2680b40ace8f98d10f720a, type: 2}
@@ -4940,7 +5069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
-  flag: day2
+  flag: day2,epilogue
   mode: 1
   target: {fileID: 0}
 --- !u!212 &643057225
@@ -5140,6 +5269,57 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!1 &711551030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 711551032}
+  - component: {fileID: 711551031}
+  m_Layer: 0
+  m_Name: EpilogueDiary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &711551031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711551030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc9698687b1a814a9564cdfa0ef8092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Story.EpilogueDiarySequence
+  panel: {fileID: 82542032}
+  pageTitle: A new page
+  pageText: Today a boy in my class saw them. He looked right at me. And he didn't
+    look away.
+  dialogueRunner: {fileID: 1180829029}
+  afterDialogue: {fileID: 11400000, guid: 93cbd2b045942d0419f0fb878ac53775, type: 2}
+  setFlagAfter: epilogue_talked
+--- !u!4 &711551032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711551030}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &731153110
 GameObject:
   m_ObjectHideFlags: 0
@@ -5712,6 +5892,17 @@ MonoBehaviour:
   promptOffset: {x: 0, y: -0.2, z: 0}
   dialogueRunner: {fileID: 1180829029}
   variants:
+  - requiresFlag: epilogue
+    forbidsFlag: 
+    dialogue: {fileID: 11400000, guid: fbbecf9dbb8df584d8a5ccc8ee0d9270, type: 2}
+    setFlag: 
+    sequence: {fileID: 0}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
   - requiresFlag: day2
     forbidsFlag: 
     dialogue: {fileID: 11400000, guid: 56b53fcf9e157754694859189c4a26a9, type: 2}
@@ -7109,6 +7300,7 @@ MonoBehaviour:
   - {x: -1.5, y: 0.5}
   - {x: 1.5, y: 0.5}
   - {x: 0, y: 1.4}
+  aikoSeat: {fileID: 496949671}
   bullyWalkSpeed: 2.4
   bullyStagger: 0.5
   actFlag: act4
@@ -7116,6 +7308,7 @@ MonoBehaviour:
   reunionFlag: act4_reunion
   stepInFlag: act4_stepin
   confrontedFlag: act4_confronted
+  epilogueFlag: epilogue
 --- !u!4 &1506741573
 Transform:
   m_ObjectHideFlags: 0
@@ -7690,6 +7883,28 @@ MonoBehaviour:
   promptOffset: {x: 0, y: 0.9, z: 0}
   dialogueRunner: {fileID: 1180829029}
   variants:
+  - requiresFlag: epilogue
+    forbidsFlag: epilogue_talked
+    dialogue: {fileID: 11400000, guid: 3f14fa05dbb200443801a74a4ebc10c7, type: 2}
+    setFlag: 
+    sequence: {fileID: 711551031}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
+  - requiresFlag: epilogue
+    forbidsFlag: 
+    dialogue: {fileID: 0}
+    setFlag: 
+    sequence: {fileID: 0}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
   - requiresFlag: act4_confronted
     forbidsFlag: act4_done
     dialogue: {fileID: 11400000, guid: b13a10e23db8ca8488d77603802dbf76, type: 2}
@@ -7698,8 +7913,8 @@ MonoBehaviour:
     changeScene: 1
     sceneName: Present_Classroom
     spawnId: start
-    titleCard: '[Epilogue - Part 2]'
-    flagDuringTransition: 
+    titleCard: The next day.
+    flagDuringTransition: epilogue
     style: 0
   - requiresFlag: act4_reunion
     forbidsFlag: 
@@ -8820,6 +9035,17 @@ MonoBehaviour:
   promptOffset: {x: 0, y: 1.4, z: 0}
   dialogueRunner: {fileID: 1180829029}
   variants:
+  - requiresFlag: epilogue_talked
+    forbidsFlag: 
+    dialogue: {fileID: 0}
+    setFlag: 
+    sequence: {fileID: 0}
+    changeScene: 1
+    sceneName: Future_Corridor
+    spawnId: start
+    titleCard: Later.
+    flagDuringTransition: ending_light
+    style: 0
   - requiresFlag: talked_aiko
     forbidsFlag: day2,act4
     dialogue: {fileID: 11400000, guid: 4260e54f2259c7d479e411fd51ea6960, type: 2}
@@ -9059,3 +9285,5 @@ SceneRoots:
   - {fileID: 1579621727}
   - {fileID: 1986790133}
   - {fileID: 1506741573}
+  - {fileID: 82542031}
+  - {fileID: 711551032}

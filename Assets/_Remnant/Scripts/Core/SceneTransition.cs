@@ -105,7 +105,7 @@ namespace Remnant.Core
             Color fadeColor = style == TransitionStyle.Flash ? Color.white : Color.black;
 
             if (style == TransitionStyle.Distort) yield return Distort();
-            else if (style == TransitionStyle.Flash) yield return FadeOverlay(0f, 1f, flashSeconds, fadeColor);
+            else if (style == TransitionStyle.Flash) yield return FadeOverlay(0f, 1f, fadeOutOverride >= 0f ? fadeOutOverride : flashSeconds, fadeColor);
             else yield return FadeOverlay(0f, 1f, fadeOutOverride >= 0f ? fadeOutOverride : fadeOutSeconds, fadeColor);
 
             SetOverlay(1f, fadeColor);
@@ -210,11 +210,8 @@ namespace Remnant.Core
         private static void PlacePlayer(string spawnId, Vector2? worldPosition)
         {
             PlayerController player = FindFirstObjectByType<PlayerController>();
-            if (player == null)
-            {
-                Debug.LogWarning("SceneTransition: no PlayerController in the loaded scene.");
-                return;
-            }
+            // Scenes without a player (the credits) are fine.
+            if (player == null) return;
 
             Vector3 target;
             if (worldPosition.HasValue)

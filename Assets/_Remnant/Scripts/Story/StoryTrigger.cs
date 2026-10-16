@@ -18,7 +18,7 @@ namespace Remnant.Story
 
         [Header("Conditions (both optional)")]
         [SerializeField] private string requiresFlag;
-        [Tooltip("Normally the same as Set Flag, so the beat plays only once.")]
+        [Tooltip("Normally the same as Set Flag, so the beat plays only once. Several flags may be listed, separated by commas.")]
         [SerializeField] private string forbidsFlag;
 
         [Header("After the dialogue")]
@@ -39,7 +39,7 @@ namespace Remnant.Story
 
             GameState state = GameState.Instance;
             if (!string.IsNullOrEmpty(requiresFlag) && (state == null || !state.HasFlag(requiresFlag))) return;
-            if (!string.IsNullOrEmpty(forbidsFlag) && state != null && state.HasFlag(forbidsFlag)) return;
+            if (state != null && state.HasAnyFlag(forbidsFlag)) return;
 
             running = true;
             StartCoroutine(Play());

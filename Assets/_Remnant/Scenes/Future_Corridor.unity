@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 11025092}
   - component: {fileID: 11025093}
+  - component: {fileID: 11025094}
   m_Layer: 0
   m_Name: Paper_14
   m_TagString: Untagged
@@ -210,6 +211,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &11025094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11025091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &12392246
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,6 +405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 59286117}
   - component: {fileID: 59286118}
+  - component: {fileID: 59286119}
   m_Layer: 0
   m_Name: TippedDesk_0
   m_TagString: Untagged
@@ -470,6 +487,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &59286119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59286116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &77087536
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 77087537}
   - component: {fileID: 77087538}
+  - component: {fileID: 77087539}
   m_Layer: 0
   m_Name: Rubble_2
   m_TagString: Untagged
@@ -561,6 +594,105 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &77087539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77087536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
+--- !u!1 &93655220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 93655221}
+  - component: {fileID: 93655222}
+  m_Layer: 0
+  m_Name: Sun_Window_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &93655221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93655220}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: -0.00000004371139}
+  m_LocalPosition: {x: 49, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1622074290}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &93655222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93655220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+  m_ComponentVersion: 2
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 0.88, b: 0.6, a: 1}
+  m_Intensity: 0.9
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_PointLightInnerAngle: 25
+  m_PointLightOuterAngle: 70
+  m_PointLightInnerRadius: 0.5
+  m_PointLightOuterRadius: 5.5
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &107133149
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 131831987}
   - component: {fileID: 131831988}
+  - component: {fileID: 131831989}
   m_Layer: 0
   m_Name: Paper_0
   m_TagString: Untagged
@@ -686,6 +819,105 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &131831989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131831986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
+--- !u!1 &135864993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 135864994}
+  - component: {fileID: 135864995}
+  m_Layer: 0
+  m_Name: Sun_Window_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &135864994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135864993}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: -0.00000004371139}
+  m_LocalPosition: {x: 31.5, y: 1.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1622074290}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &135864995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135864993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+  m_ComponentVersion: 2
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 0.88, b: 0.6, a: 1}
+  m_Intensity: 0.9
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_PointLightInnerAngle: 25
+  m_PointLightOuterAngle: 70
+  m_PointLightInnerRadius: 0.5
+  m_PointLightOuterRadius: 5.5
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &165509474
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,6 +1098,7 @@ GameObject:
   m_Component:
   - component: {fileID: 168140064}
   - component: {fileID: 168140065}
+  - component: {fileID: 168140066}
   m_Layer: 0
   m_Name: Window_4_Moonlight
   m_TagString: Untagged
@@ -940,6 +1173,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &168140066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168140063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &229139046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,6 +1541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 366242870}
   - component: {fileID: 366242871}
+  - component: {fileID: 366242872}
   m_Layer: 0
   m_Name: Paper_9
   m_TagString: Untagged
@@ -1374,6 +1623,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &366242872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366242869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1001 &392339542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1431,6 +1695,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ceb03728e99307c4cbd31c540707bc02, type: 3}
+--- !u!1 &398039231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 398039233}
+  - component: {fileID: 398039232}
+  m_Layer: 0
+  m_Name: SunlightSwitch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &398039232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398039231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 0
+  target: {fileID: 1622074289}
+--- !u!4 &398039233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398039231}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &427129724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,6 +1752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 427129725}
   - component: {fileID: 427129726}
+  - component: {fileID: 427129727}
   m_Layer: 0
   m_Name: Window_2_Moonlight
   m_TagString: Untagged
@@ -1515,6 +1827,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &427129727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427129724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &449585542
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,6 +1852,7 @@ GameObject:
   m_Component:
   - component: {fileID: 449585543}
   - component: {fileID: 449585544}
+  - component: {fileID: 449585545}
   m_Layer: 0
   m_Name: Paper_7
   m_TagString: Untagged
@@ -1606,6 +1934,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &449585545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449585542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &498775108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1967,6 +2310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 526638708}
   - component: {fileID: 526638709}
+  - component: {fileID: 526638710}
   m_Layer: 0
   m_Name: Paper_15
   m_TagString: Untagged
@@ -2048,6 +2392,105 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &526638710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526638707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
+--- !u!1 &532544376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 532544377}
+  - component: {fileID: 532544378}
+  m_Layer: 0
+  m_Name: Sun_Window_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &532544377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532544376}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: -0.00000004371139}
+  m_LocalPosition: {x: 22, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1622074290}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &532544378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532544376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+  m_ComponentVersion: 2
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 0.88, b: 0.6, a: 1}
+  m_Intensity: 0.9
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_PointLightInnerAngle: 25
+  m_PointLightOuterAngle: 70
+  m_PointLightInnerRadius: 0.5
+  m_PointLightOuterRadius: 5.5
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &533717861
 GameObject:
   m_ObjectHideFlags: 0
@@ -2058,6 +2501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 533717862}
   - component: {fileID: 533717863}
+  - component: {fileID: 533717864}
   m_Layer: 0
   m_Name: Paper_1
   m_TagString: Untagged
@@ -2139,6 +2583,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &533717864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533717861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &555745075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2149,6 +2608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 555745076}
   - component: {fileID: 555745077}
+  - component: {fileID: 555745078}
   m_Layer: 0
   m_Name: Paper_2
   m_TagString: Untagged
@@ -2230,6 +2690,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &555745078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555745075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &596335427
 GameObject:
   m_ObjectHideFlags: 0
@@ -5972,6 +6447,7 @@ GameObject:
   m_Component:
   - component: {fileID: 840035449}
   - component: {fileID: 840035450}
+  - component: {fileID: 840035451}
   m_Layer: 0
   m_Name: Paper_3
   m_TagString: Untagged
@@ -6053,6 +6529,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &840035451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840035448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &846465013
 GameObject:
   m_ObjectHideFlags: 0
@@ -6098,6 +6589,90 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &847272075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 847272076}
+  - component: {fileID: 847272077}
+  m_Layer: 0
+  m_Name: Sun_Window_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &847272076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847272075}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: -0.00000004371139}
+  m_LocalPosition: {x: 13, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1622074290}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &847272077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847272075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+  m_ComponentVersion: 2
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 0.88, b: 0.6, a: 1}
+  m_Intensity: 0.9
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_PointLightInnerAngle: 25
+  m_PointLightOuterAngle: 70
+  m_PointLightInnerRadius: 0.5
+  m_PointLightOuterRadius: 5.5
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &908342436
 GameObject:
   m_ObjectHideFlags: 0
@@ -6131,8 +6706,11 @@ MonoBehaviour:
   timePeriod: 1
   allowRunning: 1
   walkSpeedMultiplier: 1
+  liftLimitsFlag: 
   debugStartFlags:
+  - ending_light
   - shadow_awake
+  - shadow_normal
 --- !u!4 &908342438
 Transform:
   m_ObjectHideFlags: 0
@@ -6158,6 +6736,7 @@ GameObject:
   m_Component:
   - component: {fileID: 909974767}
   - component: {fileID: 909974768}
+  - component: {fileID: 909974769}
   m_Layer: 0
   m_Name: Paper_11
   m_TagString: Untagged
@@ -6239,6 +6818,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &909974769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909974766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &910744193
 GameObject:
   m_ObjectHideFlags: 0
@@ -6249,6 +6843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 910744194}
   - component: {fileID: 910744195}
+  - component: {fileID: 910744196}
   m_Layer: 0
   m_Name: TippedChair_1
   m_TagString: Untagged
@@ -6330,6 +6925,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &910744196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910744193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &925686846
 GameObject:
   m_ObjectHideFlags: 0
@@ -6340,6 +6950,7 @@ GameObject:
   m_Component:
   - component: {fileID: 925686847}
   - component: {fileID: 925686848}
+  - component: {fileID: 925686849}
   m_Layer: 0
   m_Name: Paper_12
   m_TagString: Untagged
@@ -6421,6 +7032,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &925686849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925686846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &982832669
 GameObject:
   m_ObjectHideFlags: 0
@@ -6431,6 +7057,7 @@ GameObject:
   m_Component:
   - component: {fileID: 982832670}
   - component: {fileID: 982832671}
+  - component: {fileID: 982832672}
   m_Layer: 0
   m_Name: Book_1
   m_TagString: Untagged
@@ -6512,6 +7139,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &982832672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982832669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &988810072
 GameObject:
   m_ObjectHideFlags: 0
@@ -6566,6 +7208,17 @@ MonoBehaviour:
   promptOffset: {x: 0, y: 2.3, z: 0}
   dialogueRunner: {fileID: 2029178920}
   variants:
+  - requiresFlag: ending_light
+    forbidsFlag: 
+    dialogue: {fileID: 0}
+    setFlag: 
+    sequence: {fileID: 0}
+    changeScene: 1
+    sceneName: Storage_Hallway
+    spawnId: start
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
   - requiresFlag: 
     forbidsFlag: 
     dialogue: {fileID: 0}
@@ -6853,6 +7506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1121255568}
   - component: {fileID: 1121255569}
+  - component: {fileID: 1121255570}
   m_Layer: 0
   m_Name: Window_3_Moonlight
   m_TagString: Untagged
@@ -6927,6 +7581,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &1121255570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121255567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &1139098817
 GameObject:
   m_ObjectHideFlags: 0
@@ -6937,6 +7606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1139098818}
   - component: {fileID: 1139098819}
+  - component: {fileID: 1139098820}
   m_Layer: 0
   m_Name: Rubble_0
   m_TagString: Untagged
@@ -7018,6 +7688,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1139098820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139098817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &1153994653
 GameObject:
   m_ObjectHideFlags: 0
@@ -7028,6 +7713,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1153994654}
   - component: {fileID: 1153994655}
+  - component: {fileID: 1153994656}
   m_Layer: 0
   m_Name: Paper_8
   m_TagString: Untagged
@@ -7109,6 +7795,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1153994656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153994653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &1162864702
 GameObject:
   m_ObjectHideFlags: 0
@@ -7119,6 +7820,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1162864703}
   - component: {fileID: 1162864704}
+  - component: {fileID: 1162864705}
   m_Layer: 0
   m_Name: TippedDesk_1
   m_TagString: Untagged
@@ -7200,6 +7902,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1162864705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162864702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &1192228052
 GameObject:
   m_ObjectHideFlags: 0
@@ -7301,6 +8018,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1195663141}
   - component: {fileID: 1195663142}
+  - component: {fileID: 1195663143}
   m_Layer: 0
   m_Name: Window_0_Moonlight
   m_TagString: Untagged
@@ -7375,6 +8093,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &1195663143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195663140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &1202575687
 GameObject:
   m_ObjectHideFlags: 0
@@ -7672,6 +8405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1235156500}
   - component: {fileID: 1235156501}
+  - component: {fileID: 1235156502}
   m_Layer: 0
   m_Name: Paper_5
   m_TagString: Untagged
@@ -7753,6 +8487,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1235156502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235156499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &1235689296
 GameObject:
   m_ObjectHideFlags: 0
@@ -7854,6 +8603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1235887323}
   - component: {fileID: 1235887324}
+  - component: {fileID: 1235887325}
   m_Layer: 0
   m_Name: Paper_4
   m_TagString: Untagged
@@ -7935,6 +8685,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1235887325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235887322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &1283803387
 GameObject:
   m_ObjectHideFlags: 0
@@ -10005,6 +10770,90 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1396585497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1396585498}
+  - component: {fileID: 1396585499}
+  m_Layer: 0
+  m_Name: Sun_Window_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1396585498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396585497}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: -0.00000004371139}
+  m_LocalPosition: {x: 40.5, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1622074290}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1396585499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396585497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+  m_ComponentVersion: 2
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 0.88, b: 0.6, a: 1}
+  m_Intensity: 0.9
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_PointLightInnerAngle: 25
+  m_PointLightOuterAngle: 70
+  m_PointLightInnerRadius: 0.5
+  m_PointLightOuterRadius: 5.5
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &1399259489
 GameObject:
   m_ObjectHideFlags: 0
@@ -10377,7 +11226,7 @@ MonoBehaviour:
   dialogueRunner: {fileID: 2029178920}
   dialogue: {fileID: 11400000, guid: 9b688516b68019b42876313f3355b722, type: 2}
   requiresFlag: 
-  forbidsFlag: corridor_intro
+  forbidsFlag: corridor_intro,ending_light
   setFlag: corridor_intro
   refreshCheckpointFlags: 1
 --- !u!61 &1511772802
@@ -10542,6 +11391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1600279494}
   - component: {fileID: 1600279495}
+  - component: {fileID: 1600279496}
   m_Layer: 0
   m_Name: TippedChair_0
   m_TagString: Untagged
@@ -10623,6 +11473,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1600279496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600279493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1001 &1606346558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10702,6 +11567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1608336666}
   - component: {fileID: 1608336667}
+  - component: {fileID: 1608336668}
   m_Layer: 0
   m_Name: Rubble_1
   m_TagString: Untagged
@@ -10783,6 +11649,57 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1608336668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608336665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
+--- !u!1 &1622074289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1622074290}
+  m_Layer: 0
+  m_Name: Sunlight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1622074290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622074289}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 847272076}
+  - {fileID: 532544377}
+  - {fileID: 135864994}
+  - {fileID: 1396585498}
+  - {fileID: 93655221}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1626951686
 GameObject:
   m_ObjectHideFlags: 0
@@ -10871,6 +11788,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1628429184}
   - component: {fileID: 1628429185}
+  - component: {fileID: 1628429186}
   m_Layer: 0
   m_Name: Window_1_Moonlight
   m_TagString: Untagged
@@ -10945,6 +11863,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &1628429186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628429183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &1633875918
 GameObject:
   m_ObjectHideFlags: 0
@@ -10955,6 +11888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1633875920}
   - component: {fileID: 1633875919}
+  - component: {fileID: 1633875921}
   m_Layer: 0
   m_Name: Global Light 2D
   m_TagString: Untagged
@@ -11029,6 +11963,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1633875921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633875918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f224c575b84b72948b4e72a1141ee6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Story.StoryLightState
+  targetLight: {fileID: 1633875919}
+  flag: ending_light
+  intensity: 1
+  color: {r: 1, g: 0.92, b: 0.76, a: 1}
 --- !u!1 &1680621595
 GameObject:
   m_ObjectHideFlags: 0
@@ -11039,6 +11989,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1680621596}
   - component: {fileID: 1680621597}
+  - component: {fileID: 1680621598}
   m_Layer: 0
   m_Name: Book_0
   m_TagString: Untagged
@@ -11120,6 +12071,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1680621598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680621595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &1700158991
 GameObject:
   m_ObjectHideFlags: 0
@@ -11221,6 +12187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1710286990}
   - component: {fileID: 1710286991}
+  - component: {fileID: 1710286992}
   m_Layer: 0
   m_Name: Paper_13
   m_TagString: Untagged
@@ -11302,6 +12269,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1710286992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710286989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &1859196306
 GameObject:
   m_ObjectHideFlags: 0
@@ -11615,6 +12597,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1442701886650651930, guid: 6fb7638b7db30b940bdd8112c44e0ec8, type: 3}
+      propertyPath: disabledFlag
+      value: no_monster,ending_light
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11630,6 +12616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2005026505}
   - component: {fileID: 2005026506}
+  - component: {fileID: 2005026507}
   m_Layer: 0
   m_Name: Paper_10
   m_TagString: Untagged
@@ -11711,6 +12698,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2005026507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005026504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1001 &2029178919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11829,6 +12831,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2141032466}
   - component: {fileID: 2141032467}
+  - component: {fileID: 2141032468}
   m_Layer: 0
   m_Name: Paper_6
   m_TagString: Untagged
@@ -11910,6 +12913,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2141032468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141032465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: ending_light
+  mode: 1
+  target: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -11933,3 +12951,5 @@ SceneRoots:
   - {fileID: 1511772803}
   - {fileID: 1973329271}
   - {fileID: 1211850039}
+  - {fileID: 1622074290}
+  - {fileID: 398039233}

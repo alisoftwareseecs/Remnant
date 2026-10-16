@@ -26,6 +26,8 @@ namespace Remnant.Flashlight
         [Header("When it works")]
         [Tooltip("Normally the beam is on only in the Future. Turn this on for a Present scene that is dark on purpose (the Act 4 encounter).")]
         [SerializeField] private bool alwaysOn;
+        [Tooltip("The beam stays off while this flag is set (the daylight ending).")]
+        [SerializeField] private string offWhenFlag = "ending_light";
 
         [Header("Beam")]
         [SerializeField, Min(0.1f)] private float baseIntensity = 1.3f;
@@ -102,6 +104,7 @@ namespace Remnant.Flashlight
         private void Refresh()
         {
             bool shouldBeOn = alwaysOn || (state != null && state.CurrentTimePeriod == TimePeriod.Future);
+            if (state != null && state.HasFlag(offWhenFlag)) shouldBeOn = false;
 
             lit = shouldBeOn;
             if (beam != null) beam.enabled = shouldBeOn;

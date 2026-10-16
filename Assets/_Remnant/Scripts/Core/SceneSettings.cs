@@ -18,12 +18,14 @@ namespace Remnant.Core
         [SerializeField] private bool allowRunning = true;
         [Tooltip("Scales the player's walk and run speed in this scene (1 = normal).")]
         [Range(0.2f, 1f)] [SerializeField] private float walkSpeedMultiplier = 1f;
+        [Tooltip("While this flag is set the limits above are lifted (running allowed, normal speed).")]
+        [SerializeField] private string liftLimitsFlag;
 
 #if UNITY_EDITOR
         [Header("Editor testing only")]
         [Tooltip("Story flags set when Play is pressed directly in this scene (not after a scene transition). Stripped from builds. " +
                  "Useful ones: day2, talked_aiko, shadow_awake, corridor_intro (skips the opening Shadow lines), no_monster (the monster never appears), " +
-                 "classroom2b_intro, page_1 to page_8 and diary_complete (diary done, back door open), mirror_seen, storage_revealed.")]
+                 "ending_light (the daylight ending), epilogue, classroom2b_intro, page_1 to page_8 and diary_complete (diary done, back door open), mirror_seen, storage_revealed.")]
         [SerializeField] private string[] debugStartFlags = new string[0];
 #endif
 
@@ -54,7 +56,11 @@ namespace Remnant.Core
         private void Start()
         {
             PlayerController player = FindFirstObjectByType<PlayerController>();
-            if (player != null) player.SetMovementLimits(allowRunning, walkSpeedMultiplier);
+            if (player == null) return;
+
+            GameState state = GameState.Instance;
+            if (state != null && state.HasFlag(liftLimitsFlag)) player.SetMovementLimits(true, 1f);
+            else player.SetMovementLimits(allowRunning, walkSpeedMultiplier);
         }
     }
 }

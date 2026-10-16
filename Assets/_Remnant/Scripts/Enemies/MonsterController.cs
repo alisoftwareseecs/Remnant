@@ -25,8 +25,8 @@ namespace Remnant.Enemies
         [SerializeField] private Color bodyTint = new Color(0.62f, 0.74f, 0.95f, 1f);
 
         [Header("Story gating (flags)")]
-        [Tooltip("The monster stays away while this flag is set. Editor testing: add it to the debug start flags.")]
-        [SerializeField] private string disabledFlag = "no_monster";
+        [Tooltip("The monster stays away while any of these flags is set (comma separated). Editor testing: add no_monster to the debug start flags.")]
+        [SerializeField] private string disabledFlag = "no_monster,ending_light";
         [Tooltip("The monster only starts once this flag is set (so it does not interrupt the opening dialogue).")]
         [SerializeField] private string startFlag = "corridor_intro";
 
@@ -87,7 +87,7 @@ namespace Remnant.Enemies
             GameState state = GameState.Instance;
             if (state == null || player == null) return false;
             if (state.CurrentPerspective != Perspective.SideView || state.CurrentTimePeriod != TimePeriod.Future) return false;
-            if (state.HasFlag(disabledFlag)) return false;
+            if (state.HasAnyFlag(disabledFlag)) return false;
             if (!string.IsNullOrEmpty(startFlag) && !state.HasFlag(startFlag)) return false;
             return true;
         }

@@ -55,6 +55,10 @@ namespace Remnant.Story
             new Vector2(-1.5f, 0.5f), new Vector2(1.5f, 0.5f), new Vector2(0f, 1.4f)
         };
 
+        [Header("Epilogue (the next day)")]
+        [Tooltip("Where Aiko sits in the epilogue: her chair.")]
+        [SerializeField] private Transform aikoSeat;
+
         [Header("Leaving")]
         [SerializeField, Min(0.5f)] private float bullyWalkSpeed = 2.4f;
         [SerializeField, Min(0f)] private float bullyStagger = 0.5f;
@@ -65,6 +69,7 @@ namespace Remnant.Story
         [SerializeField] private string reunionFlag = "act4_reunion";
         [SerializeField] private string stepInFlag = "act4_stepin";
         [SerializeField] private string confrontedFlag = "act4_confronted";
+        [SerializeField] private string epilogueFlag = "epilogue";
 
         private GameState state;
         private PlayerController player;
@@ -81,7 +86,8 @@ namespace Remnant.Story
 
             if (!state.HasFlag(actFlag)) return;
 
-            if (state.HasFlag(confrontedFlag)) StartCoroutine(AfterFrame(HideBullies));
+            if (state.HasFlag(epilogueFlag)) StartCoroutine(AfterFrame(Epilogue));
+            else if (state.HasFlag(confrontedFlag)) StartCoroutine(AfterFrame(HideBullies));
             else if (state.HasFlag(stepInFlag)) StartCoroutine(AfterFrame(PlaceBullies));
             else if (state.HasFlag(reunionFlag)) StartCoroutine(Reunion());
         }
@@ -99,7 +105,7 @@ namespace Remnant.Story
         private void Update()
         {
             if (busy || state == null || !state.HasFlag(actFlag)) return;
-            if (state.HasFlag(darkFlag) || state.HasFlag(reunionFlag) || bullyGroupCenter == null) return;
+            if (state.HasFlag(darkFlag) || state.HasFlag(reunionFlag) || state.HasFlag(epilogueFlag) || bullyGroupCenter == null) return;
             if (dialogueRunner != null && dialogueRunner.BlocksInteraction) return;
             if (SceneTransition.Instance != null && SceneTransition.Instance.IsTransitioning) return;
 
@@ -110,6 +116,21 @@ namespace Remnant.Story
 
             busy = true;
             StartCoroutine(TheDark());
+        }
+
+        // ---- Epilogue ----
+
+        private void Epilogue()
+        {
+            // A normal day: the bullies are not in the room and Aiko sits at her desk.
+            HideBullies();
+            if (aiko == null || aikoSeat == null) return;
+
+            aiko.gameObject.SetActive(true);
+            Vector3 position = aikoSeat.position;
+            position.z = aiko.position.z;
+            aiko.position = position;
+            Face(aiko, Vector2.up);
         }
 
         private IEnumerator AfterFrame(System.Action action)
