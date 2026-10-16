@@ -76,6 +76,7 @@ MV sheets (TopDown, 2.0x): 768x768, 4x2 characters, each 3 columns x 4 rows of 6
 - Unity MCP (MCP for Unity v10.3.0) is connected on http://127.0.0.1:8081. Port 8080 is taken by another program (AgentService), so never switch back to 8080.
 - Build and wire scenes directly with the Unity MCP tools: create GameObjects, add components, assign references, save the scene. Do not ask the human to do this by hand.
 - Only if MCP is unavailable, fall back to an Editor setup script in Assets/_Remnant/Editor/ with a "Remnant/Setup/Module N - <name>" menu item (safe to run twice: reuse existing objects by name instead of duplicating them).
+- Before any Editor change, check through MCP that Unity is not in Play mode. If it is, stop and ask the human to exit Play mode first.
 - After writing code, wait for Unity to finish compiling, then read the Console through MCP and fix all errors and warnings yourself. Use %LOCALAPPDATA%\Unity\Editor\Editor.log only as a fallback.
 - Runtime code never goes in an Editor folder; Editor code always does.
 - The human's job is to press Play, test what you describe, and report how it feels.
