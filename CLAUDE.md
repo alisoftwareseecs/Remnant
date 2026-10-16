@@ -40,3 +40,10 @@ C# namespace: Remnant (sub-namespaces per module, e.g. Remnant.Player).
 ## Architecture
 - One central game state holds: current perspective, current timeline, story flags, recorded choices. Systems read it and react to its change events instead of polling.
 - The player controller supports both perspective modes and switches when the game state changes.
+
+## Workflow
+- Never ask the human to build scenes by hand. For every module, write an Editor script in Assets/_Remnant/Editor/ that adds a menu item "Remnant/Setup/Module N - <name>". It must create the needed GameObjects, add components, assign all references (including InputActionReferences loaded from Assets/InputSystem_Actions.inputactions), and save the scene. It must be safe to run twice: reuse existing objects by name instead of duplicating them.
+- After writing code, ask the human to switch to Unity so it compiles. Then read %LOCALAPPDATA%\Unity\Editor\Editor.log, search for "error CS", and fix any compile errors yourself before asking the human to test.
+- Runtime code never goes in an Editor folder; Editor code always does.
+- Keep the human's manual work to: clicking the setup menu item, pressing Play, and reporting what they see.
+- When the human confirms a module works in Play mode, commit it as "Module N: <summary>".
