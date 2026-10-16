@@ -73,8 +73,9 @@ namespace Remnant.Core
         /// <param name="spawnId">Id of the SpawnPoint to place the player on. Empty uses "start".</param>
         /// <param name="title">Optional centered title card shown on black.</param>
         /// <param name="flagToSet">Optional story flag set while the screen is black, before the load.</param>
+        /// <param name="worldPosition">Optional exact position (e.g. a checkpoint). Used instead of the spawn point.</param>
         public void GoTo(string sceneName, string spawnId = null, string title = null,
-            TransitionStyle style = TransitionStyle.Fade, string flagToSet = null)
+            TransitionStyle style = TransitionStyle.Fade, string flagToSet = null, Vector2? worldPosition = null)
         {
             if (IsTransitioning) return;
 
@@ -84,10 +85,11 @@ namespace Remnant.Core
                 return;
             }
 
-            StartCoroutine(Run(sceneName, spawnId, title, style, flagToSet));
+            StartCoroutine(Run(sceneName, spawnId, title, style, flagToSet, worldPosition));
         }
 
-        private IEnumerator Run(string sceneName, string spawnId, string title, TransitionStyle style, string flagToSet)
+        private IEnumerator Run(string sceneName, string spawnId, string title, TransitionStyle style,
+            string flagToSet, Vector2? worldPosition)
         {
             IsTransitioning = true;
             HasTransitioned = true;
@@ -113,7 +115,7 @@ namespace Remnant.Core
 
             // One extra frame so every Start() in the new scene has run (camera targets, perspective, flags).
             yield return null;
-            PlacePlayer(spawnId);
+            PlacePlayer(spawnId, worldPosition);
             SetPlayerLocked(true);
             yield return null;
 
@@ -195,7 +197,7 @@ namespace Remnant.Core
             if (player != null) player.SetMovementLocked(locked);
         }
 
-        private static void PlacePlayer(string spawnId)
+        private static void PlacePlayer(string spawnId, Vector2? worldPosition)
         {
             PlayerController player = FindFirstObjectByType<PlayerController>();
             if (player == null)
@@ -204,14 +206,24 @@ namespace Remnant.Core
                 return;
             }
 
-            SpawnPoint spawn = SpawnPoint.Find(spawnId);
-            if (spawn == null)
+            Vector3 target;
+            if (worldPosition.HasValue)
             {
-                Debug.LogWarning("SceneTransition: no SpawnPoint '" + spawnId + "'. The player stays where the scene put them.");
-                return;
+                target = worldPosition.Value;
+            }
+            else
+            {
+                SpawnPoint spawn = SpawnPoint.Find(spawnId);
+                if (spawn == null)
+                {
+                    Debug.LogWarning("SceneTransition: no SpawnPoint '" + spawnId + "'. The player stays where the scene put them.");
+                    return;
+                }
+
+                target = spawn.transform.position;
             }
 
-            Vector3 delta = spawn.transform.position - player.transform.position;
+            Vector3 delta = target - player.transform.position;
             delta.z = 0f;
 
             player.transform.position += delta;

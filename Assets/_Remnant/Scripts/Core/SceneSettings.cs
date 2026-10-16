@@ -14,7 +14,8 @@ namespace Remnant.Core
 
 #if UNITY_EDITOR
         [Header("Editor testing only")]
-        [Tooltip("Story flags set when Play is pressed directly in this scene (not after a scene transition). Stripped from builds.")]
+        [Tooltip("Story flags set when Play is pressed directly in this scene (not after a scene transition). Stripped from builds. " +
+                 "Useful ones: day2, talked_aiko, shadow_awake, corridor_intro (skips the opening Shadow lines), no_monster (the monster never appears).")]
         [SerializeField] private string[] debugStartFlags = new string[0];
 #endif
 

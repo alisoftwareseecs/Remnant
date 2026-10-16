@@ -2193,6 +2193,116 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: obj_door_round
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 48
+        width: 49
+        height: 89
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15858f44b430f46468ceeab39149670c
+      internalID: -905282207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_door_window_a
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 48
+        width: 50
+        height: 86
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ffbd395e2116d440a4ca82aa59c25fc
+      internalID: 496162327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_door_window_b
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 48
+        width: 48
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b19e6d9672c87d646b36ff6adcf871c1
+      internalID: -1673079909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_door_dark
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 48
+        width: 48
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16cec388e45ad5b4a97c3044ebe65e33
+      internalID: 1195477511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_door_red
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 48
+        width: 48
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bdc2705d5b89fe4c9a51021e30dc1ae
+      internalID: -710668252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -2299,6 +2409,11 @@ TextureImporter:
       Inside_E_r14_c14: -1849990742
       Inside_E_r14_c15: -174027341
       obj_classroom_door: 524379790
+      obj_door_dark: 1195477511
+      obj_door_red: -710668252
+      obj_door_round: -905282207
+      obj_door_window_a: 496162327
+      obj_door_window_b: -1673079909
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

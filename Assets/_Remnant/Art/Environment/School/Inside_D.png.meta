@@ -3848,6 +3848,160 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: obj_locker_a
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 384
+        width: 67
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66fdf1b6747de1843b0da6d8ba1631e1
+      internalID: 1347567493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_locker_b
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 384
+        width: 67
+        height: 97
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16ce94060bd3a9c4ba598bb2e6c43acc
+      internalID: 1854806916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_locker_tall_a
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 432
+        width: 26
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf52528ae2485214ba0164d6fda58d98
+      internalID: -988581950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_locker_tall_b
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 422
+        width: 23
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfc31fc95576b4040ae7532b002b75bd
+      internalID: -1135330804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_bench
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 384
+        width: 72
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fdd0deac40173545a36b52d56184c6b
+      internalID: -949535651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_vending
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 576
+        width: 56
+        height: 91
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6200ab8891d51164ab05d3bee1bad51e
+      internalID: 23846755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_bulletin_a
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 672
+        width: 44
+        height: 73
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa4a6a375cbe6104f9944c8ae4536db8
+      internalID: -673091430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -4022,6 +4176,13 @@ TextureImporter:
       Inside_D_r15_c12: 2142252098
       Inside_D_r15_c13: 1160273543
       Inside_D_r15_c14: -135349000
+      obj_bench: -949535651
+      obj_bulletin_a: -673091430
+      obj_locker_a: 1347567493
+      obj_locker_b: 1854806916
+      obj_locker_tall_a: -988581950
+      obj_locker_tall_b: -1135330804
+      obj_vending: 23846755
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -10,7 +10,7 @@ namespace Remnant.Characters
     /// Animates RPG Maker style sheets: 4 directions x 3 frames. Walk cycle 0-1-2-1, idle = frame 1.
     /// With a PlayerController assigned it follows the player's movement; without one it shows a fixed facing (NPCs).
     /// When the player is in SideView and the side-view sprite sets are filled in, it switches to those
-    /// (idle and walk loops, flipped horizontally for left/right).
+    /// (idle and walk loops, flipped horizontally to face left or right).
     /// </summary>
     [RequireComponent(typeof(SpriteRenderer))]
     public class CharacterSpriteAnimator : MonoBehaviour
@@ -35,6 +35,8 @@ namespace Remnant.Characters
         [SerializeField] private Sprite[] sideIdleFrames = new Sprite[0];
         [Tooltip("Walk loop used in SideView. Drawn facing right; flipped for left.")]
         [SerializeField] private Sprite[] sideWalkFrames = new Sprite[0];
+        [Tooltip("Which way the side-view art is drawn. The protagonist sheet faces left.")]
+        [SerializeField] private bool sideArtFacesRight;
         [SerializeField, Min(0.1f)] private float sideIdleFramesPerSecond = 3f;
         [SerializeField, Min(0.1f)] private float sideWalkFramesPerSecond = 10f;
 
@@ -120,7 +122,8 @@ namespace Remnant.Characters
             Sprite sprite = set[Mathf.FloorToInt(sideTime) % set.Length];
             if (sprite != null) spriteRenderer.sprite = sprite;
 
-            spriteRenderer.flipX = playerSource.FacingDirection < 0;
+            bool facingLeft = playerSource.FacingDirection < 0;
+            spriteRenderer.flipX = sideArtFacesRight ? facingLeft : !facingLeft;
         }
 
         private void Apply(bool moving)

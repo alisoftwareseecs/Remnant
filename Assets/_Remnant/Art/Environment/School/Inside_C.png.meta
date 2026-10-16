@@ -5697,6 +5697,182 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: obj_window_small
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 694
+        width: 62
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3e61f9fd7b8c4741978a11a5c73c59d
+      internalID: 731597551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_window_lit
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 694
+        width: 62
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2d9268bc251214e8671716daf38f85
+      internalID: 1721561786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_window_dark
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 694
+        width: 62
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d730d1c1e0c5c3e45bb8a94b57a7f820
+      internalID: 1152708659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_window_broken
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 586
+        width: 152
+        height: 76
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f47d8ce850de8eb42ad8f0797cc54448
+      internalID: 1473398203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_window_sliding
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 497
+        width: 111
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e628f5dcb72fbc3478d6d5a05da2a783
+      internalID: 789053283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_rubble_a
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 303
+        width: 33
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43ccfce7bb0dab148aff72af0482945c
+      internalID: 1156800703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_rubble_b
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 305
+        width: 23
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e37fd458c8076974d8db6cff7b84772c
+      internalID: 563883860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: obj_book_open
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 437
+        width: 27
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 423081ffb3351bb4ca2d576a926679a4
+      internalID: -739202454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -5941,12 +6117,22 @@ TextureImporter:
       Inside_C_r15_c13: 154567088
       Inside_C_r15_c14: -790537476
       Inside_C_r15_c15: -261706480
+      obj_book_open: -739202454
       obj_bookshelf: 2106546151
       obj_chalkboard: -1326066290
+      obj_rubble_a: 1156800703
+      obj_rubble_b: 563883860
       obj_student_chair: -841465429
       obj_student_desk: 1241167287
       obj_teacher_desk: 797145515
+      obj_trashcan_a: -1334149161
+      obj_trashcan_b: 59891927
       obj_wall_clock: -263699076
+      obj_window_broken: 1473398203
+      obj_window_dark: 1152708659
+      obj_window_lit: 1721561786
+      obj_window_sliding: 789053283
+      obj_window_small: 731597551
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

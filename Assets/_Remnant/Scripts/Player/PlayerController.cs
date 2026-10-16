@@ -24,6 +24,7 @@ namespace Remnant.Player
         private Vector2 moveInput;
         private bool isRunning;
         private bool movementLocked;
+        private int facingOverride;
         private GameState subscribedState;
 
         public Perspective CurrentPerspective => perspective;
@@ -91,6 +92,8 @@ namespace Remnant.Player
 
             if (moveInput.x > 0.01f) FacingDirection = 1;
             else if (moveInput.x < -0.01f) FacingDirection = -1;
+
+            if (facingOverride != 0) FacingDirection = facingOverride;
         }
 
         private void FixedUpdate()
@@ -105,6 +108,13 @@ namespace Remnant.Player
             {
                 body.linearVelocity = moveInput * speed;
             }
+        }
+
+        /// <summary>Forces the side-view facing (-1 left, +1 right), e.g. towards a flashlight beam. 0 gives control back to movement.</summary>
+        public void SetFacingOverride(int direction)
+        {
+            facingOverride = direction == 0 ? 0 : (direction > 0 ? 1 : -1);
+            if (facingOverride != 0) FacingDirection = facingOverride;
         }
 
         public void SetMovementLocked(bool locked)
