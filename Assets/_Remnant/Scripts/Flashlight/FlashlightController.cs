@@ -8,8 +8,8 @@ namespace Remnant.Flashlight
 {
     /// <summary>
     /// The player's flashlight: a URP 2D spot light at chest height that aims at the mouse (world space) or the
-    /// right stick, and turns the player to face the side it points to. On only in SideView in the Future.
-    /// Other systems (the monster) read Origin, Direction, Range and the effective cone from here.
+    /// right stick. On in the Future, in both perspectives: in SideView the player turns to face the side it points to,
+    /// in TopDown it aims all the way round. Other systems (the monster, the reveal) ask Illuminates().
     /// </summary>
     public class FlashlightController : MonoBehaviour
     {
@@ -37,6 +37,9 @@ namespace Remnant.Flashlight
         private Camera mainCamera;
         private GameState state;
         private Vector2 aimDirection = Vector2.right;
+        private Vector2 lockedDirection;
+        private bool aimLocked;
+        private float intensityBoost = 1f;
         private bool useStick;
         private bool lit;
         private float noiseSeed;
@@ -91,9 +94,7 @@ namespace Remnant.Flashlight
 
         private void Refresh()
         {
-            bool shouldBeOn = state != null &&
-                              state.CurrentPerspective == Perspective.SideView &&
-                              state.CurrentTimePeriod == TimePeriod.Future;
+            bool shouldBeOn = state != null && state.CurrentTimePeriod == TimePeriod.Future;
 
             lit = shouldBeOn;
             if (beam != null) beam.enabled = shouldBeOn;
@@ -114,17 +115,66 @@ namespace Remnant.Flashlight
             UpdateAim();
             UpdateFlicker();
 
-            if (player != null && Mathf.Abs(aimDirection.x) > 0.05f)
+            if (player == null) return;
+
+            // In SideView the player faces the side the light points to. In TopDown movement decides the facing.
+            bool sideView = state != null && state.CurrentPerspective == Perspective.SideView;
+            if (sideView && Mathf.Abs(aimDirection.x) > 0.05f) player.SetFacingOverride(aimDirection.x > 0f ? 1 : -1);
+            else player.SetFacingOverride(0);
+        }
+
+        /// <summary>Makes the beam turn to this direction and ignore the mouse and stick until UnlockAim().</summary>
+        public void LockAim(Vector2 direction)
+        {
+            if (direction.sqrMagnitude < 0.0001f) return;
+            lockedDirection = direction.normalized;
+            aimLocked = true;
+        }
+
+        /// <summary>Multiplies the beam brightness (1 = normal). Used to make the beam stronger in a story moment.</summary>
+        public void SetIntensityBoost(float boost)
+        {
+            intensityBoost = Mathf.Max(0f, boost);
+        }
+
+        public void UnlockAim()
+        {
+            aimLocked = false;
+        }
+
+        /// <summary>
+        /// True when the point is inside the effective cone and range, and no solid collider is in the way.
+        /// The player and anything under ignoreRoot do not block the line of sight.
+        /// </summary>
+        public bool Illuminates(Vector2 point, Transform ignoreRoot = null)
+        {
+            if (!lit || beam == null) return false;
+
+            Vector2 toPoint = point - Origin;
+            if (toPoint.magnitude > Range) return false;
+            if (Vector2.Angle(aimDirection, toPoint) > EffectiveHalfAngle) return false;
+
+            foreach (RaycastHit2D hit in Physics2D.LinecastAll(Origin, point))
             {
-                player.SetFacingOverride(aimDirection.x > 0f ? 1 : -1);
+                Collider2D collider = hit.collider;
+                if (collider == null || collider.isTrigger) continue;
+                if (collider.GetComponentInParent<PlayerController>() != null) continue;
+                if (ignoreRoot != null && collider.transform.IsChildOf(ignoreRoot)) continue;
+                return false;
             }
+
+            return true;
         }
 
         private void UpdateAim()
         {
             Vector2 target = aimDirection;
 
-            if (lookAction != null)
+            if (aimLocked)
+            {
+                target = lockedDirection;
+            }
+            else if (lookAction != null)
             {
                 Vector2 stick = lookAction.action.ReadValue<Vector2>();
                 InputControl control = lookAction.action.activeControl;
@@ -137,9 +187,9 @@ namespace Remnant.Flashlight
             }
 
             Mouse mouse = Mouse.current;
-            if (mouse != null && mouse.delta.ReadValue().sqrMagnitude > 0.25f) useStick = false;
+            if (!aimLocked && mouse != null && mouse.delta.ReadValue().sqrMagnitude > 0.25f) useStick = false;
 
-            if (!useStick && mouse != null && mainCamera != null)
+            if (!aimLocked && !useStick && mouse != null && mainCamera != null)
             {
                 Vector2 screen = mouse.position.ReadValue();
                 Vector3 world = mainCamera.ScreenToWorldPoint(new Vector3(screen.x, screen.y, -mainCamera.transform.position.z));
@@ -160,7 +210,7 @@ namespace Remnant.Flashlight
         {
             float t = Time.time * flickerSpeed + noiseSeed;
             float noise = Mathf.PerlinNoise(t, 0.37f) - 0.5f;
-            beam.intensity = baseIntensity * (1f + noise * 2f * flickerAmount);
+            beam.intensity = baseIntensity * intensityBoost * (1f + noise * 2f * flickerAmount);
         }
     }
 }

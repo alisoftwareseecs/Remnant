@@ -1,3 +1,4 @@
+using Remnant.Player;
 using UnityEngine;
 
 namespace Remnant.Core
@@ -12,10 +13,17 @@ namespace Remnant.Core
         [SerializeField] private Perspective perspective = Perspective.SideView;
         [SerializeField] private TimePeriod timePeriod = TimePeriod.Present;
 
+        [Header("Movement limits")]
+        [Tooltip("Turn off to stop the player from running in this scene.")]
+        [SerializeField] private bool allowRunning = true;
+        [Tooltip("Scales the player's walk and run speed in this scene (1 = normal).")]
+        [Range(0.2f, 1f)] [SerializeField] private float walkSpeedMultiplier = 1f;
+
 #if UNITY_EDITOR
         [Header("Editor testing only")]
         [Tooltip("Story flags set when Play is pressed directly in this scene (not after a scene transition). Stripped from builds. " +
-                 "Useful ones: day2, talked_aiko, shadow_awake, corridor_intro (skips the opening Shadow lines), no_monster (the monster never appears).")]
+                 "Useful ones: day2, talked_aiko, shadow_awake, corridor_intro (skips the opening Shadow lines), no_monster (the monster never appears), " +
+                 "classroom2b_intro, page_1 to page_6 and diary_complete (diary done, back door open), mirror_seen, storage_revealed.")]
         [SerializeField] private string[] debugStartFlags = new string[0];
 #endif
 
@@ -41,6 +49,12 @@ namespace Remnant.Core
 
             state.SetPerspective(perspective);
             state.SetTimePeriod(timePeriod);
+        }
+
+        private void Start()
+        {
+            PlayerController player = FindFirstObjectByType<PlayerController>();
+            if (player != null) player.SetMovementLimits(allowRunning, walkSpeedMultiplier);
         }
     }
 }

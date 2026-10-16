@@ -6129,6 +6129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.SceneSettings
   perspective: 0
   timePeriod: 1
+  allowRunning: 1
+  walkSpeedMultiplier: 1
   debugStartFlags:
   - shadow_awake
 --- !u!4 &908342438
@@ -6566,12 +6568,12 @@ MonoBehaviour:
   variants:
   - requiresFlag: 
     forbidsFlag: 
-    dialogue: {fileID: 11400000, guid: ea0eccb9c6104ee438c98b5a1eb81dbc, type: 2}
+    dialogue: {fileID: 0}
     setFlag: 
     sequence: {fileID: 0}
-    changeScene: 0
-    sceneName: 
-    spawnId: 
+    changeScene: 1
+    sceneName: Future_Classroom2B
+    spawnId: start
     titleCard: 
     flagDuringTransition: 
     style: 0

@@ -1147,6 +1147,7 @@ MonoBehaviour:
   runSpeedMultiplier: 1.4
   sideIdleFrames: []
   sideWalkFrames: []
+  sideArtFacesRight: 0
   sideIdleFramesPerSecond: 3
   sideWalkFramesPerSecond: 10
 --- !u!61 &230218987
@@ -1285,6 +1286,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.SceneSettings
   perspective: 1
   timePeriod: 0
+  allowRunning: 1
+  walkSpeedMultiplier: 1
   debugStartFlags: []
 --- !u!4 &250539575
 Transform:
@@ -4782,6 +4785,7 @@ MonoBehaviour:
   runSpeedMultiplier: 1.4
   sideIdleFrames: []
   sideWalkFrames: []
+  sideArtFacesRight: 0
   sideIdleFramesPerSecond: 3
   sideWalkFramesPerSecond: 10
 --- !u!61 &574822620
@@ -4889,6 +4893,113 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!1 &643057222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 643057223}
+  - component: {fileID: 643057225}
+  - component: {fileID: 643057224}
+  m_Layer: 0
+  m_Name: Hangman_Day1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &643057223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643057222}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6612501, y: -0.05708313, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 988224326}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &643057224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643057222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: day2
+  mode: 1
+  target: {fileID: 0}
+--- !u!212 &643057225
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643057222}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -3
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: 46c05ffda2950f64a9f92e1e3e0a5ec9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.9166667, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &678334602
 GameObject:
   m_ObjectHideFlags: 0
@@ -5449,7 +5560,7 @@ GameObject:
   - component: {fileID: 988224326}
   - component: {fileID: 988224329}
   - component: {fileID: 988224328}
-  - component: {fileID: 988224327}
+  - component: {fileID: 988224330}
   m_Layer: 0
   m_Name: Chalkboard
   m_TagString: Untagged
@@ -5469,30 +5580,11 @@ Transform:
   m_LocalPosition: {x: 8, y: 11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 643057223}
+  - {fileID: 1433808735}
   m_Father: {fileID: 2119118955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &988224327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 988224325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af8a79857e27c54e822c49a8bc8092d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Interaction.ExamineInteractable
-  restrictPerspective: 0
-  onlyInPerspective: 0
-  restrictTimePeriod: 0
-  onlyInTimePeriod: 0
-  onceOnly: 0
-  promptOffset: {x: 0, y: -0.2, z: 0}
-  dialogueRunner: {fileID: 1180829029}
-  dialogue: {fileID: 11400000, guid: b6e26123293205941857cb7dab74e8aa, type: 2}
-  setFlagOnComplete: 
 --- !u!61 &988224328
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5598,6 +5690,48 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!114 &988224330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988224325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f5dd823157fe34d9988f701eb481ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Interaction.StoryInteractable
+  restrictPerspective: 0
+  onlyInPerspective: 0
+  restrictTimePeriod: 0
+  onlyInTimePeriod: 0
+  onceOnly: 0
+  promptOffset: {x: 0, y: -0.2, z: 0}
+  dialogueRunner: {fileID: 1180829029}
+  variants:
+  - requiresFlag: day2
+    forbidsFlag: 
+    dialogue: {fileID: 11400000, guid: 56b53fcf9e157754694859189c4a26a9, type: 2}
+    setFlag: 
+    sequence: {fileID: 0}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
+  - requiresFlag: 
+    forbidsFlag: 
+    dialogue: {fileID: 11400000, guid: 64ba135f67fe1cd4190f7c5e5bf394bf, type: 2}
+    setFlag: 
+    sequence: {fileID: 0}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
 --- !u!1001 &989496766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6067,6 +6201,7 @@ MonoBehaviour:
   runSpeedMultiplier: 1.4
   sideIdleFrames: []
   sideWalkFrames: []
+  sideArtFacesRight: 0
   sideIdleFramesPerSecond: 3
   sideWalkFramesPerSecond: 10
 --- !u!61 &1351497483
@@ -6199,7 +6334,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2777981584604232890, guid: c1e5f56756eca4545b6bc5f61b9949b7, type: 3}
       propertyPath: orthographic size
-      value: 2.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2777981584604232890, guid: c1e5f56756eca4545b6bc5f61b9949b7, type: 3}
       propertyPath: m_BackGroundColor.a
@@ -6267,17 +6402,124 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8576451264746314539, guid: c1e5f56756eca4545b6bc5f61b9949b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.711707
+      value: 2.7094
       objectReference: {fileID: 0}
     - target: {fileID: 8576451264746314539, guid: c1e5f56756eca4545b6bc5f61b9949b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.15377
+      value: -0.34623
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1e5f56756eca4545b6bc5f61b9949b7, type: 3}
+--- !u!1 &1433808734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1433808735}
+  - component: {fileID: 1433808737}
+  - component: {fileID: 1433808736}
+  m_Layer: 0
+  m_Name: Hangman_Day2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1433808735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433808734}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6612501, y: -0.05708313, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 988224326}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1433808736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433808734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: day2
+  mode: 0
+  target: {fileID: 0}
+--- !u!212 &1433808737
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433808734}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -3
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: 499a53da0eae32642bfdae1fe9494c55, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.9166667, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &1433874311
 GameObject:
   m_ObjectHideFlags: 0
@@ -6642,6 +6884,7 @@ MonoBehaviour:
   runSpeedMultiplier: 1.4
   sideIdleFrames: []
   sideWalkFrames: []
+  sideArtFacesRight: 0
   sideIdleFramesPerSecond: 3
   sideWalkFramesPerSecond: 10
 --- !u!61 &1470012183
@@ -6867,6 +7110,7 @@ MonoBehaviour:
   runSpeedMultiplier: 1.4
   sideIdleFrames: []
   sideWalkFrames: []
+  sideArtFacesRight: 0
   sideIdleFramesPerSecond: 3
   sideWalkFramesPerSecond: 10
 --- !u!61 &1526332992
@@ -7200,6 +7444,7 @@ MonoBehaviour:
   runSpeedMultiplier: 1.4
   sideIdleFrames: []
   sideWalkFrames: []
+  sideArtFacesRight: 0
   sideIdleFramesPerSecond: 3
   sideWalkFramesPerSecond: 10
 --- !u!61 &1571454675
@@ -7827,6 +8072,7 @@ MonoBehaviour:
   runSpeedMultiplier: 1.4
   sideIdleFrames: []
   sideWalkFrames: []
+  sideArtFacesRight: 0
   sideIdleFramesPerSecond: 3
   sideWalkFramesPerSecond: 10
 --- !u!61 &1894145108
@@ -8247,7 +8493,7 @@ MonoBehaviour:
   dialogueRunner: {fileID: 1180829029}
   variants:
   - requiresFlag: talked_aiko
-    forbidsFlag: day2
+    forbidsFlag: day2,act4
     dialogue: {fileID: 11400000, guid: 4260e54f2259c7d479e411fd51ea6960, type: 2}
     setFlag: 
     sequence: {fileID: 0}

@@ -25,6 +25,8 @@ namespace Remnant.Player
         private bool isRunning;
         private bool movementLocked;
         private int facingOverride;
+        private bool runAllowed = true;
+        private float speedMultiplier = 1f;
         private GameState subscribedState;
 
         public Perspective CurrentPerspective => perspective;
@@ -86,7 +88,7 @@ namespace Remnant.Player
                 ? new Vector2(raw.x, 0f)
                 : Vector2.ClampMagnitude(raw, 1f);
 
-            isRunning = sprintAction != null && sprintAction.action.IsPressed() && IsMoving;
+            isRunning = runAllowed && sprintAction != null && sprintAction.action.IsPressed() && IsMoving;
 
             if (IsMoving) LastMoveDirection = moveInput.normalized;
 
@@ -98,7 +100,7 @@ namespace Remnant.Player
 
         private void FixedUpdate()
         {
-            float speed = isRunning ? runSpeed : walkSpeed;
+            float speed = (isRunning ? runSpeed : walkSpeed) * speedMultiplier;
 
             if (perspective == Perspective.SideView)
             {
@@ -108,6 +110,14 @@ namespace Remnant.Player
             {
                 body.linearVelocity = moveInput * speed;
             }
+        }
+
+        /// <summary>Per-scene movement limits (set by SceneSettings): disable running and/or scale all speeds.</summary>
+        public void SetMovementLimits(bool allowRun, float speedScale)
+        {
+            runAllowed = allowRun;
+            speedMultiplier = Mathf.Max(0f, speedScale);
+            if (!runAllowed) isRunning = false;
         }
 
         /// <summary>Forces the side-view facing (-1 left, +1 right), e.g. towards a flashlight beam. 0 gives control back to movement.</summary>

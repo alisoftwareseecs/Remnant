@@ -65,7 +65,7 @@ namespace Remnant.Interaction
 
         private void Update()
         {
-            if (dialogueRunner != null && dialogueRunner.BlocksInteraction)
+            if ((dialogueRunner != null && dialogueRunner.BlocksInteraction) || InteractionLock.IsBlocked)
             {
                 SetTarget(null);
                 return;

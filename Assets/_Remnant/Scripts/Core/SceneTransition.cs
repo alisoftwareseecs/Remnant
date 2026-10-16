@@ -74,8 +74,10 @@ namespace Remnant.Core
         /// <param name="title">Optional centered title card shown on black.</param>
         /// <param name="flagToSet">Optional story flag set while the screen is black, before the load.</param>
         /// <param name="worldPosition">Optional exact position (e.g. a checkpoint). Used instead of the spawn point.</param>
+        /// <param name="fadeOutOverride">Optional length of the fade to black, for a slower fade. Negative uses the default.</param>
         public void GoTo(string sceneName, string spawnId = null, string title = null,
-            TransitionStyle style = TransitionStyle.Fade, string flagToSet = null, Vector2? worldPosition = null)
+            TransitionStyle style = TransitionStyle.Fade, string flagToSet = null, Vector2? worldPosition = null,
+            float fadeOutOverride = -1f)
         {
             if (IsTransitioning) return;
 
@@ -85,18 +87,18 @@ namespace Remnant.Core
                 return;
             }
 
-            StartCoroutine(Run(sceneName, spawnId, title, style, flagToSet, worldPosition));
+            StartCoroutine(Run(sceneName, spawnId, title, style, flagToSet, worldPosition, fadeOutOverride));
         }
 
         private IEnumerator Run(string sceneName, string spawnId, string title, TransitionStyle style,
-            string flagToSet, Vector2? worldPosition)
+            string flagToSet, Vector2? worldPosition, float fadeOutOverride)
         {
             IsTransitioning = true;
             HasTransitioned = true;
             SetPlayerLocked(true);
 
             if (style == TransitionStyle.Distort) yield return Distort();
-            else yield return FadeOverlay(0f, 1f, fadeOutSeconds, Color.black);
+            else yield return FadeOverlay(0f, 1f, fadeOutOverride >= 0f ? fadeOutOverride : fadeOutSeconds, Color.black);
 
             SetOverlay(1f, Color.black);
 

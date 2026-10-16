@@ -16,8 +16,10 @@ namespace Remnant.Interaction
         [Serializable]
         public class Variant
         {
-            [Header("Conditions (both optional)")]
+            [Header("Conditions (both optional, comma separated lists)")]
+            [Tooltip("Every listed flag must be set.")]
             [SerializeField] private string requiresFlag;
+            [Tooltip("None of the listed flags may be set.")]
             [SerializeField] private string forbidsFlag;
 
             [Header("Result")]
@@ -49,13 +51,28 @@ namespace Remnant.Interaction
 
             public bool Matches(GameState state)
             {
-                bool hasRequired = !string.IsNullOrEmpty(requiresFlag);
-                bool hasForbidden = !string.IsNullOrEmpty(forbidsFlag);
-                if (state == null) return !hasRequired;
+                if (state == null) return string.IsNullOrWhiteSpace(requiresFlag);
 
-                if (hasRequired && !state.HasFlag(requiresFlag)) return false;
-                if (hasForbidden && state.HasFlag(forbidsFlag)) return false;
+                foreach (string flag in Split(requiresFlag))
+                {
+                    if (!state.HasFlag(flag)) return false;
+                }
+
+                foreach (string flag in Split(forbidsFlag))
+                {
+                    if (state.HasFlag(flag)) return false;
+                }
+
                 return true;
+            }
+
+            private static string[] Split(string list)
+            {
+                if (string.IsNullOrWhiteSpace(list)) return System.Array.Empty<string>();
+
+                string[] parts = list.Split(',');
+                for (int i = 0; i < parts.Length; i++) parts[i] = parts[i].Trim();
+                return parts;
             }
         }
 

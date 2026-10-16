@@ -244,25 +244,10 @@ namespace Remnant.Enemies
         private bool IsInBeam()
         {
             FlashlightController flashlight = FlashlightController.Active;
-            if (flashlight == null || !flashlight.IsOn) return false;
+            if (flashlight == null) return false;
 
             Vector2 target = (Vector2)transform.position + Vector2.up * bodyCenterHeight;
-            Vector2 toTarget = target - flashlight.Origin;
-            if (toTarget.magnitude > flashlight.Range) return false;
-            if (Vector2.Angle(flashlight.Direction, toTarget) > flashlight.EffectiveHalfAngle) return false;
-
-            // Walls and other solid colliders block the beam. The player and this monster do not.
-            RaycastHit2D[] hits = Physics2D.LinecastAll(flashlight.Origin, target);
-            foreach (RaycastHit2D hit in hits)
-            {
-                Collider2D collider = hit.collider;
-                if (collider == null || collider.isTrigger) continue;
-                if (collider.GetComponentInParent<PlayerController>() != null) continue;
-                if (collider.transform.IsChildOf(transform)) continue;
-                return false;
-            }
-
-            return true;
+            return flashlight.Illuminates(target, transform);
         }
 
         private void FaceTowardsPlayer()
