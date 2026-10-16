@@ -1,0 +1,123 @@
+using Remnant.Core;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+namespace Remnant.Player
+{
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class PlayerController : MonoBehaviour
+    {
+        [Header("Input (from InputSystem_Actions)")]
+        [SerializeField] private InputActionReference moveAction;
+        [SerializeField] private InputActionReference sprintAction;
+
+        [Header("Speed")]
+        [SerializeField, Min(0f)] private float walkSpeed = 2.5f;
+        [SerializeField, Min(0f)] private float runSpeed = 4.5f;
+
+        [Header("Side view")]
+        [Tooltip("Gravity keeps the player on the floor in side view. Top-down always uses 0.")]
+        [SerializeField, Min(0f)] private float sideViewGravityScale = 3f;
+
+        private Rigidbody2D body;
+        private Perspective perspective = Perspective.SideView;
+        private Vector2 moveInput;
+        private bool isRunning;
+        private bool movementLocked;
+        private GameState subscribedState;
+
+        public Perspective CurrentPerspective => perspective;
+        public Vector2 MoveInput => moveInput;
+        public bool IsRunning => isRunning;
+        public bool IsMoving => moveInput.sqrMagnitude > 0.0001f;
+        public bool IsMovementLocked => movementLocked;
+        public int FacingDirection { get; private set; } = 1;
+
+        private void Awake()
+        {
+            body = GetComponent<Rigidbody2D>();
+            body.freezeRotation = true;
+            body.interpolation = RigidbodyInterpolation2D.Interpolate;
+        }
+
+        private void OnEnable()
+        {
+            if (moveAction != null) moveAction.action.Enable();
+            if (sprintAction != null) sprintAction.action.Enable();
+        }
+
+        private void Start()
+        {
+            subscribedState = GameState.Instance;
+            if (subscribedState != null)
+            {
+                subscribedState.PerspectiveChanged += ApplyPerspective;
+                ApplyPerspective(subscribedState.CurrentPerspective);
+            }
+            else
+            {
+                Debug.LogWarning("PlayerController: no GameState in the scene. Defaulting to SideView.", this);
+                ApplyPerspective(Perspective.SideView);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (subscribedState != null)
+            {
+                subscribedState.PerspectiveChanged -= ApplyPerspective;
+            }
+        }
+
+        private void Update()
+        {
+            if (movementLocked || moveAction == null)
+            {
+                moveInput = Vector2.zero;
+                isRunning = false;
+                return;
+            }
+
+            Vector2 raw = moveAction.action.ReadValue<Vector2>();
+            moveInput = perspective == Perspective.SideView
+                ? new Vector2(raw.x, 0f)
+                : Vector2.ClampMagnitude(raw, 1f);
+
+            isRunning = sprintAction != null && sprintAction.action.IsPressed() && IsMoving;
+
+            if (moveInput.x > 0.01f) FacingDirection = 1;
+            else if (moveInput.x < -0.01f) FacingDirection = -1;
+        }
+
+        private void FixedUpdate()
+        {
+            float speed = isRunning ? runSpeed : walkSpeed;
+
+            if (perspective == Perspective.SideView)
+            {
+                body.linearVelocity = new Vector2(moveInput.x * speed, body.linearVelocity.y);
+            }
+            else
+            {
+                body.linearVelocity = moveInput * speed;
+            }
+        }
+
+        public void SetMovementLocked(bool locked)
+        {
+            movementLocked = locked;
+            if (locked)
+            {
+                moveInput = Vector2.zero;
+                isRunning = false;
+            }
+        }
+
+        private void ApplyPerspective(Perspective newPerspective)
+        {
+            perspective = newPerspective;
+            body.gravityScale = newPerspective == Perspective.SideView ? sideViewGravityScale : 0f;
+            body.linearVelocity = Vector2.zero;
+        }
+    }
+}
