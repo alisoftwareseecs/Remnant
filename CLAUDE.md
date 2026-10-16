@@ -42,8 +42,10 @@ C# namespace: Remnant (sub-namespaces per module, e.g. Remnant.Player).
 - The player controller supports both perspective modes and switches when the game state changes.
 
 ## Workflow
-- Never ask the human to build scenes by hand. For every module, write an Editor script in Assets/_Remnant/Editor/ that adds a menu item "Remnant/Setup/Module N - <name>". It must create the needed GameObjects, add components, assign all references (including InputActionReferences loaded from Assets/InputSystem_Actions.inputactions), and save the scene. It must be safe to run twice: reuse existing objects by name instead of duplicating them.
-- After writing code, ask the human to switch to Unity so it compiles. Then read %LOCALAPPDATA%\Unity\Editor\Editor.log, search for "error CS", and fix any compile errors yourself before asking the human to test.
+- Unity MCP (MCP for Unity v10.3.0) is connected on http://127.0.0.1:8081. Port 8080 is taken by another program (AgentService), so never switch back to 8080.
+- Build and wire scenes directly with the Unity MCP tools: create GameObjects, add components, assign references, save the scene. Do not ask the human to do this by hand.
+- Only if MCP is unavailable, fall back to an Editor setup script in Assets/_Remnant/Editor/ with a "Remnant/Setup/Module N - <name>" menu item (safe to run twice: reuse existing objects by name instead of duplicating them).
+- After writing code, wait for Unity to finish compiling, then read the Console through MCP and fix all errors and warnings yourself. Use %LOCALAPPDATA%\Unity\Editor\Editor.log only as a fallback.
 - Runtime code never goes in an Editor folder; Editor code always does.
-- Keep the human's manual work to: clicking the setup menu item, pressing Play, and reporting what they see.
-- When the human confirms a module works in Play mode, commit it as "Module N: <summary>".
+- The human's job is to press Play, test what you describe, and report how it feels.
+- Before every commit, show git status. When the human confirms a module works, commit it as "Module N: <summary>".
