@@ -1,0 +1,781 @@
+fileFormatVersion: 2
+guid: 848bb8b9a2fee1e4e940bb1811563942
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6979651060768729727
+    second: Charas193-200b_0
+  - first:
+      213: -2145760982018205611
+    second: Charas193-200b_1
+  - first:
+      213: 9072732607172448084
+    second: Charas193-200b_2
+  - first:
+      213: -7918142160700349594
+    second: Charas193-200b_3
+  - first:
+      213: 8077203200220440550
+    second: Charas193-200b_4
+  - first:
+      213: -7262630774519033642
+    second: Charas193-200b_5
+  - first:
+      213: -5292223610345693977
+    second: Charas193-200b_6
+  - first:
+      213: -8788570657355897168
+    second: Charas193-200b_7
+  - first:
+      213: 4051755613974772573
+    second: Charas193-200b_8
+  - first:
+      213: -5275897549398893724
+    second: Charas193-200b_9
+  - first:
+      213: -5105940669207225012
+    second: Charas193-200b_10
+  - first:
+      213: -3723170825573581715
+    second: Charas193-200b_11
+  - first:
+      213: 1176687966426002581
+    second: Charas193-200b_12
+  - first:
+      213: -7012168810135589229
+    second: Charas193-200b_13
+  - first:
+      213: 381963429304687996
+    second: Charas193-200b_14
+  - first:
+      213: -5730758852145449734
+    second: Charas193-200b_15
+  - first:
+      213: 9083935345325132789
+    second: Charas193-200b_16
+  - first:
+      213: 5034593238617228372
+    second: Charas193-200b_17
+  - first:
+      213: -2584050633168303922
+    second: Charas193-200b_18
+  - first:
+      213: -826983933899215067
+    second: Charas193-200b_19
+  - first:
+      213: -2927204025942753232
+    second: Charas193-200b_20
+  - first:
+      213: -916851639912937336
+    second: Charas193-200b_21
+  - first:
+      213: -3986533850385753184
+    second: Charas193-200b_22
+  - first:
+      213: 1723797368453069003
+    second: Charas193-200b_23
+  - first:
+      213: -1301372549645919014
+    second: Charas193-200b_24
+  - first:
+      213: 5031586542598269916
+    second: Charas193-200b_25
+  - first:
+      213: 8379336342788544283
+    second: Charas193-200b_26
+  - first:
+      213: 3406843258372898065
+    second: Charas193-200b_27
+  - first:
+      213: 7874466906945756464
+    second: Charas193-200b_28
+  - first:
+      213: 7867444392208207594
+    second: Charas193-200b_29
+  - first:
+      213: 2008278424903391558
+    second: Charas193-200b_30
+  - first:
+      213: 2729811388333902359
+    second: Charas193-200b_31
+  - first:
+      213: 6181793873087807204
+    second: Charas193-200b_32
+  - first:
+      213: 8803235561129400748
+    second: Charas193-200b_33
+  - first:
+      213: -7074335979593910690
+    second: Charas193-200b_34
+  - first:
+      213: -4751253917682394821
+    second: Charas193-200b_35
+  - first:
+      213: 4686253373576405861
+    second: Charas193-200b_36
+  - first:
+      213: 4463996435403038170
+    second: Charas193-200b_37
+  - first:
+      213: 8843347781010186023
+    second: Charas193-200b_38
+  - first:
+      213: -353379785248035810
+    second: Charas193-200b_39
+  - first:
+      213: -570083104728778065
+    second: Charas193-200b_40
+  - first:
+      213: 7207710812798114697
+    second: Charas193-200b_41
+  - first:
+      213: 357714165182445124
+    second: Charas193-200b_42
+  - first:
+      213: -4656044538340180754
+    second: Charas193-200b_43
+  - first:
+      213: -180920373586695536
+    second: Charas193-200b_44
+  - first:
+      213: -5684911879060798268
+    second: Charas193-200b_45
+  - first:
+      213: -2244401332039936074
+    second: Charas193-200b_46
+  - first:
+      213: 2385370522865127888
+    second: Charas193-200b_47
+  - first:
+      213: 4308449267420270090
+    second: Charas193-200b_48
+  - first:
+      213: 1018503556560996623
+    second: Charas193-200b_49
+  - first:
+      213: 6815071997914171851
+    second: Charas193-200b_50
+  - first:
+      213: -7443481335465095349
+    second: Charas193-200b_51
+  - first:
+      213: 4498256581186898003
+    second: Charas193-200b_52
+  - first:
+      213: 3599111577565451721
+    second: Charas193-200b_53
+  - first:
+      213: -2516510178114639648
+    second: Charas193-200b_54
+  - first:
+      213: 7137299210344858198
+    second: Charas193-200b_55
+  - first:
+      213: -522637629087607416
+    second: Charas193-200b_56
+  - first:
+      213: 2382589805817176356
+    second: Charas193-200b_57
+  - first:
+      213: -6042173149637829832
+    second: Charas193-200b_58
+  - first:
+      213: -156254467563800526
+    second: Charas193-200b_59
+  - first:
+      213: -1519836814128192539
+    second: Charas193-200b_60
+  - first:
+      213: -7305743957166933399
+    second: Charas193-200b_61
+  - first:
+      213: 3118710549403398734
+    second: Charas193-200b_62
+  - first:
+      213: 7874464533334404376
+    second: Charas193-200b_63
+  - first:
+      213: -1288126988045498379
+    second: Charas193-200b_64
+  - first:
+      213: 748740551310081224
+    second: Charas193-200b_65
+  - first:
+      213: -2249226588542262056
+    second: Charas193-200b_66
+  - first:
+      213: 7555029165622050136
+    second: Charas193-200b_67
+  - first:
+      213: -3289846780438783905
+    second: Charas193-200b_68
+  - first:
+      213: 3862933248289026985
+    second: Charas193-200b_69
+  - first:
+      213: -3378389475558373820
+    second: Charas193-200b_70
+  - first:
+      213: -1652134359741420638
+    second: Charas193-200b_71
+  - first:
+      213: 3193686190601447744
+    second: Charas193-200b_72
+  - first:
+      213: -3895822527104410436
+    second: Charas193-200b_73
+  - first:
+      213: 2270456150662260934
+    second: Charas193-200b_74
+  - first:
+      213: -2676795502059672841
+    second: Charas193-200b_75
+  - first:
+      213: -5466821586675853555
+    second: Charas193-200b_76
+  - first:
+      213: 8948771139071270995
+    second: Charas193-200b_77
+  - first:
+      213: 5018369563317586378
+    second: Charas193-200b_78
+  - first:
+      213: 6164223304244016607
+    second: Charas193-200b_79
+  - first:
+      213: 8863667821777515452
+    second: Charas193-200b_80
+  - first:
+      213: -5442425756570261005
+    second: Charas193-200b_81
+  - first:
+      213: 4246092198474771901
+    second: Charas193-200b_82
+  - first:
+      213: -8208073650128123779
+    second: Charas193-200b_83
+  - first:
+      213: 4145856865789027480
+    second: Charas193-200b_84
+  - first:
+      213: 6301526400783447367
+    second: Charas193-200b_85
+  - first:
+      213: 8883581141161629831
+    second: Charas193-200b_86
+  - first:
+      213: 2923301957484403646
+    second: Charas193-200b_87
+  - first:
+      213: 7674886742525495338
+    second: Charas193-200b_88
+  - first:
+      213: 5867235158633115203
+    second: Charas193-200b_89
+  - first:
+      213: -6597089380685015327
+    second: Charas193-200b_90
+  - first:
+      213: -5023473942193800894
+    second: Charas193-200b_91
+  - first:
+      213: 468514682370584447
+    second: Charas193-200b_92
+  - first:
+      213: -2688233413722484838
+    second: Charas193-200b_93
+  - first:
+      213: 8665277924373449150
+    second: Charas193-200b_94
+  - first:
+      213: -1715496034242372026
+    second: Charas193-200b_95
+  - first:
+      213: 4731056557814342066
+    second: Charas193-200b_96
+  - first:
+      213: 1277404057527003971
+    second: Charas193-200b_97
+  - first:
+      213: 1543947432903906629
+    second: Charas193-200b_98
+  - first:
+      213: 7142081501858596459
+    second: Charas193-200b_99
+  - first:
+      213: -8597065430294491793
+    second: Charas193-200b_100
+  - first:
+      213: 34110087703154863
+    second: Charas193-200b_101
+  - first:
+      213: -2394652698843591988
+    second: Charas193-200b_102
+  - first:
+      213: -5687917955283723023
+    second: Charas193-200b_103
+  - first:
+      213: 4341370568860081210
+    second: Charas193-200b_104
+  - first:
+      213: -7026434999965035584
+    second: Charas193-200b_105
+  - first:
+      213: -4474693523691502485
+    second: Charas193-200b_106
+  - first:
+      213: 6129709208939845158
+    second: Charas193-200b_107
+  - first:
+      213: 3373712987970319489
+    second: Charas193-200b_108
+  - first:
+      213: -20535485553318905
+    second: Charas193-200b_109
+  - first:
+      213: 3670593269084183337
+    second: Charas193-200b_110
+  - first:
+      213: 5713308208525977091
+    second: Charas193-200b_111
+  - first:
+      213: 3617716500976051476
+    second: Charas193-200b_112
+  - first:
+      213: -3467570546113095320
+    second: Charas193-200b_113
+  - first:
+      213: 3380968127801972907
+    second: Charas193-200b_114
+  - first:
+      213: 7648870277939343749
+    second: Charas193-200b_115
+  - first:
+      213: -6630587100005104886
+    second: Charas193-200b_116
+  - first:
+      213: -6645824373852834789
+    second: Charas193-200b_117
+  - first:
+      213: -5077172414640463363
+    second: Charas193-200b_118
+  - first:
+      213: -3044441456679302359
+    second: Charas193-200b_119
+  - first:
+      213: -8172514532128948254
+    second: Charas193-200b_120
+  - first:
+      213: -1142204092336823050
+    second: Charas193-200b_121
+  - first:
+      213: -3047058575391082499
+    second: Charas193-200b_122
+  - first:
+      213: -1799520991749671740
+    second: Charas193-200b_123
+  - first:
+      213: -4787982781635474067
+    second: Charas193-200b_124
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bully3_down_0
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbd240c49c6a7f041bff0e3ba76a0a9b
+      internalID: 190662621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bully3_down_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 288
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d390bb454da6324cb55e4acbabc374d
+      internalID: -1163156052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bully3_down_2
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 288
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf363ab0c27d6343a1900defa86f7da
+      internalID: 1471331602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bully3_left_0
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78c2113ba9425914595f671e73648584
+      internalID: -722191921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bully3_left_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 656620fb5f921484aa8a5b391f9576ca
+      internalID: -2146992976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bully3_left_2
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84c55bd43a76f5143af46ba1b0bec1c3
+      internalID: 2040602551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bully3_right_0
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f0e5673470e8a43bead925fefe6b01
+      internalID: 1582904264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bully3_right_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 96
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b4d9b3d50eef354e9f76ead7d28195d
+      internalID: 1657697856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bully3_right_2
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 96
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9fffb3785744f8408d3cf26b1fd39b0
+      internalID: -1570465198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bully3_up_0
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99da8b1a44591664fb1e9efa2ce56eda
+      internalID: -836584376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bully3_up_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39132a92261ce4245b3ca1fb78e1ac8b
+      internalID: 2014738387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bully3_up_2
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f4f84d7e3a6294192da2eb042d6866
+      internalID: 2020862060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: eef9d54511acdcd4face21ceb4380ea9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      bully3_down_0: 190662621
+      bully3_down_1: -1163156052
+      bully3_down_2: 1471331602
+      bully3_left_0: -722191921
+      bully3_left_1: -2146992976
+      bully3_left_2: 2040602551
+      bully3_right_0: 1582904264
+      bully3_right_1: 1657697856
+      bully3_right_2: -1570465198
+      bully3_up_0: -836584376
+      bully3_up_1: 2014738387
+      bully3_up_2: 2020862060
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

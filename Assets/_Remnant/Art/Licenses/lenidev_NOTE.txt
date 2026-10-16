@@ -1,0 +1,5 @@
+lenidev - side-view horror assets (assets.zip)
+No license or readme file was included in the archive, so the terms are unknown.
+Author name comes from the folder name only; no URL was provided.
+TODO (human): find the original download page, record its license here, and fill in CREDITS.md.
+Files used: Environment/FutureSide/*, Characters/SideView/daniel_chettiar.png, monster_sighting-sheet.png

@@ -1,0 +1,832 @@
+fileFormatVersion: 2
+guid: a54d9c7c55759ff4eab90184cbf79f58
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1501964571285467715
+    second: Charas105-112b_0
+  - first:
+      213: -1376245980611121346
+    second: Charas105-112b_1
+  - first:
+      213: -2210270831588785252
+    second: Charas105-112b_2
+  - first:
+      213: 5195408579271002383
+    second: Charas105-112b_3
+  - first:
+      213: 4877127317429663053
+    second: Charas105-112b_4
+  - first:
+      213: 3104087834102842761
+    second: Charas105-112b_5
+  - first:
+      213: -4417726179279569025
+    second: Charas105-112b_6
+  - first:
+      213: -4455976400902979703
+    second: Charas105-112b_7
+  - first:
+      213: 3547399912375346299
+    second: Charas105-112b_8
+  - first:
+      213: -6130387098929292091
+    second: Charas105-112b_9
+  - first:
+      213: -8953004250812443240
+    second: Charas105-112b_10
+  - first:
+      213: 1648245776533719752
+    second: Charas105-112b_11
+  - first:
+      213: 1221306450365026288
+    second: Charas105-112b_12
+  - first:
+      213: 2686480875277605744
+    second: Charas105-112b_13
+  - first:
+      213: 6460508879620560404
+    second: Charas105-112b_14
+  - first:
+      213: 2209089978526148997
+    second: Charas105-112b_15
+  - first:
+      213: 4877770223944394995
+    second: Charas105-112b_16
+  - first:
+      213: 6599602633307878778
+    second: Charas105-112b_17
+  - first:
+      213: -8562030852334287945
+    second: Charas105-112b_18
+  - first:
+      213: 7546397115106156415
+    second: Charas105-112b_19
+  - first:
+      213: 1295500812931384735
+    second: Charas105-112b_20
+  - first:
+      213: 1335900580099794712
+    second: Charas105-112b_21
+  - first:
+      213: -1161638673601464120
+    second: Charas105-112b_22
+  - first:
+      213: -9184220196685909239
+    second: Charas105-112b_23
+  - first:
+      213: 1908051104425528978
+    second: Charas105-112b_24
+  - first:
+      213: -9214614337707813168
+    second: Charas105-112b_25
+  - first:
+      213: 5772293267351224141
+    second: Charas105-112b_26
+  - first:
+      213: 4317104937172706761
+    second: Charas105-112b_27
+  - first:
+      213: 6254049741974118273
+    second: Charas105-112b_28
+  - first:
+      213: -961820203838888605
+    second: Charas105-112b_29
+  - first:
+      213: 3253184931990156972
+    second: Charas105-112b_30
+  - first:
+      213: -3180536815270003504
+    second: Charas105-112b_31
+  - first:
+      213: -8869879631302797599
+    second: Charas105-112b_32
+  - first:
+      213: 7488675675634038935
+    second: Charas105-112b_33
+  - first:
+      213: 194964919117512766
+    second: Charas105-112b_34
+  - first:
+      213: -2717337153796073410
+    second: Charas105-112b_35
+  - first:
+      213: -7110235196151033139
+    second: Charas105-112b_36
+  - first:
+      213: 4008666038187572929
+    second: Charas105-112b_37
+  - first:
+      213: -6299074478348305755
+    second: Charas105-112b_38
+  - first:
+      213: -272532613965602544
+    second: Charas105-112b_39
+  - first:
+      213: -7092203099008401525
+    second: Charas105-112b_40
+  - first:
+      213: 6768999007828257983
+    second: Charas105-112b_41
+  - first:
+      213: -8489852808187736397
+    second: Charas105-112b_42
+  - first:
+      213: 4721442737611814770
+    second: Charas105-112b_43
+  - first:
+      213: 2572058283601604629
+    second: Charas105-112b_44
+  - first:
+      213: 4853833912331287064
+    second: Charas105-112b_45
+  - first:
+      213: -4197627801315605790
+    second: Charas105-112b_46
+  - first:
+      213: -6787537145020383616
+    second: Charas105-112b_47
+  - first:
+      213: -5028158252166714102
+    second: Charas105-112b_48
+  - first:
+      213: 7215656422732559617
+    second: Charas105-112b_49
+  - first:
+      213: 6489588629169867985
+    second: Charas105-112b_50
+  - first:
+      213: 2162912909709770364
+    second: Charas105-112b_51
+  - first:
+      213: 1844589267337201834
+    second: Charas105-112b_52
+  - first:
+      213: 2346957390344412364
+    second: Charas105-112b_53
+  - first:
+      213: -3451138082756071996
+    second: Charas105-112b_54
+  - first:
+      213: -3530833970567745811
+    second: Charas105-112b_55
+  - first:
+      213: 1790423468411856190
+    second: Charas105-112b_56
+  - first:
+      213: 7080034584535130901
+    second: Charas105-112b_57
+  - first:
+      213: -5000751446585114461
+    second: Charas105-112b_58
+  - first:
+      213: -6333496399698974090
+    second: Charas105-112b_59
+  - first:
+      213: 3260623364514874014
+    second: Charas105-112b_60
+  - first:
+      213: 7453832516564802622
+    second: Charas105-112b_61
+  - first:
+      213: 5736536968317134290
+    second: Charas105-112b_62
+  - first:
+      213: -1616016745670506512
+    second: Charas105-112b_63
+  - first:
+      213: -2104532847176226401
+    second: Charas105-112b_64
+  - first:
+      213: -4378139811668923865
+    second: Charas105-112b_65
+  - first:
+      213: -3345879228178717278
+    second: Charas105-112b_66
+  - first:
+      213: 5473017952324401404
+    second: Charas105-112b_67
+  - first:
+      213: 7647357109983241279
+    second: Charas105-112b_68
+  - first:
+      213: 5545855372993878235
+    second: Charas105-112b_69
+  - first:
+      213: 5049204314121369297
+    second: Charas105-112b_70
+  - first:
+      213: 9015602312926932654
+    second: Charas105-112b_71
+  - first:
+      213: -2751618926089912438
+    second: Charas105-112b_72
+  - first:
+      213: -8197786467028874639
+    second: Charas105-112b_73
+  - first:
+      213: 7806115272844824051
+    second: Charas105-112b_74
+  - first:
+      213: 9132252821272480279
+    second: Charas105-112b_75
+  - first:
+      213: -8373085532859291094
+    second: Charas105-112b_76
+  - first:
+      213: 1107896090097874372
+    second: Charas105-112b_77
+  - first:
+      213: -6438674442739594170
+    second: Charas105-112b_78
+  - first:
+      213: -6158629617835714494
+    second: Charas105-112b_79
+  - first:
+      213: -1352289396834165181
+    second: Charas105-112b_80
+  - first:
+      213: 4398971424757489614
+    second: Charas105-112b_81
+  - first:
+      213: -5784126114087113431
+    second: Charas105-112b_82
+  - first:
+      213: 8954421467754447159
+    second: Charas105-112b_83
+  - first:
+      213: 8578409657932408760
+    second: Charas105-112b_84
+  - first:
+      213: 4159504638038746225
+    second: Charas105-112b_85
+  - first:
+      213: -6156052421714515676
+    second: Charas105-112b_86
+  - first:
+      213: 7208050490511871492
+    second: Charas105-112b_87
+  - first:
+      213: 6469008402876669053
+    second: Charas105-112b_88
+  - first:
+      213: 5374766351075518938
+    second: Charas105-112b_89
+  - first:
+      213: -1398094440117187307
+    second: Charas105-112b_90
+  - first:
+      213: -1436143128983465025
+    second: Charas105-112b_91
+  - first:
+      213: -4846398655257527961
+    second: Charas105-112b_92
+  - first:
+      213: 5521384040389044686
+    second: Charas105-112b_93
+  - first:
+      213: 3497665867865869439
+    second: Charas105-112b_94
+  - first:
+      213: -7832403737897032078
+    second: Charas105-112b_95
+  - first:
+      213: -6650947995093157388
+    second: Charas105-112b_96
+  - first:
+      213: -8512932052099113900
+    second: Charas105-112b_97
+  - first:
+      213: 8739502483569827289
+    second: Charas105-112b_98
+  - first:
+      213: -7429612343838655907
+    second: Charas105-112b_99
+  - first:
+      213: 14824309573139006
+    second: Charas105-112b_100
+  - first:
+      213: -3525159255970617950
+    second: Charas105-112b_101
+  - first:
+      213: -4124380374283467122
+    second: Charas105-112b_102
+  - first:
+      213: -46075762678958825
+    second: Charas105-112b_103
+  - first:
+      213: 4670543989662675182
+    second: Charas105-112b_104
+  - first:
+      213: -8576768332496145387
+    second: Charas105-112b_105
+  - first:
+      213: 6414720954730193900
+    second: Charas105-112b_106
+  - first:
+      213: 135687703169914487
+    second: Charas105-112b_107
+  - first:
+      213: -2576276343463796155
+    second: Charas105-112b_108
+  - first:
+      213: -3236099473312997762
+    second: Charas105-112b_109
+  - first:
+      213: -2665073707211524903
+    second: Charas105-112b_110
+  - first:
+      213: 8212249918449508715
+    second: Charas105-112b_111
+  - first:
+      213: 8327678625317552991
+    second: Charas105-112b_112
+  - first:
+      213: -5810205289199794227
+    second: Charas105-112b_113
+  - first:
+      213: -1779846716217005556
+    second: Charas105-112b_114
+  - first:
+      213: 7319016555194269497
+    second: Charas105-112b_115
+  - first:
+      213: -3787275594839137603
+    second: Charas105-112b_116
+  - first:
+      213: 5651223702108398583
+    second: Charas105-112b_117
+  - first:
+      213: -5796670585249776489
+    second: Charas105-112b_118
+  - first:
+      213: 1098621948978198902
+    second: Charas105-112b_119
+  - first:
+      213: 4007230694590842457
+    second: Charas105-112b_120
+  - first:
+      213: 617843989131417360
+    second: Charas105-112b_121
+  - first:
+      213: 6371394787983183307
+    second: Charas105-112b_122
+  - first:
+      213: 6144651342350526958
+    second: Charas105-112b_123
+  - first:
+      213: 5344928741452060025
+    second: Charas105-112b_124
+  - first:
+      213: 263208370932509899
+    second: Charas105-112b_125
+  - first:
+      213: 4293155794223908355
+    second: Charas105-112b_126
+  - first:
+      213: 1258522600495241693
+    second: Charas105-112b_127
+  - first:
+      213: 3904138211592582701
+    second: Charas105-112b_128
+  - first:
+      213: 8797929774187464760
+    second: Charas105-112b_129
+  - first:
+      213: 9190487536476501221
+    second: Charas105-112b_130
+  - first:
+      213: -7549907272096452889
+    second: Charas105-112b_131
+  - first:
+      213: 5563372739332971767
+    second: Charas105-112b_132
+  - first:
+      213: 6092578389156368221
+    second: Charas105-112b_133
+  - first:
+      213: -1599323873224852317
+    second: Charas105-112b_134
+  - first:
+      213: -9051125208442163532
+    second: Charas105-112b_135
+  - first:
+      213: 5937208646513395734
+    second: Charas105-112b_136
+  - first:
+      213: -2595557411750365923
+    second: Charas105-112b_137
+  - first:
+      213: -5308293511482630628
+    second: Charas105-112b_138
+  - first:
+      213: 6490091848239742624
+    second: Charas105-112b_139
+  - first:
+      213: -6607448238654080193
+    second: Charas105-112b_140
+  - first:
+      213: 8488050555099970026
+    second: Charas105-112b_141
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: protagonist_down_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 307252096fded3048bd5edd341beecca
+      internalID: -511557515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protagonist_down_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 288
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a43c43d67ea7e544a77ff798b48cead
+      internalID: 1611083007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protagonist_down_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 288
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 260ae2332b5e99e4a8d3a57cc3496ecb
+      internalID: -1509417850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protagonist_left_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751f8ef0bcd32274e90c196aba6bd9a6
+      internalID: -1431241331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protagonist_left_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 914e497b2bbc1094b9aa4212dc5eb324
+      internalID: 2104856093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protagonist_left_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02c1c721d0fe5ce429594bb7582a08f0
+      internalID: 1093441562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protagonist_right_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9925190113de0a140aee42e1df4b37ac
+      internalID: -1215345527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protagonist_right_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd3cc57bfcf33184b9de402ba6a1f1f8
+      internalID: 1740419019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protagonist_right_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50335530e4d082249b3ec015442c1e29
+      internalID: 1442794102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protagonist_up_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28e10f0c3a4f0a343a6c67410084ab26
+      internalID: 1699960846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protagonist_up_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33ebef853fb859b4197d21e84759290b
+      internalID: -781892939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: protagonist_up_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 293c2956e335fa246898a5a91c61c3f8
+      internalID: -333352165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3808e1725a3cd9b4386ad5c789e1776d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      protagonist_down_0: -511557515
+      protagonist_down_1: 1611083007
+      protagonist_down_2: -1509417850
+      protagonist_left_0: -1431241331
+      protagonist_left_1: 2104856093
+      protagonist_left_2: 1093441562
+      protagonist_right_0: -1215345527
+      protagonist_right_1: 1740419019
+      protagonist_right_2: 1442794102
+      protagonist_up_0: 1699960846
+      protagonist_up_1: -781892939
+      protagonist_up_2: -333352165
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
