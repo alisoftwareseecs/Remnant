@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Remnant.Core
@@ -19,6 +20,10 @@ namespace Remnant.Core
 
         public event Action<Perspective> PerspectiveChanged;
         public event Action<TimePeriod> TimePeriodChanged;
+        /// <summary>Raised when a story flag is set (true) or cleared (false).</summary>
+        public event Action<string, bool> FlagChanged;
+
+        private readonly HashSet<string> flags = new HashSet<string>();
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         private static void ResetStatics()
@@ -62,6 +67,23 @@ namespace Remnant.Core
             if (timePeriod == CurrentTimePeriod) return;
             CurrentTimePeriod = timePeriod;
             TimePeriodChanged?.Invoke(timePeriod);
+        }
+
+        public bool HasFlag(string flag)
+        {
+            return !string.IsNullOrEmpty(flag) && flags.Contains(flag);
+        }
+
+        public void SetFlag(string flag)
+        {
+            if (string.IsNullOrEmpty(flag)) return;
+            if (flags.Add(flag)) FlagChanged?.Invoke(flag, true);
+        }
+
+        public void ClearFlag(string flag)
+        {
+            if (string.IsNullOrEmpty(flag)) return;
+            if (flags.Remove(flag)) FlagChanged?.Invoke(flag, false);
         }
     }
 }
