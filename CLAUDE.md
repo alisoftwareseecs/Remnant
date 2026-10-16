@@ -10,7 +10,7 @@
 
 ## Folder conventions
 All game content lives under Assets/_Remnant/:
-- Scripts/ (subfolders per module, e.g. Scripts/Player/, Scripts/Interaction/)
+- Scripts/ (subfolders per module, e.g. Scripts/Player/, Scripts/Story/)
 - Scenes/, Prefabs/, Art/, Audio/, Data/ (ScriptableObjects)
 
 C# namespace: Remnant (sub-namespaces per module, e.g. Remnant.Player).
@@ -25,8 +25,18 @@ C# namespace: Remnant (sub-namespaces per module, e.g. Remnant.Player).
 - Code must compile without warnings. The human will confirm by checking the Unity Console.
 - Batch mode (Unity.exe -batchmode) cannot run while the project is open in the Editor. Ask the human to close the Editor first.
 
-## Game design (fill in as decided)
-- Setting: school
-- Core themes: guilt, silence, something or someone missing
-- Mechanics: time shifting between present and future; a shadow mechanic
-- Perspective: TBD
+## Game design
+- Setting: a school. Few maps, reused heavily; the player backtracks through the same areas, which can behave differently depending on story progress.
+- Perspective has two modes:
+  - SideView: left/right only, walk + run, NO jump. Doors and stairs via interaction.
+  - TopDown: 8-direction walk + run. Used for puzzles, key findings and chase sequences.
+- Perspective shifts are FIXED story events in specific areas, triggered narratively by the Shadow (a companion entity that speaks to the protagonist). The player never controls them.
+- Time has two timelines: Present and Future. Time shifts are also fixed story events.
+- Perspective and time are SEPARATE systems. Code must keep them independent; any combination (SideView/TopDown x Present/Future) must work.
+- Choices made in the Future are recorded and decide the ending: one good ending, one bad ending.
+- Themes: guilt, silence, loss. The story involves a student's suicide; handle it with care.
+- Art style: undecided. Keep visuals swappable; no pixel-perfect assumptions yet.
+
+## Architecture
+- One central game state holds: current perspective, current timeline, story flags, recorded choices. Systems read it and react to its change events instead of polling.
+- The player controller supports both perspective modes and switches when the game state changes.
