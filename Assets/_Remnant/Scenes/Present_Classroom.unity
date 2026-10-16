@@ -1044,6 +1044,216 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!1 &230218982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 230218983}
+  - component: {fileID: 230218988}
+  - component: {fileID: 230218987}
+  - component: {fileID: 230218986}
+  - component: {fileID: 230218985}
+  - component: {fileID: 230218984}
+  m_Layer: 0
+  m_Name: bully3_day2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &230218983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230218982}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.7, y: 7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1253630500}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &230218984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230218982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: day2
+  mode: 0
+  target: {fileID: 0}
+--- !u!114 &230218985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230218982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af8a79857e27c54e822c49a8bc8092d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Interaction.ExamineInteractable
+  restrictPerspective: 0
+  onlyInPerspective: 0
+  restrictTimePeriod: 0
+  onlyInTimePeriod: 0
+  onceOnly: 0
+  promptOffset: {x: 0, y: 1.75, z: 0}
+  dialogueRunner: {fileID: 1180829029}
+  dialogue: {fileID: 11400000, guid: 8471b2f69b0aecc42bc5dd2570b31423, type: 2}
+  setFlagOnComplete: 
+--- !u!114 &230218986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230218982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05873864da7156439330a10f2335b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Characters.CharacterSpriteAnimator
+  frames:
+  - {fileID: 190662621, guid: 848bb8b9a2fee1e4e940bb1811563942, type: 3}
+  - {fileID: -1163156052, guid: 848bb8b9a2fee1e4e940bb1811563942, type: 3}
+  - {fileID: 1471331602, guid: 848bb8b9a2fee1e4e940bb1811563942, type: 3}
+  - {fileID: -722191921, guid: 848bb8b9a2fee1e4e940bb1811563942, type: 3}
+  - {fileID: -2146992976, guid: 848bb8b9a2fee1e4e940bb1811563942, type: 3}
+  - {fileID: 2040602551, guid: 848bb8b9a2fee1e4e940bb1811563942, type: 3}
+  - {fileID: 1582904264, guid: 848bb8b9a2fee1e4e940bb1811563942, type: 3}
+  - {fileID: 1657697856, guid: 848bb8b9a2fee1e4e940bb1811563942, type: 3}
+  - {fileID: -1570465198, guid: 848bb8b9a2fee1e4e940bb1811563942, type: 3}
+  - {fileID: -836584376, guid: 848bb8b9a2fee1e4e940bb1811563942, type: 3}
+  - {fileID: 2014738387, guid: 848bb8b9a2fee1e4e940bb1811563942, type: 3}
+  - {fileID: 2020862060, guid: 848bb8b9a2fee1e4e940bb1811563942, type: 3}
+  playerSource: {fileID: 0}
+  facing: 3
+  framesPerSecond: 8
+  runSpeedMultiplier: 1.4
+  sideIdleFrames: []
+  sideWalkFrames: []
+  sideIdleFramesPerSecond: 3
+  sideWalkFramesPerSecond: 10
+--- !u!61 &230218987
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230218982}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.15}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1, y: 1.5}
+    newSize: {x: 1, y: 1.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.5, y: 0.3}
+  m_EdgeRadius: 0
+--- !u!212 &230218988
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230218982}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 2014738387, guid: 848bb8b9a2fee1e4e940bb1811563942, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1.5}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 1
 --- !u!1 &250539573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,6 +1285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.SceneSettings
   perspective: 1
   timePeriod: 0
+  debugStartFlags: []
 --- !u!4 &250539575
 Transform:
   m_ObjectHideFlags: 0
@@ -2263,7 +2474,7 @@ GameObject:
   - component: {fileID: 332169437}
   - component: {fileID: 332169440}
   - component: {fileID: 332169439}
-  - component: {fileID: 332169438}
+  - component: {fileID: 332169441}
   m_Layer: 0
   m_Name: AikoDesk
   m_TagString: Untagged
@@ -2286,26 +2497,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2119118955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &332169438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332169436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af8a79857e27c54e822c49a8bc8092d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Interaction.ExamineInteractable
-  restrictPerspective: 0
-  onlyInPerspective: 0
-  restrictTimePeriod: 0
-  onlyInTimePeriod: 0
-  onceOnly: 0
-  promptOffset: {x: 0, y: 1.3, z: 0}
-  dialogueRunner: {fileID: 1180829029}
-  dialogue: {fileID: 11400000, guid: 8813400a40ffe4748b91fa1779141b1d, type: 2}
 --- !u!61 &332169439
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2411,6 +2602,59 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!114 &332169441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332169436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f5dd823157fe34d9988f701eb481ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Interaction.StoryInteractable
+  restrictPerspective: 0
+  onlyInPerspective: 0
+  restrictTimePeriod: 0
+  onlyInTimePeriod: 0
+  onceOnly: 0
+  promptOffset: {x: 0, y: 1.3, z: 0}
+  dialogueRunner: {fileID: 1180829029}
+  variants:
+  - requiresFlag: day2
+    forbidsFlag: shadow_awake
+    dialogue: {fileID: 11400000, guid: e9e66f22bf2680b40ace8f98d10f720a, type: 2}
+    setFlag: 
+    sequence: {fileID: 1847081352}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
+  - requiresFlag: shadow_awake
+    forbidsFlag: 
+    dialogue: {fileID: 0}
+    setFlag: 
+    sequence: {fileID: 0}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
+  - requiresFlag: 
+    forbidsFlag: 
+    dialogue: {fileID: 11400000, guid: 8813400a40ffe4748b91fa1779141b1d, type: 2}
+    setFlag: 
+    sequence: {fileID: 0}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
 --- !u!1 &344403631
 GameObject:
   m_ObjectHideFlags: 0
@@ -4435,6 +4679,216 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!1 &574822615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 574822616}
+  - component: {fileID: 574822621}
+  - component: {fileID: 574822620}
+  - component: {fileID: 574822619}
+  - component: {fileID: 574822618}
+  - component: {fileID: 574822617}
+  m_Layer: 0
+  m_Name: bully2_day2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &574822616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574822615}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.4, y: 8.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1253630500}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &574822617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574822615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: day2
+  mode: 0
+  target: {fileID: 0}
+--- !u!114 &574822618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574822615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af8a79857e27c54e822c49a8bc8092d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Interaction.ExamineInteractable
+  restrictPerspective: 0
+  onlyInPerspective: 0
+  restrictTimePeriod: 0
+  onlyInTimePeriod: 0
+  onceOnly: 0
+  promptOffset: {x: 0, y: 1.75, z: 0}
+  dialogueRunner: {fileID: 1180829029}
+  dialogue: {fileID: 11400000, guid: 200c2406604007f41ba9a5ba7be73fe7, type: 2}
+  setFlagOnComplete: 
+--- !u!114 &574822619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574822615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05873864da7156439330a10f2335b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Characters.CharacterSpriteAnimator
+  frames:
+  - {fileID: -88019841, guid: 8caa371c01afcc548a395439a11b25a3, type: 3}
+  - {fileID: 2078185097, guid: 8caa371c01afcc548a395439a11b25a3, type: 3}
+  - {fileID: -1980351490, guid: 8caa371c01afcc548a395439a11b25a3, type: 3}
+  - {fileID: -1115250567, guid: 8caa371c01afcc548a395439a11b25a3, type: 3}
+  - {fileID: 1122762463, guid: 8caa371c01afcc548a395439a11b25a3, type: 3}
+  - {fileID: 285339887, guid: 8caa371c01afcc548a395439a11b25a3, type: 3}
+  - {fileID: 887173181, guid: 8caa371c01afcc548a395439a11b25a3, type: 3}
+  - {fileID: 1742507685, guid: 8caa371c01afcc548a395439a11b25a3, type: 3}
+  - {fileID: -1579574700, guid: 8caa371c01afcc548a395439a11b25a3, type: 3}
+  - {fileID: 1964819303, guid: 8caa371c01afcc548a395439a11b25a3, type: 3}
+  - {fileID: 382919100, guid: 8caa371c01afcc548a395439a11b25a3, type: 3}
+  - {fileID: 672769087, guid: 8caa371c01afcc548a395439a11b25a3, type: 3}
+  playerSource: {fileID: 0}
+  facing: 1
+  framesPerSecond: 8
+  runSpeedMultiplier: 1.4
+  sideIdleFrames: []
+  sideWalkFrames: []
+  sideIdleFramesPerSecond: 3
+  sideWalkFramesPerSecond: 10
+--- !u!61 &574822620
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574822615}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.15}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1, y: 1.5}
+    newSize: {x: 1, y: 1.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.5, y: 0.3}
+  m_EdgeRadius: 0
+--- !u!212 &574822621
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574822615}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 1122762463, guid: 8caa371c01afcc548a395439a11b25a3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1.5}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 1
 --- !u!1 &678334602
 GameObject:
   m_ObjectHideFlags: 0
@@ -4927,6 +5381,63 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!1001 &938969062
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2598746705052084251, guid: c704fd72ad845a14a832d0457e0370db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598746705052084251, guid: c704fd72ad845a14a832d0457e0370db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598746705052084251, guid: c704fd72ad845a14a832d0457e0370db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598746705052084251, guid: c704fd72ad845a14a832d0457e0370db, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598746705052084251, guid: c704fd72ad845a14a832d0457e0370db, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598746705052084251, guid: c704fd72ad845a14a832d0457e0370db, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598746705052084251, guid: c704fd72ad845a14a832d0457e0370db, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598746705052084251, guid: c704fd72ad845a14a832d0457e0370db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598746705052084251, guid: c704fd72ad845a14a832d0457e0370db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598746705052084251, guid: c704fd72ad845a14a832d0457e0370db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368238281115484903, guid: c704fd72ad845a14a832d0457e0370db, type: 3}
+      propertyPath: m_Name
+      value: Shadow
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c704fd72ad845a14a832d0457e0370db, type: 3}
 --- !u!1 &988224325
 GameObject:
   m_ObjectHideFlags: 0
@@ -4981,6 +5492,7 @@ MonoBehaviour:
   promptOffset: {x: 0, y: -0.2, z: 0}
   dialogueRunner: {fileID: 1180829029}
   dialogue: {fileID: 11400000, guid: b6e26123293205941857cb7dab74e8aa, type: 2}
+  setFlagOnComplete: 
 --- !u!61 &988224328
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5086,6 +5598,103 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!1001 &989496766
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952829190424130534, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091278930065897167, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_Name
+      value: SceneTransition
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
 --- !u!1 &1007286063
 GameObject:
   m_ObjectHideFlags: 0
@@ -5365,6 +5974,9 @@ Transform:
   - {fileID: 1351497480}
   - {fileID: 1894145105}
   - {fileID: 1470012180}
+  - {fileID: 1526332988}
+  - {fileID: 574822616}
+  - {fileID: 230218983}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1351497479
@@ -5380,6 +5992,7 @@ GameObject:
   - component: {fileID: 1351497483}
   - component: {fileID: 1351497482}
   - component: {fileID: 1351497481}
+  - component: {fileID: 1351497485}
   m_Layer: 0
   m_Name: bully1
   m_TagString: Untagged
@@ -5422,6 +6035,7 @@ MonoBehaviour:
   promptOffset: {x: 0, y: 1.75, z: 0}
   dialogueRunner: {fileID: 1180829029}
   dialogue: {fileID: 11400000, guid: 30c36bb26d1018e43a1f23645605e369, type: 2}
+  setFlagOnComplete: 
 --- !u!114 &1351497482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5451,6 +6065,10 @@ MonoBehaviour:
   facing: 2
   framesPerSecond: 8
   runSpeedMultiplier: 1.4
+  sideIdleFrames: []
+  sideWalkFrames: []
+  sideIdleFramesPerSecond: 3
+  sideWalkFramesPerSecond: 10
 --- !u!61 &1351497483
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5556,6 +6174,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!114 &1351497485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351497479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: day2
+  mode: 1
+  target: {fileID: 0}
 --- !u!1001 &1397654050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5566,7 +6199,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2777981584604232890, guid: c1e5f56756eca4545b6bc5f61b9949b7, type: 3}
       propertyPath: orthographic size
-      value: 5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2777981584604232890, guid: c1e5f56756eca4545b6bc5f61b9949b7, type: 3}
       propertyPath: m_BackGroundColor.a
@@ -5634,11 +6267,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8576451264746314539, guid: c1e5f56756eca4545b6bc5f61b9949b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.7094
+      value: 8.711707
       objectReference: {fileID: 0}
     - target: {fileID: 8576451264746314539, guid: c1e5f56756eca4545b6bc5f61b9949b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.34623
+      value: 2.15377
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5934,6 +6567,7 @@ GameObject:
   - component: {fileID: 1470012183}
   - component: {fileID: 1470012182}
   - component: {fileID: 1470012181}
+  - component: {fileID: 1470012185}
   m_Layer: 0
   m_Name: bully3
   m_TagString: Untagged
@@ -5976,6 +6610,7 @@ MonoBehaviour:
   promptOffset: {x: 0, y: 1.75, z: 0}
   dialogueRunner: {fileID: 1180829029}
   dialogue: {fileID: 11400000, guid: 9b349f32f8df7ba4bbbdc8f79b7004f8, type: 2}
+  setFlagOnComplete: 
 --- !u!114 &1470012182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6005,6 +6640,10 @@ MonoBehaviour:
   facing: 3
   framesPerSecond: 8
   runSpeedMultiplier: 1.4
+  sideIdleFrames: []
+  sideWalkFrames: []
+  sideIdleFramesPerSecond: 3
+  sideWalkFramesPerSecond: 10
 --- !u!61 &1470012183
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6101,6 +6740,231 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2014738387, guid: 848bb8b9a2fee1e4e940bb1811563942, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1.5}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 1
+--- !u!114 &1470012185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470012179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: day2
+  mode: 1
+  target: {fileID: 0}
+--- !u!1 &1526332987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1526332988}
+  - component: {fileID: 1526332993}
+  - component: {fileID: 1526332992}
+  - component: {fileID: 1526332991}
+  - component: {fileID: 1526332990}
+  - component: {fileID: 1526332989}
+  m_Layer: 0
+  m_Name: bully1_day2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1526332988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526332987}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12, y: 8.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1253630500}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1526332989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526332987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: day2
+  mode: 0
+  target: {fileID: 0}
+--- !u!114 &1526332990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526332987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af8a79857e27c54e822c49a8bc8092d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Interaction.ExamineInteractable
+  restrictPerspective: 0
+  onlyInPerspective: 0
+  restrictTimePeriod: 0
+  onlyInTimePeriod: 0
+  onceOnly: 0
+  promptOffset: {x: 0, y: 1.75, z: 0}
+  dialogueRunner: {fileID: 1180829029}
+  dialogue: {fileID: 11400000, guid: 2c9d56877b7fb1e4687d38a10dbc031e, type: 2}
+  setFlagOnComplete: 
+--- !u!114 &1526332991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526332987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05873864da7156439330a10f2335b5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Characters.CharacterSpriteAnimator
+  frames:
+  - {fileID: -988736700, guid: 4fe6da16a432ee44294132f43b4288e6, type: 3}
+  - {fileID: -687542499, guid: 4fe6da16a432ee44294132f43b4288e6, type: 3}
+  - {fileID: -1798669660, guid: 4fe6da16a432ee44294132f43b4288e6, type: 3}
+  - {fileID: 1096290412, guid: 4fe6da16a432ee44294132f43b4288e6, type: 3}
+  - {fileID: -1150877530, guid: 4fe6da16a432ee44294132f43b4288e6, type: 3}
+  - {fileID: 145645937, guid: 4fe6da16a432ee44294132f43b4288e6, type: 3}
+  - {fileID: -567771067, guid: 4fe6da16a432ee44294132f43b4288e6, type: 3}
+  - {fileID: -197782145, guid: 4fe6da16a432ee44294132f43b4288e6, type: 3}
+  - {fileID: 1218630617, guid: 4fe6da16a432ee44294132f43b4288e6, type: 3}
+  - {fileID: 957576853, guid: 4fe6da16a432ee44294132f43b4288e6, type: 3}
+  - {fileID: 2100179601, guid: 4fe6da16a432ee44294132f43b4288e6, type: 3}
+  - {fileID: 723679161, guid: 4fe6da16a432ee44294132f43b4288e6, type: 3}
+  playerSource: {fileID: 0}
+  facing: 2
+  framesPerSecond: 8
+  runSpeedMultiplier: 1.4
+  sideIdleFrames: []
+  sideWalkFrames: []
+  sideIdleFramesPerSecond: 3
+  sideWalkFramesPerSecond: 10
+--- !u!61 &1526332992
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526332987}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.15}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1, y: 1.5}
+    newSize: {x: 1, y: 1.5}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.5, y: 0.3}
+  m_EdgeRadius: 0
+--- !u!212 &1526332993
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526332987}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -197782145, guid: 4fe6da16a432ee44294132f43b4288e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6261,6 +7125,7 @@ GameObject:
   - component: {fileID: 1571454675}
   - component: {fileID: 1571454674}
   - component: {fileID: 1571454673}
+  - component: {fileID: 1571454677}
   m_Layer: 0
   m_Name: aiko
   m_TagString: Untagged
@@ -6303,6 +7168,7 @@ MonoBehaviour:
   promptOffset: {x: 0, y: 1.75, z: 0}
   dialogueRunner: {fileID: 1180829029}
   dialogue: {fileID: 11400000, guid: 4a0b5d028e4ca5f4792157c459f598c8, type: 2}
+  setFlagOnComplete: talked_aiko
 --- !u!114 &1571454674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6332,6 +7198,10 @@ MonoBehaviour:
   facing: 0
   framesPerSecond: 8
   runSpeedMultiplier: 1.4
+  sideIdleFrames: []
+  sideWalkFrames: []
+  sideIdleFramesPerSecond: 3
+  sideWalkFramesPerSecond: 10
 --- !u!61 &1571454675
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6437,6 +7307,66 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!114 &1571454677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571454671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: day2
+  mode: 1
+  target: {fileID: 0}
+--- !u!1 &1669427805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1669427807}
+  - component: {fileID: 1669427806}
+  m_Layer: 0
+  m_Name: Spawn_start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1669427806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669427805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11a151614815dc84bbb6347c92423133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.SpawnPoint
+  id: start
+--- !u!4 &1669427807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669427805}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5, y: 8.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1740899231
 GameObject:
   m_ObjectHideFlags: 0
@@ -6575,6 +7505,102 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!1 &1757548564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1757548566}
+  - component: {fileID: 1757548565}
+  m_Layer: 0
+  m_Name: Spawn_door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1757548565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757548564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11a151614815dc84bbb6347c92423133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.SpawnPoint
+  id: door
+--- !u!4 &1757548566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757548564}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5, y: 9.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1847081351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1847081353}
+  - component: {fileID: 1847081352}
+  m_Layer: 0
+  m_Name: ShadowAwakening
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1847081352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847081351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08cc46560db1864ab307dbecf3c7cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Story.ShadowAwakeningSequence
+  dialogueRunner: {fileID: 1180829029}
+  shadowDialogue: {fileID: 11400000, guid: 385950e394ef8714aaf77d365fa882b2, type: 2}
+  awakeFlag: shadow_awake
+  appearSeconds: 4
+  nextScene: Future_Corridor
+  nextSpawnId: start
+  style: 1
+--- !u!4 &1847081353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847081351}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1877204362
 GameObject:
   m_ObjectHideFlags: 0
@@ -6726,6 +7752,7 @@ GameObject:
   - component: {fileID: 1894145108}
   - component: {fileID: 1894145107}
   - component: {fileID: 1894145106}
+  - component: {fileID: 1894145110}
   m_Layer: 0
   m_Name: bully2
   m_TagString: Untagged
@@ -6768,6 +7795,7 @@ MonoBehaviour:
   promptOffset: {x: 0, y: 1.75, z: 0}
   dialogueRunner: {fileID: 1180829029}
   dialogue: {fileID: 11400000, guid: 534b0452b7b8eed48b10b494c94d5507, type: 2}
+  setFlagOnComplete: 
 --- !u!114 &1894145107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6797,6 +7825,10 @@ MonoBehaviour:
   facing: 1
   framesPerSecond: 8
   runSpeedMultiplier: 1.4
+  sideIdleFrames: []
+  sideWalkFrames: []
+  sideIdleFramesPerSecond: 3
+  sideWalkFramesPerSecond: 10
 --- !u!61 &1894145108
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6902,6 +7934,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!114 &1894145110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894145104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: day2
+  mode: 1
+  target: {fileID: 0}
 --- !u!1 &2025701072
 GameObject:
   m_ObjectHideFlags: 0
@@ -7051,7 +8098,7 @@ GameObject:
   - component: {fileID: 2037016246}
   - component: {fileID: 2037016249}
   - component: {fileID: 2037016248}
-  - component: {fileID: 2037016247}
+  - component: {fileID: 2037016250}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -7074,26 +8121,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2119118955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2037016247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037016245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af8a79857e27c54e822c49a8bc8092d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Interaction.ExamineInteractable
-  restrictPerspective: 0
-  onlyInPerspective: 0
-  restrictTimePeriod: 0
-  onlyInTimePeriod: 0
-  onceOnly: 0
-  promptOffset: {x: 0, y: 1.4, z: 0}
-  dialogueRunner: {fileID: 1180829029}
-  dialogue: {fileID: 11400000, guid: 7a4ee4b4bb7d3ef4dafbd9d1499a36db, type: 2}
 --- !u!61 &2037016248
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7199,6 +8226,48 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!114 &2037016250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037016245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f5dd823157fe34d9988f701eb481ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Interaction.StoryInteractable
+  restrictPerspective: 0
+  onlyInPerspective: 0
+  restrictTimePeriod: 0
+  onlyInTimePeriod: 0
+  onceOnly: 0
+  promptOffset: {x: 0, y: 1.4, z: 0}
+  dialogueRunner: {fileID: 1180829029}
+  variants:
+  - requiresFlag: talked_aiko
+    forbidsFlag: day2
+    dialogue: {fileID: 11400000, guid: 4260e54f2259c7d479e411fd51ea6960, type: 2}
+    setFlag: 
+    sequence: {fileID: 0}
+    changeScene: 1
+    sceneName: Present_Classroom
+    spawnId: door
+    titleCard: The next day
+    flagDuringTransition: day2
+    style: 0
+  - requiresFlag: 
+    forbidsFlag: 
+    dialogue: {fileID: 11400000, guid: 7a4ee4b4bb7d3ef4dafbd9d1499a36db, type: 2}
+    setFlag: 
+    sequence: {fileID: 0}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
 --- !u!1 &2076249627
 GameObject:
   m_ObjectHideFlags: 0
@@ -7407,3 +8476,8 @@ SceneRoots:
   - {fileID: 2119118955}
   - {fileID: 1253630500}
   - {fileID: 250539575}
+  - {fileID: 989496766}
+  - {fileID: 938969062}
+  - {fileID: 1669427807}
+  - {fileID: 1757548566}
+  - {fileID: 1847081353}

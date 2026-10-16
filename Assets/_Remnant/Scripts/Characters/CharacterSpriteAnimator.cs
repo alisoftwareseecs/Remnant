@@ -1,3 +1,4 @@
+using Remnant.Core;
 using Remnant.Player;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ namespace Remnant.Characters
     /// <summary>
     /// Animates RPG Maker style sheets: 4 directions x 3 frames. Walk cycle 0-1-2-1, idle = frame 1.
     /// With a PlayerController assigned it follows the player's movement; without one it shows a fixed facing (NPCs).
+    /// When the player is in SideView and the side-view sprite sets are filled in, it switches to those
+    /// (idle and walk loops, flipped horizontally for left/right).
     /// </summary>
     [RequireComponent(typeof(SpriteRenderer))]
     public class CharacterSpriteAnimator : MonoBehaviour
@@ -27,10 +30,23 @@ namespace Remnant.Characters
         [SerializeField, Min(1f)] private float framesPerSecond = 8f;
         [SerializeField, Min(1f)] private float runSpeedMultiplier = 1.4f;
 
+        [Header("Side view (optional, player only)")]
+        [Tooltip("Idle loop used in SideView. Drawn facing right; flipped for left.")]
+        [SerializeField] private Sprite[] sideIdleFrames = new Sprite[0];
+        [Tooltip("Walk loop used in SideView. Drawn facing right; flipped for left.")]
+        [SerializeField] private Sprite[] sideWalkFrames = new Sprite[0];
+        [SerializeField, Min(0.1f)] private float sideIdleFramesPerSecond = 3f;
+        [SerializeField, Min(0.1f)] private float sideWalkFramesPerSecond = 10f;
+
         private SpriteRenderer spriteRenderer;
         private float animationTime;
+        private float sideTime;
+        private bool wasSideView;
 
         public FacingDirection Facing => facing;
+
+        private bool HasSideSprites =>
+            sideIdleFrames != null && sideIdleFrames.Length > 0 && sideWalkFrames != null && sideWalkFrames.Length > 0;
 
         private void Awake()
         {
@@ -51,6 +67,21 @@ namespace Remnant.Characters
 
         private void LateUpdate()
         {
+            bool sideView = playerSource != null && HasSideSprites &&
+                            playerSource.CurrentPerspective == Perspective.SideView;
+
+            if (sideView)
+            {
+                ApplySideView();
+                return;
+            }
+
+            if (wasSideView)
+            {
+                wasSideView = false;
+                spriteRenderer.flipX = false;
+            }
+
             bool moving = false;
 
             if (playerSource != null)
@@ -70,6 +101,26 @@ namespace Remnant.Characters
             }
 
             Apply(moving);
+        }
+
+        private void ApplySideView()
+        {
+            if (!wasSideView)
+            {
+                wasSideView = true;
+                sideTime = 0f;
+            }
+
+            bool moving = playerSource.IsMoving;
+            Sprite[] set = moving ? sideWalkFrames : sideIdleFrames;
+            float fps = moving ? sideWalkFramesPerSecond * (playerSource.IsRunning ? runSpeedMultiplier : 1f)
+                               : sideIdleFramesPerSecond;
+
+            sideTime += Time.deltaTime * fps;
+            Sprite sprite = set[Mathf.FloorToInt(sideTime) % set.Length];
+            if (sprite != null) spriteRenderer.sprite = sprite;
+
+            spriteRenderer.flipX = playerSource.FacingDirection < 0;
         }
 
         private void Apply(bool moving)

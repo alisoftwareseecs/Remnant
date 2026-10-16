@@ -1,3 +1,4 @@
+using Remnant.Core;
 using Remnant.Dialogue;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ namespace Remnant.Interaction
     {
         [SerializeField] private DialogueRunner dialogueRunner;
         [SerializeField] private DialogueData dialogue;
+        [Tooltip("Optional. Story flag set when the dialogue finishes.")]
+        [SerializeField] private string setFlagOnComplete;
 
         protected override void OnInteract()
         {
@@ -16,7 +19,12 @@ namespace Remnant.Interaction
                 return;
             }
 
-            dialogueRunner.Play(dialogue);
+            dialogueRunner.Play(dialogue, OnFinished);
+        }
+
+        private void OnFinished()
+        {
+            if (GameState.Instance != null) GameState.Instance.SetFlag(setFlagOnComplete);
         }
     }
 }

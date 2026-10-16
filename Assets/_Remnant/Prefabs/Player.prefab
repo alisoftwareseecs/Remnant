@@ -495,3 +495,19 @@ MonoBehaviour:
   facing: 0
   framesPerSecond: 8
   runSpeedMultiplier: 1.4
+  sideIdleFrames:
+  - {fileID: -1384237510, guid: 4e0d2c1159367834cbcd735d54f94be0, type: 3}
+  - {fileID: 1077015350, guid: 4e0d2c1159367834cbcd735d54f94be0, type: 3}
+  - {fileID: 601114767, guid: 4e0d2c1159367834cbcd735d54f94be0, type: 3}
+  - {fileID: -1764573075, guid: 4e0d2c1159367834cbcd735d54f94be0, type: 3}
+  sideWalkFrames:
+  - {fileID: -1748427674, guid: 4e0d2c1159367834cbcd735d54f94be0, type: 3}
+  - {fileID: 1904595749, guid: 4e0d2c1159367834cbcd735d54f94be0, type: 3}
+  - {fileID: -1371949363, guid: 4e0d2c1159367834cbcd735d54f94be0, type: 3}
+  - {fileID: 1642458613, guid: 4e0d2c1159367834cbcd735d54f94be0, type: 3}
+  - {fileID: 1735191569, guid: 4e0d2c1159367834cbcd735d54f94be0, type: 3}
+  - {fileID: -1738040808, guid: 4e0d2c1159367834cbcd735d54f94be0, type: 3}
+  - {fileID: -352763019, guid: 4e0d2c1159367834cbcd735d54f94be0, type: 3}
+  - {fileID: -1053647240, guid: 4e0d2c1159367834cbcd735d54f94be0, type: 3}
+  sideIdleFramesPerSecond: 3
+  sideWalkFramesPerSecond: 10

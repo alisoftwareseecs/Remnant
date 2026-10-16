@@ -12,6 +12,12 @@ namespace Remnant.Core
         [SerializeField] private Perspective perspective = Perspective.SideView;
         [SerializeField] private TimePeriod timePeriod = TimePeriod.Present;
 
+#if UNITY_EDITOR
+        [Header("Editor testing only")]
+        [Tooltip("Story flags set when Play is pressed directly in this scene (not after a scene transition). Stripped from builds.")]
+        [SerializeField] private string[] debugStartFlags = new string[0];
+#endif
+
         private void Awake()
         {
             GameState state = GameState.Instance;
@@ -20,6 +26,17 @@ namespace Remnant.Core
                 Debug.LogWarning("SceneSettings: no GameState in the scene.", this);
                 return;
             }
+
+#if UNITY_EDITOR
+            if (!SceneTransition.HasTransitioned)
+            {
+                foreach (string flag in debugStartFlags) state.SetFlag(flag);
+                if (debugStartFlags.Length > 0)
+                {
+                    Debug.Log("[SceneSettings] Debug start flags applied: " + string.Join(", ", debugStartFlags), this);
+                }
+            }
+#endif
 
             state.SetPerspective(perspective);
             state.SetTimePeriod(timePeriod);
