@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Remnant/Scenes/Storage_Hallway.unity
     guid: 4df597f548a13fb4281b0513766d7241
+  - enabled: 1
+    path: Assets/_Remnant/Scenes/Act4_Encounter.unity
+    guid: 46722dbe955ea8a48842cdd166fd9abe
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

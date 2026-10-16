@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Day2_Bully2_Talk
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Dialogue.DialogueData
   lines:
-  - speaker: 2
-    text: '"Don''t ask us. We''re not her babysitters."'
+  - speaker: 5
+    text: Good riddance.

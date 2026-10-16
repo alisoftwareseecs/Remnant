@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Act1_Bully2_Talk
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Dialogue.DialogueData
   lines:
-  - speaker: 2
-    text: '"Nobody asked you. Keep walking."'
+  - speaker: 5
+    text: Ask her what happened to her dad.

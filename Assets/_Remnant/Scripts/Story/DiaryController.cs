@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Remnant.Story
 {
     /// <summary>
-    /// Keeps the "Pages: N/6" counter and, once the last page has been read and closed, lets the Shadow speak
+    /// Keeps the "Pages: N/8" counter and, once the last page has been read and closed, lets the Shadow speak
     /// and sets the completion flag (which unlocks the back door through StoryInteractable variants).
     /// </summary>
     public class DiaryController : MonoBehaviour
@@ -16,7 +16,7 @@ namespace Remnant.Story
         [SerializeField] private TMP_Text counterText;
         [SerializeField] private DialogueRunner dialogueRunner;
         [SerializeField] private DialogueData completionDialogue;
-        [SerializeField, Min(1)] private int totalPages = 6;
+        [SerializeField, Min(1)] private int totalPages = 8;
         [SerializeField] private string completionFlag = "diary_complete";
 
         private GameState state;

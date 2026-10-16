@@ -27,11 +27,19 @@ namespace Remnant.Shadow
         [Tooltip("Set when the Shadow first appears, so it only fades in slowly once.")]
         [SerializeField] private string seenFlag = "shadow_seen";
 
+        [Tooltip("Once set, the Shadow is an ordinary shadow for the rest of the game: in sync, no delay, no wobble, softer grey.")]
+        [SerializeField] private string normalFlag = "shadow_normal";
+
         [Header("Look")]
         [Range(0f, 1f)] [SerializeField] private float maxAlpha = 0.65f;
         [SerializeField, Min(0.1f)] private float fadeInSeconds = 3f;
         [Tooltip("Where the Shadow rests relative to the player once separated from the feet.")]
         [SerializeField] private Vector2 restOffset = new Vector2(0.45f, -0.05f);
+
+        [Header("Normal mode (after the Shadow has said who it is)")]
+        [SerializeField] private Color normalColor = new Color(0.22f, 0.22f, 0.24f, 0.4f);
+        [Tooltip("Where an ordinary shadow lies relative to the player's feet.")]
+        [SerializeField] private Vector2 normalOffset = new Vector2(0.12f, -0.06f);
 
         [Header("Following")]
         [SerializeField, Min(0f)] private float followDelay = 0.4f;
@@ -55,6 +63,8 @@ namespace Remnant.Shadow
         private GameState state;
 
         private bool awake;
+        private bool normal;
+        private float vanish;
         private float appearProgress;
         private float extraLag;
         private float extraLagTarget;
@@ -80,6 +90,7 @@ namespace Remnant.Shadow
             }
 
             state.FlagChanged += OnFlagChanged;
+            normal = state.HasFlag(normalFlag);
             if (state.HasFlag(awakeFlag)) Wake(!state.HasFlag(seenFlag));
         }
 
@@ -91,6 +102,37 @@ namespace Remnant.Shadow
         private void OnFlagChanged(string flag, bool value)
         {
             if (flag == awakeFlag && value && !awake) Wake(!state.HasFlag(seenFlag));
+            if (flag == normalFlag) normal = value;
+        }
+
+        /// <summary>
+        /// The Shadow shrinks towards the player's feet while fading, then settles as an ordinary shadow
+        /// (sets the normal flag, so it stays that way). The returned coroutine ends when it has settled.
+        /// </summary>
+        public System.Collections.IEnumerator ShrinkToFeet(float seconds)
+        {
+            float elapsed = 0f;
+            while (elapsed < seconds)
+            {
+                vanish = Mathf.SmoothStep(0f, 1f, elapsed / seconds);
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            vanish = 1f;
+            if (state != null) state.SetFlag(normalFlag);
+            normal = true;
+
+            // It comes back as a plain shadow.
+            elapsed = 0f;
+            while (elapsed < 1f)
+            {
+                vanish = 1f - Mathf.SmoothStep(0f, 1f, elapsed);
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            vanish = 0f;
         }
 
         private void Wake(bool slowAppearance)
@@ -116,7 +158,7 @@ namespace Remnant.Shadow
             if (playerRenderer == null || playerRenderer.sprite == null) return;
 
             appearProgress = Mathf.MoveTowards(appearProgress, 1f, Time.deltaTime / fadeInSeconds);
-            UpdateDesync();
+            if (!normal) UpdateDesync();
             Record();
             Render();
         }
@@ -158,7 +200,7 @@ namespace Remnant.Shadow
         {
             // At the start the Shadow sits exactly on the player's feet; separation widens the delay and the offset.
             float separation = Mathf.SmoothStep(0f, 1f, appearProgress);
-            float delay = (followDelay + extraLag) * separation;
+            float delay = normal ? 0f : (followDelay + extraLag) * separation;
             float renderTime = Time.time - delay;
 
             int index = 0;
@@ -180,22 +222,29 @@ namespace Remnant.Shadow
             float ny = Mathf.PerlinNoise(0.7f, time) - 0.5f;
             float nr = Mathf.PerlinNoise(time * 0.8f, 5.1f) - 0.5f;
 
-            position += (Vector3)(restOffset * separation);
-            position += new Vector3(nx, ny, 0f) * (2f * wobblePosition);
+            // While it shrinks, the Shadow slides in to the player's feet.
+            Vector2 offset = normal ? normalOffset : restOffset;
+            position += (Vector3)(offset * separation * (1f - vanish));
+            if (!normal) position += new Vector3(nx, ny, 0f) * (2f * wobblePosition);
             position.z = player.transform.position.z;
 
             transform.position = position;
-            transform.rotation = Quaternion.Euler(0f, 0f, nr * 2f * wobbleRotationDegrees);
+            transform.rotation = normal ? Quaternion.identity : Quaternion.Euler(0f, 0f, nr * 2f * wobbleRotationDegrees);
+            float wobbleX = normal ? 0f : nx * 2f * wobbleScale;
+            float wobbleY = normal ? 0f : ny * 2f * wobbleScale;
+            float shrink = Mathf.Lerp(1f, 0.25f, vanish);
             transform.localScale = new Vector3(
-                from.scale.x * (1f + nx * 2f * wobbleScale),
-                from.scale.y * (1f + ny * 2f * wobbleScale),
+                from.scale.x * (1f + wobbleX) * shrink,
+                from.scale.y * (1f + wobbleY) * shrink,
                 from.scale.z);
 
             spriteRenderer.sprite = from.sprite;
-            spriteRenderer.flipX = from.flipX != wrongFacing;
+            spriteRenderer.flipX = from.flipX != (wrongFacing && !normal);
             spriteRenderer.sortingLayerID = playerRenderer.sortingLayerID;
             spriteRenderer.sortingOrder = playerRenderer.sortingOrder - 1;
-            spriteRenderer.color = new Color(0f, 0f, 0f, maxAlpha * appearProgress);
+            Color color = normal ? normalColor : new Color(0f, 0f, 0f, maxAlpha);
+            color.a *= appearProgress * (1f - vanish);
+            spriteRenderer.color = color;
             spriteRenderer.enabled = true;
         }
     }

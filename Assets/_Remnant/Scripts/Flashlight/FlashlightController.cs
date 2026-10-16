@@ -23,6 +23,10 @@ namespace Remnant.Flashlight
         [SerializeField] private Light2D beam;
         [SerializeField] private PlayerController player;
 
+        [Header("When it works")]
+        [Tooltip("Normally the beam is on only in the Future. Turn this on for a Present scene that is dark on purpose (the Act 4 encounter).")]
+        [SerializeField] private bool alwaysOn;
+
         [Header("Beam")]
         [SerializeField, Min(0.1f)] private float baseIntensity = 1.3f;
         [Range(0f, 0.3f)] [SerializeField] private float flickerAmount = 0.05f;
@@ -41,10 +45,13 @@ namespace Remnant.Flashlight
         private bool aimLocked;
         private float intensityBoost = 1f;
         private bool useStick;
+        private float flickerUntil;
         private bool lit;
         private float noiseSeed;
 
         public bool IsOn => lit;
+        /// <summary>True once the beam has been pointed at the floor for good.</summary>
+        public bool IsLowered { get; private set; }
         public Vector2 Origin => transform.position;
         public Vector2 Direction => aimDirection;
         public float Range => beam != null ? beam.pointLightOuterRadius : 0f;
@@ -94,7 +101,7 @@ namespace Remnant.Flashlight
 
         private void Refresh()
         {
-            bool shouldBeOn = state != null && state.CurrentTimePeriod == TimePeriod.Future;
+            bool shouldBeOn = alwaysOn || (state != null && state.CurrentTimePeriod == TimePeriod.Future);
 
             lit = shouldBeOn;
             if (beam != null) beam.enabled = shouldBeOn;
@@ -140,6 +147,19 @@ namespace Remnant.Flashlight
         public void UnlockAim()
         {
             aimLocked = false;
+        }
+
+        /// <summary>Points the beam at the floor, permanently. The player can no longer aim it.</summary>
+        public void LowerBeam()
+        {
+            IsLowered = true;
+            LockAim(Vector2.down);
+        }
+
+        /// <summary>Makes the beam stutter and dim for a moment, as if the light itself were afraid.</summary>
+        public void Flicker(float seconds)
+        {
+            flickerUntil = Time.time + seconds;
         }
 
         /// <summary>
@@ -210,7 +230,10 @@ namespace Remnant.Flashlight
         {
             float t = Time.time * flickerSpeed + noiseSeed;
             float noise = Mathf.PerlinNoise(t, 0.37f) - 0.5f;
-            beam.intensity = baseIntensity * intensityBoost * (1f + noise * 2f * flickerAmount);
+            float strobe = 1f;
+            if (Time.time < flickerUntil) strobe = Random.value < 0.45f ? Random.Range(0f, 0.25f) : Random.Range(0.6f, 1.1f);
+
+            beam.intensity = baseIntensity * intensityBoost * strobe * (1f + noise * 2f * flickerAmount);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Remnant.Story
     {
         public const string FlagPrefix = "page_";
 
-        [SerializeField, Range(1, 6)] private int pageNumber = 1;
+        [SerializeField, Range(1, 8)] private int pageNumber = 1;
         [TextArea(2, 6)] [SerializeField] private string pageText;
         [SerializeField] private DiaryPanel panel;
 

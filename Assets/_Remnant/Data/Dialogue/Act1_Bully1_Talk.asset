@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Act1_Bully1_Talk
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Dialogue.DialogueData
   lines:
-  - speaker: 2
-    text: '"Do you need something? No? Then mind your own business."'
+  - speaker: 4
+    text: 'Don''t stand so close. She''s dangerous.'

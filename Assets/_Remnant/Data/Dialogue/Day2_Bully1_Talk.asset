@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Day2_Bully1_Talk
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Dialogue.DialogueData
   lines:
-  - speaker: 2
-    text: '"What? She probably just skipped."'
+  - speaker: 4
+    text: 'Killers don''t come to class anyway.'

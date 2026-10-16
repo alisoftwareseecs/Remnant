@@ -106,12 +106,14 @@ namespace Remnant.Dialogue
             bool shadow = line.speaker == Speaker.Shadow;
             bool narration = line.speaker == Speaker.Narration;
 
+            string label = LabelFor(line.speaker);
+
             Color color = shadow ? shadowColor : narration ? narrationColor : protagonistColor;
             FontStyles style = shadow || narration ? FontStyles.Italic : FontStyles.Normal;
 
             if (speakerLabel != null)
             {
-                speakerLabel.text = shadow ? "SHADOW" : string.Empty;
+                speakerLabel.text = label;
                 speakerLabel.color = color;
                 speakerLabel.fontStyle = FontStyles.Normal;
             }
@@ -126,6 +128,19 @@ namespace Remnant.Dialogue
             typing = true;
             if (continueIndicator != null) continueIndicator.SetActive(false);
             ApplyReveal();
+        }
+
+        private static string LabelFor(Speaker speaker)
+        {
+            switch (speaker)
+            {
+                case Speaker.Shadow: return "SHADOW";
+                case Speaker.Aiko: return "AIKO";
+                case Speaker.Bully1: return "BULLY 1";
+                case Speaker.Bully2: return "BULLY 2";
+                case Speaker.Bully3: return "BULLY 3";
+                default: return string.Empty;
+            }
         }
 
         private void ApplyReveal()

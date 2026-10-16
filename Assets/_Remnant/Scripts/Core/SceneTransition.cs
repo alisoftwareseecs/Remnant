@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace Remnant.Core
 {
-    public enum TransitionStyle { Fade, Distort }
+    public enum TransitionStyle { Fade, Distort, Flash }
 
     /// <summary>
     /// Persistent like GameState. Fades to black (or flickers red/black), optionally shows a title card, loads a
@@ -38,6 +38,10 @@ namespace Remnant.Core
         [Header("Distort style")]
         [SerializeField, Min(0f)] private float distortSeconds = 0.9f;
         [SerializeField] private Color distortColor = new Color(0.45f, 0f, 0f, 1f);
+
+        [Header("Flash style")]
+        [Tooltip("The white flash that opens the transition.")]
+        [SerializeField, Min(0.01f)] private float flashSeconds = 0.25f;
 
         public bool IsTransitioning { get; private set; }
 
@@ -97,10 +101,14 @@ namespace Remnant.Core
             HasTransitioned = true;
             SetPlayerLocked(true);
 
-            if (style == TransitionStyle.Distort) yield return Distort();
-            else yield return FadeOverlay(0f, 1f, fadeOutOverride >= 0f ? fadeOutOverride : fadeOutSeconds, Color.black);
+            // A flash goes to white and comes back from white; everything else uses black.
+            Color fadeColor = style == TransitionStyle.Flash ? Color.white : Color.black;
 
-            SetOverlay(1f, Color.black);
+            if (style == TransitionStyle.Distort) yield return Distort();
+            else if (style == TransitionStyle.Flash) yield return FadeOverlay(0f, 1f, flashSeconds, fadeColor);
+            else yield return FadeOverlay(0f, 1f, fadeOutOverride >= 0f ? fadeOutOverride : fadeOutSeconds, fadeColor);
+
+            SetOverlay(1f, fadeColor);
 
             bool hasTitle = !string.IsNullOrEmpty(title);
             if (hasTitle)
@@ -122,7 +130,7 @@ namespace Remnant.Core
             yield return null;
 
             if (hasTitle) StartCoroutine(FadeTitle(1f, 0f, titleFadeSeconds));
-            yield return FadeOverlay(1f, 0f, fadeInSeconds, Color.black);
+            yield return FadeOverlay(1f, 0f, fadeInSeconds, fadeColor);
 
             SetPlayerLocked(false);
             IsTransitioning = false;

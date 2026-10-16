@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Act1_Bully3_Talk
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Dialogue.DialogueData
   lines:
-  - speaker: 2
-    text: '"Go sit down. This isn''t your problem."'
+  - speaker: 6
+    text: Mind your own business. Unless you want to be next.
   - speaker: 0
-    text: (She's right. It isn't. That is what I tell myself.)
+    text: (I should say something. That is what I tell myself.)

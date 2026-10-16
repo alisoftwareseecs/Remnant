@@ -1288,7 +1288,9 @@ MonoBehaviour:
   timePeriod: 0
   allowRunning: 1
   walkSpeedMultiplier: 1
-  debugStartFlags: []
+  debugStartFlags:
+  - act4
+  - shadow_awake
 --- !u!4 &250539575
 Transform:
   m_ObjectHideFlags: 0
@@ -5824,6 +5826,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneTransition
       objectReference: {fileID: 0}
+    - target: {fileID: 8538401126344389193, guid: dc6f788878a4ef44ca9243b59955bdb8, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6125,8 +6131,8 @@ GameObject:
   - component: {fileID: 1351497484}
   - component: {fileID: 1351497483}
   - component: {fileID: 1351497482}
-  - component: {fileID: 1351497481}
   - component: {fileID: 1351497485}
+  - component: {fileID: 1351497486}
   m_Layer: 0
   m_Name: bully1
   m_TagString: Untagged
@@ -6149,27 +6155,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1253630500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1351497481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351497479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af8a79857e27c54e822c49a8bc8092d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Interaction.ExamineInteractable
-  restrictPerspective: 0
-  onlyInPerspective: 0
-  restrictTimePeriod: 0
-  onlyInTimePeriod: 0
-  onceOnly: 0
-  promptOffset: {x: 0, y: 1.75, z: 0}
-  dialogueRunner: {fileID: 1180829029}
-  dialogue: {fileID: 11400000, guid: 30c36bb26d1018e43a1f23645605e369, type: 2}
-  setFlagOnComplete: 
 --- !u!114 &1351497482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6324,6 +6309,48 @@ MonoBehaviour:
   flag: day2
   mode: 1
   target: {fileID: 0}
+--- !u!114 &1351497486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351497479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f5dd823157fe34d9988f701eb481ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Interaction.StoryInteractable
+  restrictPerspective: 0
+  onlyInPerspective: 0
+  restrictTimePeriod: 0
+  onlyInTimePeriod: 0
+  onceOnly: 0
+  promptOffset: {x: 0, y: 0.9, z: 0}
+  dialogueRunner: {fileID: 1180829029}
+  variants:
+  - requiresFlag: act4_stepin
+    forbidsFlag: act4_confronted
+    dialogue: {fileID: 11400000, guid: 677529f3bb620974a81671bb36c5fa72, type: 2}
+    setFlag: act4_confronted
+    sequence: {fileID: 0}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
+  - requiresFlag: 
+    forbidsFlag: act4_stepin
+    dialogue: {fileID: 11400000, guid: 30c36bb26d1018e43a1f23645605e369, type: 2}
+    setFlag: 
+    sequence: {fileID: 0}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
 --- !u!1001 &1397654050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6808,8 +6835,8 @@ GameObject:
   - component: {fileID: 1470012184}
   - component: {fileID: 1470012183}
   - component: {fileID: 1470012182}
-  - component: {fileID: 1470012181}
   - component: {fileID: 1470012185}
+  - component: {fileID: 1470012186}
   m_Layer: 0
   m_Name: bully3
   m_TagString: Untagged
@@ -6832,27 +6859,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1253630500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1470012181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1470012179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af8a79857e27c54e822c49a8bc8092d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Interaction.ExamineInteractable
-  restrictPerspective: 0
-  onlyInPerspective: 0
-  restrictTimePeriod: 0
-  onlyInTimePeriod: 0
-  onceOnly: 0
-  promptOffset: {x: 0, y: 1.75, z: 0}
-  dialogueRunner: {fileID: 1180829029}
-  dialogue: {fileID: 11400000, guid: 9b349f32f8df7ba4bbbdc8f79b7004f8, type: 2}
-  setFlagOnComplete: 
 --- !u!114 &1470012182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7007,6 +7013,124 @@ MonoBehaviour:
   flag: day2
   mode: 1
   target: {fileID: 0}
+--- !u!114 &1470012186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470012179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f5dd823157fe34d9988f701eb481ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Interaction.StoryInteractable
+  restrictPerspective: 0
+  onlyInPerspective: 0
+  restrictTimePeriod: 0
+  onlyInTimePeriod: 0
+  onceOnly: 0
+  promptOffset: {x: 0, y: 0.9, z: 0}
+  dialogueRunner: {fileID: 1180829029}
+  variants:
+  - requiresFlag: act4_stepin
+    forbidsFlag: act4_confronted
+    dialogue: {fileID: 11400000, guid: 677529f3bb620974a81671bb36c5fa72, type: 2}
+    setFlag: act4_confronted
+    sequence: {fileID: 0}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
+  - requiresFlag: 
+    forbidsFlag: act4_stepin
+    dialogue: {fileID: 11400000, guid: 9b349f32f8df7ba4bbbdc8f79b7004f8, type: 2}
+    setFlag: 
+    sequence: {fileID: 0}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
+--- !u!1 &1506741571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1506741573}
+  - component: {fileID: 1506741572}
+  m_Layer: 0
+  m_Name: Act4Director
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1506741572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506741571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069e19c744321aa4dab738ab142ef081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Story.Act4Director
+  dialogueRunner: {fileID: 1180829029}
+  globalLight: {fileID: 23139202}
+  bullyGroupCenter: {fileID: 1893391277}
+  darkDistance: 3
+  flickerSeconds: 1.5
+  deadLightIntensity: 0.05
+  encounterScene: Act4_Encounter
+  encounterSpawnId: start
+  aiko: {fileID: 1571454672}
+  bullies:
+  - {fileID: 1351497480}
+  - {fileID: 1894145105}
+  - {fileID: 1470012180}
+  exitPoint: {fileID: 2037016246}
+  reunionDialogue: {fileID: 11400000, guid: 1d51cca4404720d4485081fcd3b5a856, type: 2}
+  shadowReunionDialogue: {fileID: 11400000, guid: 15d46d5525b0b734e9723d0b31f8d1fd, type: 2}
+  reunionSpawnId: reunion
+  aikoDistance: 1.1
+  dimIntensity: 0.3
+  shrinkSeconds: 5
+  lightsReturnSeconds: 1.6
+  bullyOffsets:
+  - {x: -1.5, y: 0.5}
+  - {x: 1.5, y: 0.5}
+  - {x: 0, y: 1.4}
+  bullyWalkSpeed: 2.4
+  bullyStagger: 0.5
+  actFlag: act4
+  darkFlag: act4_dark
+  reunionFlag: act4_reunion
+  stepInFlag: act4_stepin
+  confrontedFlag: act4_confronted
+--- !u!4 &1506741573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506741571}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1526332987
 GameObject:
   m_ObjectHideFlags: 0
@@ -7368,8 +7492,8 @@ GameObject:
   - component: {fileID: 1571454676}
   - component: {fileID: 1571454675}
   - component: {fileID: 1571454674}
-  - component: {fileID: 1571454673}
   - component: {fileID: 1571454677}
+  - component: {fileID: 1571454678}
   m_Layer: 0
   m_Name: aiko
   m_TagString: Untagged
@@ -7392,27 +7516,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1253630500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1571454673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1571454671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af8a79857e27c54e822c49a8bc8092d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Interaction.ExamineInteractable
-  restrictPerspective: 0
-  onlyInPerspective: 0
-  restrictTimePeriod: 0
-  onlyInTimePeriod: 0
-  onceOnly: 0
-  promptOffset: {x: 0, y: 1.75, z: 0}
-  dialogueRunner: {fileID: 1180829029}
-  dialogue: {fileID: 11400000, guid: 4a0b5d028e4ca5f4792157c459f598c8, type: 2}
-  setFlagOnComplete: talked_aiko
 --- !u!114 &1571454674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7567,6 +7670,134 @@ MonoBehaviour:
   flag: day2
   mode: 1
   target: {fileID: 0}
+--- !u!114 &1571454678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571454671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f5dd823157fe34d9988f701eb481ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Interaction.StoryInteractable
+  restrictPerspective: 0
+  onlyInPerspective: 0
+  restrictTimePeriod: 0
+  onlyInTimePeriod: 0
+  onceOnly: 0
+  promptOffset: {x: 0, y: 0.9, z: 0}
+  dialogueRunner: {fileID: 1180829029}
+  variants:
+  - requiresFlag: act4_confronted
+    forbidsFlag: act4_done
+    dialogue: {fileID: 11400000, guid: b13a10e23db8ca8488d77603802dbf76, type: 2}
+    setFlag: act4_done
+    sequence: {fileID: 0}
+    changeScene: 1
+    sceneName: Present_Classroom
+    spawnId: start
+    titleCard: '[Epilogue - Part 2]'
+    flagDuringTransition: 
+    style: 0
+  - requiresFlag: act4_reunion
+    forbidsFlag: 
+    dialogue: {fileID: 0}
+    setFlag: 
+    sequence: {fileID: 0}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
+  - requiresFlag: 
+    forbidsFlag: 
+    dialogue: {fileID: 11400000, guid: 4a0b5d028e4ca5f4792157c459f598c8, type: 2}
+    setFlag: talked_aiko
+    sequence: {fileID: 0}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
+--- !u!1 &1579621724
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1579621727}
+  - component: {fileID: 1579621726}
+  - component: {fileID: 1579621725}
+  m_Layer: 0
+  m_Name: Act4Beats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1579621725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579621724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b30618ef87ba948a15bff678f3760d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Story.ProximityDialogue
+  dialogueRunner: {fileID: 1180829029}
+  dialogue: {fileID: 11400000, guid: d9aeea610eece204195a74e74786292a, type: 2}
+  target: {fileID: 1893391277}
+  radius: 5
+  requiresFlag: act4
+  forbidsFlag: act4_shadow_walkpast
+  alsoForbidsFlag: act4_dark
+  setFlag: act4_shadow_walkpast
+  refreshCheckpointFlags: 1
+--- !u!114 &1579621726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579621724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b30618ef87ba948a15bff678f3760d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Story.ProximityDialogue
+  dialogueRunner: {fileID: 1180829029}
+  dialogue: {fileID: 11400000, guid: 974b4d2983d160e42bdfe9d2ce281f30, type: 2}
+  target: {fileID: 0}
+  radius: 5
+  requiresFlag: act4
+  forbidsFlag: act4_shadow_arrival
+  alsoForbidsFlag: act4_dark
+  setFlag: act4_shadow_arrival
+  refreshCheckpointFlags: 1
+--- !u!4 &1579621727
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579621724}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1669427805
 GameObject:
   m_ObjectHideFlags: 0
@@ -7984,6 +8215,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!1 &1893391276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1893391277}
+  m_Layer: 0
+  m_Name: BullyGroupCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1893391277
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893391276}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.4, y: 2.9, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1894145104
 GameObject:
   m_ObjectHideFlags: 0
@@ -7996,8 +8258,8 @@ GameObject:
   - component: {fileID: 1894145109}
   - component: {fileID: 1894145108}
   - component: {fileID: 1894145107}
-  - component: {fileID: 1894145106}
   - component: {fileID: 1894145110}
+  - component: {fileID: 1894145111}
   m_Layer: 0
   m_Name: bully2
   m_TagString: Untagged
@@ -8020,27 +8282,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1253630500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1894145106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1894145104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af8a79857e27c54e822c49a8bc8092d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Interaction.ExamineInteractable
-  restrictPerspective: 0
-  onlyInPerspective: 0
-  restrictTimePeriod: 0
-  onlyInTimePeriod: 0
-  onceOnly: 0
-  promptOffset: {x: 0, y: 1.75, z: 0}
-  dialogueRunner: {fileID: 1180829029}
-  dialogue: {fileID: 11400000, guid: 534b0452b7b8eed48b10b494c94d5507, type: 2}
-  setFlagOnComplete: 
 --- !u!114 &1894145107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8195,6 +8436,93 @@ MonoBehaviour:
   flag: day2
   mode: 1
   target: {fileID: 0}
+--- !u!114 &1894145111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894145104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f5dd823157fe34d9988f701eb481ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Interaction.StoryInteractable
+  restrictPerspective: 0
+  onlyInPerspective: 0
+  restrictTimePeriod: 0
+  onlyInTimePeriod: 0
+  onceOnly: 0
+  promptOffset: {x: 0, y: 0.9, z: 0}
+  dialogueRunner: {fileID: 1180829029}
+  variants:
+  - requiresFlag: act4_stepin
+    forbidsFlag: act4_confronted
+    dialogue: {fileID: 11400000, guid: 677529f3bb620974a81671bb36c5fa72, type: 2}
+    setFlag: act4_confronted
+    sequence: {fileID: 0}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
+  - requiresFlag: 
+    forbidsFlag: act4_stepin
+    dialogue: {fileID: 11400000, guid: 534b0452b7b8eed48b10b494c94d5507, type: 2}
+    setFlag: 
+    sequence: {fileID: 0}
+    changeScene: 0
+    sceneName: 
+    spawnId: 
+    titleCard: 
+    flagDuringTransition: 
+    style: 0
+--- !u!1 &1986790131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1986790133}
+  - component: {fileID: 1986790132}
+  m_Layer: 0
+  m_Name: Spawn_reunion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1986790132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986790131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11a151614815dc84bbb6347c92423133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.SpawnPoint
+  id: reunion
+--- !u!4 &1986790133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986790131}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.4, y: 2.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2025701072
 GameObject:
   m_ObjectHideFlags: 0
@@ -8727,3 +9055,7 @@ SceneRoots:
   - {fileID: 1669427807}
   - {fileID: 1757548566}
   - {fileID: 1847081353}
+  - {fileID: 1893391277}
+  - {fileID: 1579621727}
+  - {fileID: 1986790133}
+  - {fileID: 1506741573}

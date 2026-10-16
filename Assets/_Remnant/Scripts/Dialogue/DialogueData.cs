@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace Remnant.Dialogue
 {
-    public enum Speaker { Protagonist, Shadow, Narration }
+    // New speakers are appended: dialogue assets store the numeric value.
+    public enum Speaker { Protagonist, Shadow, Narration, Aiko, Bully1, Bully2, Bully3 }
 
     [Serializable]
     public struct DialogueLine

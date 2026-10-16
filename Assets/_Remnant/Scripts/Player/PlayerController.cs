@@ -127,6 +127,12 @@ namespace Remnant.Player
             if (facingOverride != 0) FacingDirection = facingOverride;
         }
 
+        /// <summary>Turns the TopDown sprite to look along this direction without moving (e.g. at the start of a scene).</summary>
+        public void SetLastMoveDirection(Vector2 direction)
+        {
+            if (direction.sqrMagnitude > 0.0001f) LastMoveDirection = direction.normalized;
+        }
+
         public void SetMovementLocked(bool locked)
         {
             movementLocked = locked;
