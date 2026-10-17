@@ -43,6 +43,7 @@ namespace Remnant.Story
 
             started = true;
             player.SetMovementLocked(true);
+            Remnant.Audio.SfxPlayer.Play(Remnant.Audio.MusicManager.Cues?.DoorOpen);
 
             if (dialogueRunner != null && dialogue != null) dialogueRunner.Play(dialogue, Leave);
             else Leave();

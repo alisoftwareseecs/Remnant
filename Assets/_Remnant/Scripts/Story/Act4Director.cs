@@ -263,7 +263,12 @@ namespace Remnant.Story
             state.RefreshCheckpointFlags();
             // The lights come back and the pleasant music fades in.
             MusicManager music = MusicManager.Instance;
-            if (music != null && music.Library != null) music.Play(music.Library.Pleasant, lightsBackMusicFadeSeconds);
+            if (music != null && music.Library != null)
+            {
+                music.Play(music.Library.Pleasant, lightsBackMusicFadeSeconds);
+                AudioLoops.Play("rain", music.Library.RainLight, AudioChannel.Ambience, lightsBackMusicFadeSeconds);
+                SfxPlayer.Play(music.Library.LightsReturn);
+            }
             PlaceGirls();
 
             float elapsed = 0f;

@@ -19,3 +19,20 @@ MonoBehaviour:
   transition: {fileID: 11400000, guid: b06a73755e2a4dd4ab66f1e3e6057b00, type: 2}
   shadowAppear: {fileID: 11400000, guid: dd0289babc465b344ad2007aa40e9a3c, type: 2}
   gameOver: {fileID: 11400000, guid: 53ab69c03b5be444095199c1e4c1ab03, type: 2}
+  doorOpen: {fileID: 11400000, guid: 2d3e7eaacdda9a84ab222c2a2430edec, type: 2}
+  doorLocked: {fileID: 11400000, guid: efd915f1989b897499fab7c96b84f64c, type: 2}
+  menuSelect: {fileID: 11400000, guid: f175526048b78d64e8cea1d5e7a8173e, type: 2}
+  paperTurn: {fileID: 11400000, guid: 34024d69e09ca1c4da009642368cc27f, type: 2}
+  heartbeat: {fileID: 11400000, guid: 16a6f8f3865335b408dcd3415c667505, type: 2}
+  ghostBreathing: {fileID: 11400000, guid: 6b0cf5436e75a174fb8178b6bae74c65, type: 2}
+  rainLight: {fileID: 11400000, guid: af0e752f08718a1439dfe79632235896, type: 2}
+  rainHeavy: {fileID: 11400000, guid: 3cbfca4d6a7ce3f4b87f82ae36c30ab0, type: 2}
+  pleasantMemory: {fileID: 11400000, guid: 4b44040500c7ec34ab3c0c8953edef8b, type: 2}
+  footstepClassroom: {fileID: 11400000, guid: 6fbe45523cd9d8f4cb6d39bc692f196c, type: 2}
+  footstepCorridor: {fileID: 11400000, guid: 5a101fb24c1e9a44ea6788b9d18cd387, type: 2}
+  lightLower: {fileID: 11400000, guid: b538285f0d397ba4bb4d6d6dd42ab967, type: 2}
+  lightsFlicker: {fileID: 11400000, guid: b1c242d72ee6c654fba217d969846120, type: 2}
+  lightsDie: {fileID: 11400000, guid: f3b219ba683826d41999a91d153e3556, type: 2}
+  lightsReturn: {fileID: 11400000, guid: e43aaaff4a9a0b04ba01185688d104c7, type: 2}
+  girlsLaugh: {fileID: 11400000, guid: 5af16eca2136370479ed5185ea53eea7, type: 2}
+  ghostFlinch: {fileID: 11400000, guid: 3da355c0d9d15c0448ff713c20ec7996, type: 2}

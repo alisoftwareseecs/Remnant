@@ -13,6 +13,9 @@ namespace Remnant.Dialogue
     /// </summary>
     public enum DialogueMode { Normal, Tense, Auto }
 
+    /// <summary>Per-line override of the typing blips. Default = the speaker's setting (and the parenthesis rule).</summary>
+    public enum BlipOverride { Default, On, Off }
+
     [Serializable]
     public struct DialogueLine
     {
@@ -26,6 +29,11 @@ namespace Remnant.Dialogue
         public Color fadeTo;
         [Tooltip("Also fade the speaker label with the text (only used when Fade Color is on).")]
         public bool fadeLabel;
+
+        [Tooltip("Default: the speaker's blip setting decides (and a protagonist line in parentheses is a thought: no blips). On / Off force it for this line. Auto lines never blip.")]
+        public BlipOverride blips;
+        [Tooltip("Extra gain in dB for this line's blips (0 = normal, -3 = half the power). Used to keep the Shadow's slow lines heavy instead of chatty.")]
+        public float blipGainDb;
     }
 
     [CreateAssetMenu(fileName = "Dialogue", menuName = "Remnant/Dialogue")]

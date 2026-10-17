@@ -74,8 +74,8 @@ namespace Remnant.UI
             DontDestroyOnLoad(gameObject);
 
             if (panel != null) panel.SetActive(false);
-            if (resumeButton != null) resumeButton.onClick.AddListener(Resume);
-            if (quitButton != null) quitButton.onClick.AddListener(QuitToTitle);
+            if (resumeButton != null) resumeButton.onClick.AddListener(() => { MenuSound(); Resume(); });
+            if (quitButton != null) quitButton.onClick.AddListener(() => { MenuSound(); QuitToTitle(); });
         }
 
         private void OnEnable()
@@ -147,6 +147,11 @@ namespace Remnant.UI
         public void Resume()
         {
             Close();
+        }
+
+        private static void MenuSound()
+        {
+            Remnant.Audio.SfxPlayer.Play(Remnant.Audio.MusicManager.Cues?.MenuSelect);
         }
 
         public void QuitToTitle()

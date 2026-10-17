@@ -1,4 +1,5 @@
 using System;
+using Remnant.Audio;
 using Remnant.Core;
 using Remnant.Dialogue;
 using Remnant.Story;
@@ -27,6 +28,8 @@ namespace Remnant.Interaction
             [Tooltip("Set when the dialogue finishes.")]
             [SerializeField] private string setFlag;
             [SerializeField] private StorySequence sequence;
+            [Tooltip("Played the moment this variant is used (a door opening, a locked door rattling). Empty = silent.")]
+            [SerializeField] private AudioCue sound;
             [Tooltip("A readable close-up of the object, faded in behind the dialogue box while the dialogue plays and out when it ends.")]
             [SerializeField] private Sprite closeUp;
 
@@ -42,6 +45,7 @@ namespace Remnant.Interaction
             public DialogueData Dialogue => dialogue;
             public string SetFlag => setFlag;
             public StorySequence Sequence => sequence;
+            public AudioCue Sound => sound;
             public Sprite CloseUp => closeUp;
             public bool ChangeScene => changeScene;
             public string SceneName => sceneName;
@@ -107,6 +111,8 @@ namespace Remnant.Interaction
         {
             Variant variant = SelectVariant();
             if (variant == null) return;
+
+            SfxPlayer.Play(variant.Sound);
 
             if (variant.Dialogue != null && dialogueRunner != null)
             {

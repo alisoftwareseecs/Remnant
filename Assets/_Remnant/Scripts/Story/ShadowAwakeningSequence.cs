@@ -101,6 +101,7 @@ namespace Remnant.Story
             // The lights flicker and the music stops. The Shadow separates on the line "You move. Your shadow doesn't."
             awakened = GameState.Instance != null && GameState.Instance.HasFlag(awakeFlag);
             if (MusicManager.Instance != null) MusicManager.Instance.Stop(musicFadeOutSeconds);
+            SfxPlayer.Play(MusicManager.Cues?.LightsFlicker);
             yield return Flicker(introDelaySeconds);
 
             if (dialogueRunner != null) dialogueRunner.LineStarted += OnLineStarted;
@@ -114,6 +115,8 @@ namespace Remnant.Story
 
             if (SceneTransition.Instance != null)
             {
+                // the rain was the only sound left; the pull into the Future cuts it
+                AudioLoops.HardCut("rain");
                 SceneTransition.Instance.GoTo(nextScene, nextSpawnId, null, style, null, null, -1f, true);
             }
             else

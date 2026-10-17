@@ -103,6 +103,8 @@ GameObject:
   - component: {fileID: 1460420924806568739}
   - component: {fileID: 7018514887653192502}
   - component: {fileID: 9115509702282980023}
+  - component: {fileID: 8734046037620801675}
+  - component: {fileID: 1998635700045525501}
   m_Layer: 0
   m_Name: AikoGhost
   m_TagString: Untagged
@@ -361,6 +363,60 @@ MonoBehaviour:
   retreatSpeed: 2.4
   cryingSource: {fileID: 7018514887653192502}
   cryingClip: {fileID: 0}
+--- !u!114 &8734046037620801675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6835490442402053449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92227992a0ac3249b166ba2b5cc5f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Audio.ProximityLoop
+  kind: 0
+  loopId: ghost_breath
+  channel: 0
+  ghost: {fileID: 9115509702282980023}
+  monster: {fileID: 0}
+  maxDistance: 10
+  fullDistance: 0.6
+  curvePower: 1.6
+  minVolume: 0
+  pitchFar: 1
+  pitchNear: 1
+  panAmount: 0.8
+  keepAfterAbsence: 0
+  cutWhenLightLowered: 1
+  fadeSeconds: 0.8
+--- !u!114 &1998635700045525501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6835490442402053449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92227992a0ac3249b166ba2b5cc5f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Audio.ProximityLoop
+  kind: 1
+  loopId: ghost_heartbeat
+  channel: 0
+  ghost: {fileID: 9115509702282980023}
+  monster: {fileID: 0}
+  maxDistance: 14
+  fullDistance: 1.2
+  curvePower: 1.2
+  minVolume: 0.08
+  pitchFar: 0.9
+  pitchNear: 1.15
+  panAmount: 0
+  keepAfterAbsence: 1
+  cutWhenLightLowered: 1
+  fadeSeconds: 0.8
 --- !u!1 &6932566350089019694
 GameObject:
   m_ObjectHideFlags: 0

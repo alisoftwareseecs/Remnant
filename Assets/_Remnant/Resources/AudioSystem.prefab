@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6646270076040342097}
   - component: {fileID: 8188906249122795019}
   - component: {fileID: 8298343890544667675}
+  - component: {fileID: 1749802661562218074}
   m_Layer: 0
   m_Name: AudioSystem
   m_TagString: Untagged
@@ -79,3 +80,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Audio.FlashSliceMusic
   remainderFadeSeconds: 0.4
+--- !u!114 &1749802661562218074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8321042352276103413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16068b41e849e14b83fdc7e34e18308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Audio.AudioLoops
+  mixer: {fileID: 24100000, guid: 0ccf67eeb2f36d5478542c9011d22a4a, type: 2}
+  sfxGroup: {fileID: -2839369428095056901, guid: 0ccf67eeb2f36d5478542c9011d22a4a, type: 2}
+  ambienceGroup: {fileID: 4441529101997148457, guid: 0ccf67eeb2f36d5478542c9011d22a4a, type: 2}
+  ambienceBoostDb: 10

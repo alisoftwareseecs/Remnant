@@ -1,4 +1,5 @@
 using System.Collections;
+using Remnant.Audio;
 using Remnant.Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -48,6 +49,7 @@ namespace Remnant.UI
 
         private void NewGame()
         {
+            SfxPlayer.Play(MusicManager.Cues?.MenuSelect);
             GameState state = GameState.Instance;
             if (state != null) state.ResetAll();
             SaveSystem.Clear();
@@ -59,11 +61,13 @@ namespace Remnant.UI
 
         private void ContinueGame()
         {
+            SfxPlayer.Play(MusicManager.Cues?.MenuSelect);
             if (!SaveSystem.Continue()) NewGame();
         }
 
         private void Quit()
         {
+            SfxPlayer.Play(MusicManager.Cues?.MenuSelect);
             Application.Quit();
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;

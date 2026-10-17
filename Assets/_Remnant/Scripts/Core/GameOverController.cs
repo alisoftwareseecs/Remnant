@@ -80,6 +80,9 @@ namespace Remnant.Core
                 if (music.Library != null) SfxPlayer.Play(music.Library.GameOver);
             }
 
+            // the breathing and the memory of the pleasant music stop with the music
+            AudioLoops.HardCutAll();
+
             StartCoroutine(Sequence());
         }
 

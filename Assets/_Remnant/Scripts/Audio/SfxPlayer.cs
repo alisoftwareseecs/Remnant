@@ -47,14 +47,19 @@ namespace Remnant.Audio
         }
 
         /// <summary>Plays the cue once (a looping cue loops until StopAll). Does nothing if the audio system is missing.</summary>
-        public static void Play(AudioCue cue, float volumeScale = 1f)
+        public static void Play(AudioCue cue, float volumeScale = 1f, float pitch = 1f)
         {
-            if (cue == null || cue.Clip == null) return;
+            if (cue == null) return;
+            if (cue.Clip == null)
+            {
+                AudioLog.Add("Sfx (empty slot, silent) " + cue.name);
+                return;
+            }
 
             if (Instance == null) MusicManager.EnsureExists();
             if (Instance == null) return;
 
-            Instance.PlayInternal(cue, volumeScale);
+            Instance.PlayInternal(cue, volumeScale, pitch);
         }
 
         /// <summary>Stops every effect, with a short fade (zero cuts at once).</summary>
@@ -64,7 +69,7 @@ namespace Remnant.Audio
             Instance.StopInternal(fadeSeconds);
         }
 
-        private void PlayInternal(AudioCue cue, float volumeScale)
+        private void PlayInternal(AudioCue cue, float volumeScale, float pitch)
         {
             int index = -1;
             for (int i = 0; i < sources.Length; i++)
@@ -79,6 +84,7 @@ namespace Remnant.Audio
             source.Stop();
             source.clip = cue.Clip;
             source.loop = cue.Loop;
+            source.pitch = pitch;
             baseVolume[index] = cue.Volume(0f) * volumeScale;
             fadeRate[index] = 0f;
             source.volume = baseVolume[index];

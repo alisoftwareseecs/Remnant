@@ -525,10 +525,27 @@ MonoBehaviour:
   shakeJitter: 2
   indicatorBlinkSeconds: 0.4
   blipSource: {fileID: 2168213827981992492}
-  defaultBlip: {fileID: 0}
-  shadowBlip: {fileID: 0}
-  blipEveryCharacters: 2
+  defaultBlip: {fileID: 8300000, guid: f72c7203a362fb146b63bfad8a649f35, type: 3}
+  shadowBlip: {fileID: 8300000, guid: 77c19f8e1ac7add4a8d91439c5337239, type: 3}
+  defaultBlipVolume: 0.125
+  shadowBlipVolume: 0.1
+  minBlipGapSeconds: 0.055
   blipPitchRange: {x: 0.95, y: 1.05}
+  speakerBlips:
+  - speaker: 0
+    blips: 1
+  - speaker: 1
+    blips: 1
+  - speaker: 2
+    blips: 0
+  - speaker: 3
+    blips: 1
+  - speaker: 4
+    blips: 1
+  - speaker: 5
+    blips: 1
+  - speaker: 6
+    blips: 1
 --- !u!82 &2168213827981992492
 AudioSource:
   m_ObjectHideFlags: 0
@@ -538,7 +555,7 @@ AudioSource:
   m_GameObject: {fileID: 5245649872291193167}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2839369428095056901, guid: 0ccf67eeb2f36d5478542c9011d22a4a, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0

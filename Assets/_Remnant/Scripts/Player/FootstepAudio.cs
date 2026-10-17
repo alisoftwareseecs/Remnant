@@ -1,48 +1,47 @@
+using Remnant.Audio;
+using Remnant.Characters;
+using Remnant.Core;
 using UnityEngine;
 
 namespace Remnant.Player
 {
     /// <summary>
-    /// Plays a footstep clip at a steady rhythm while the player moves. Leave the clip list empty until audio
-    /// exists; nothing plays then.
+    /// Plays a footstep each time a foot lands in the player's walk animation, so the steps follow the animation: they
+    /// slow down with him in the storage hallway, and stop when he stops. Top-down uses the classroom footstep slot,
+    /// side view the corridor one (both are cues in the audio library; an empty slot is silent). Running steps are a
+    /// little louder and higher.
     /// </summary>
     public class FootstepAudio : MonoBehaviour
     {
         [SerializeField] private PlayerController player;
-        [SerializeField] private AudioSource source;
-        [Tooltip("One is picked at random for each step.")]
-        [SerializeField] private AudioClip[] footstepClips = new AudioClip[0];
-        [SerializeField, Min(0.05f)] private float walkInterval = 0.5f;
-        [SerializeField, Min(0.05f)] private float runInterval = 0.3f;
-        [Range(0f, 1f)] [SerializeField] private float volume = 0.6f;
-        [SerializeField, Range(0f, 0.3f)] private float pitchVariation = 0.08f;
-
-        private float timer;
+        [SerializeField] private CharacterSpriteAnimator animator;
+        [SerializeField, Range(0f, 1f)] private float volume = 1f;
+        [SerializeField, Range(0f, 0.3f)] private float pitchVariation = 0.06f;
 
         private void Awake()
         {
             if (player == null) player = GetComponentInParent<PlayerController>();
+            if (animator == null && player != null) animator = player.GetComponent<CharacterSpriteAnimator>();
         }
 
-        private void Update()
+        private void OnEnable()
         {
-            if (player == null || source == null || footstepClips == null || footstepClips.Length == 0) return;
+            if (animator != null) animator.Stepped += OnStepped;
+        }
 
-            if (!player.IsMoving)
-            {
-                timer = 0f;
-                return;
-            }
+        private void OnDisable()
+        {
+            if (animator != null) animator.Stepped -= OnStepped;
+        }
 
-            timer -= Time.deltaTime;
-            if (timer > 0f) return;
+        private void OnStepped()
+        {
+            AudioLibrary cues = MusicManager.Cues;
+            if (cues == null || player == null) return;
 
-            timer = player.IsRunning ? runInterval : walkInterval;
-            AudioClip clip = footstepClips[Random.Range(0, footstepClips.Length)];
-            if (clip == null) return;
-
-            source.pitch = 1f + Random.Range(-pitchVariation, pitchVariation);
-            source.PlayOneShot(clip, volume);
+            AudioCue cue = player.CurrentPerspective == Perspective.TopDown ? cues.FootstepClassroom : cues.FootstepCorridor;
+            float pitch = 1f + Random.Range(-pitchVariation, pitchVariation) + (player.IsRunning ? 0.05f : 0f);
+            SfxPlayer.Play(cue, volume, pitch);
         }
     }
 }

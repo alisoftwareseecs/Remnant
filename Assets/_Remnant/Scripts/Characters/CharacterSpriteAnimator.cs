@@ -43,8 +43,12 @@ namespace Remnant.Characters
         private float animationTime;
         private float sideTime;
         private bool wasSideView;
+        private int lastStepColumn = -1;
 
         public FacingDirection Facing => facing;
+
+        /// <summary>Raised when a foot lands during the player's walk cycle (the stride frames), in both perspectives. Footstep sounds follow it, so they follow the animation speed.</summary>
+        public event System.Action Stepped;
 
         private bool HasSideSprites => sideFrames != null && sideFrames.Length >= 6;
 
@@ -127,9 +131,26 @@ namespace Remnant.Characters
                 sideTime = 0f;
             }
 
+            ReportStep(moving, column);
+
             int row = playerSource.FacingDirection < 0 ? 0 : 1;
             Sprite sprite = sideFrames[row * FramesPerDirection + column];
             if (sprite != null) spriteRenderer.sprite = sprite;
+        }
+
+        // a foot lands on the two stride frames of the 0-1-2-1 cycle
+        private void ReportStep(bool moving, int column)
+        {
+            if (!moving)
+            {
+                lastStepColumn = -1;
+                return;
+            }
+
+            if (column == lastStepColumn) return;
+
+            lastStepColumn = column;
+            if (column == 0 || column == 2) Stepped?.Invoke();
         }
 
         private void Apply(bool moving)
@@ -137,6 +158,7 @@ namespace Remnant.Characters
             if (frames == null || frames.Length < FramesPerDirection * 4) return;
 
             int column = moving ? WalkCycle[Mathf.FloorToInt(animationTime) % WalkCycle.Length] : 1;
+            if (playerSource != null) ReportStep(moving, column);
             Sprite sprite = frames[(int)facing * FramesPerDirection + column];
             if (sprite != null) spriteRenderer.sprite = sprite;
         }

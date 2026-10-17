@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 767006486308438130}
   - component: {fileID: 7734937746865577092}
   - component: {fileID: 1442701886650651930}
+  - component: {fileID: 5283693394757747144}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -153,6 +154,33 @@ MonoBehaviour:
   fadeOutSeconds: 0.5
   bodyCenterHeight: 1
   touchHalfSize: {x: 0.45, y: 1}
+--- !u!114 &5283693394757747144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599253991526474216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92227992a0ac3249b166ba2b5cc5f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Audio.ProximityLoop
+  kind: 0
+  loopId: ghost_breath
+  channel: 0
+  ghost: {fileID: 0}
+  monster: {fileID: 1442701886650651930}
+  maxDistance: 10
+  fullDistance: 0.6
+  curvePower: 1.6
+  minVolume: 0
+  pitchFar: 1
+  pitchNear: 1
+  panAmount: 0.8
+  keepAfterAbsence: 0
+  cutWhenLightLowered: 0
+  fadeSeconds: 0.8
 --- !u!1 &8488516858063416794
 GameObject:
   m_ObjectHideFlags: 0

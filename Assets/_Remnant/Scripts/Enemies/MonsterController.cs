@@ -65,6 +65,9 @@ namespace Remnant.Enemies
         private const int FirstDissolveFrame = 3;
 
         /// <summary>Raised once per session, the first time the monster is on screen (in the camera's view).</summary>
+        /// <summary>True while it is coming for the player (visible and approaching).</summary>
+        public bool IsApproaching => phase == Phase.Approaching;
+
         public event System.Action Sighted;
 
         /// <summary>Raised each time the monster has been driven back and has faded out completely.</summary>

@@ -1514,6 +1514,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: b35248a251df6b1469a46fe8f889003d, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    sound: {fileID: 11400000, guid: efd915f1989b897499fab7c96b84f64c, type: 2}
     closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
@@ -2505,6 +2506,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: b35248a251df6b1469a46fe8f889003d, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    sound: {fileID: 11400000, guid: efd915f1989b897499fab7c96b84f64c, type: 2}
     closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
@@ -3057,6 +3059,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: b35248a251df6b1469a46fe8f889003d, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    sound: {fileID: 11400000, guid: efd915f1989b897499fab7c96b84f64c, type: 2}
     closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
@@ -6240,6 +6243,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: b35248a251df6b1469a46fe8f889003d, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    sound: {fileID: 11400000, guid: efd915f1989b897499fab7c96b84f64c, type: 2}
     closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
@@ -8519,6 +8523,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: b35248a251df6b1469a46fe8f889003d, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    sound: {fileID: 11400000, guid: efd915f1989b897499fab7c96b84f64c, type: 2}
     closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
@@ -12922,6 +12927,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: b35248a251df6b1469a46fe8f889003d, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    sound: {fileID: 11400000, guid: efd915f1989b897499fab7c96b84f64c, type: 2}
     closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
@@ -13334,6 +13340,65 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &2102588245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2102588247}
+  - component: {fileID: 2102588246}
+  m_Layer: 0
+  m_Name: SceneAmbience
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2102588246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102588245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7432d5fafa5ba4f93ddc318e0a8616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Audio.SceneAmbience
+  rules:
+  - label: no rain
+    loopId: rain
+    whenFlags: 
+    unlessFlags: 
+    action: 1
+    sound: 0
+    fadeSeconds: 0.5
+  - label: memory fades out
+    loopId: memory
+    whenFlags: 
+    unlessFlags: 
+    action: 1
+    sound: 0
+    fadeSeconds: 2
+--- !u!4 &2102588247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102588245}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2113276824
 GameObject:
   m_ObjectHideFlags: 0
@@ -13582,3 +13647,4 @@ SceneRoots:
   - {fileID: 1354821576}
   - {fileID: 474445477}
   - {fileID: 2005747730}
+  - {fileID: 2102588247}

@@ -7226,6 +7226,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &733226496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 733226498}
+  - component: {fileID: 733226497}
+  m_Layer: 0
+  m_Name: SceneAmbience
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &733226497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733226496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7432d5fafa5ba4f93ddc318e0a8616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Audio.SceneAmbience
+  rules:
+  - label: no rain in the Future
+    loopId: rain
+    whenFlags: 
+    unlessFlags: 
+    action: 1
+    sound: 0
+    fadeSeconds: 0.5
+  - label: memory of the pleasant music (keeps going)
+    loopId: memory
+    whenFlags: 
+    unlessFlags: 
+    action: 0
+    sound: 3
+    fadeSeconds: 2
+--- !u!4 &733226498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733226496}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &755730526
 GameObject:
   m_ObjectHideFlags: 0
@@ -8179,6 +8238,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: 1e4116c724f10f646b07bd58e4f62643, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    sound: {fileID: 0}
     closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
@@ -9230,6 +9290,7 @@ MonoBehaviour:
     dialogue: {fileID: 0}
     setFlag: 
     sequence: {fileID: 0}
+    sound: {fileID: 11400000, guid: 2d3e7eaacdda9a84ab222c2a2430edec, type: 2}
     closeUp: {fileID: 0}
     changeScene: 1
     sceneName: Storage_Hallway
@@ -9242,6 +9303,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: b35248a251df6b1469a46fe8f889003d, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    sound: {fileID: 11400000, guid: efd915f1989b897499fab7c96b84f64c, type: 2}
     closeUp: {fileID: 0}
     changeScene: 0
     sceneName: Present_Classroom
@@ -9798,6 +9860,68 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!1 &1468654256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1468654258}
+  - component: {fileID: 1468654257}
+  m_Layer: 0
+  m_Name: DialogueLineSfx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1468654257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468654256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd2c43c601ec0343bbcfb4b760c59dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Audio.DialogueLineSfx
+  dialogueRunner: {fileID: 0}
+  entries:
+  - label: 'blood on her desk: heartbeat starts'
+    dialogue: {fileID: 11400000, guid: 1f161a48af35bf64ab2efb68ec10d2eb, type: 2}
+    moment: 1
+    lineIndex: 0
+    effect: 1
+    sound: 1
+    loopId: heartbeat
+    fadeSeconds: 0.8
+  - label: 'page 8 opens: heartbeat ends'
+    dialogue: {fileID: 11400000, guid: 1f161a48af35bf64ab2efb68ec10d2eb, type: 2}
+    moment: 2
+    lineIndex: 0
+    effect: 2
+    sound: 0
+    loopId: heartbeat
+    fadeSeconds: 0.8
+--- !u!4 &1468654258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468654256}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1522214039
 GameObject:
   m_ObjectHideFlags: 0
@@ -12163,6 +12287,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: b35248a251df6b1469a46fe8f889003d, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    sound: {fileID: 11400000, guid: efd915f1989b897499fab7c96b84f64c, type: 2}
     closeUp: {fileID: 0}
     changeScene: 0
     sceneName: Present_Classroom
@@ -12545,6 +12670,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: 33ec51bced51de249a64db9cfb9891cb, type: 2}
     setFlag: mirror_seen
     sequence: {fileID: 0}
+    sound: {fileID: 0}
     closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
@@ -12761,3 +12887,5 @@ SceneRoots:
   - {fileID: 1706365599}
   - {fileID: 1394641071}
   - {fileID: 1988634402}
+  - {fileID: 733226498}
+  - {fileID: 1468654258}

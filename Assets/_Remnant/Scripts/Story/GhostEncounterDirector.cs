@@ -101,6 +101,12 @@ namespace Remnant.Story
             flashlight.LowerBeam();
             promptAvailable = false;
             if (MusicManager.Instance != null) MusicManager.Instance.HardCut();
+
+            // the heartbeat, her breathing and the rain are cut on the same frame (total silence for the reunion)
+            AudioLoops.HardCut("ghost_heartbeat");
+            AudioLoops.HardCut("ghost_breath");
+            AudioLoops.HardCut("rain");
+            SfxPlayer.Play(MusicManager.Cues?.LightLower);
             if (hud != null)
             {
                 // whatever the Shadow is shouting stops dead, mid-word. Silence.
@@ -126,6 +132,7 @@ namespace Remnant.Story
 
         private void OnBanished(int count)
         {
+            SfxPlayer.Play(MusicManager.Cues?.GhostFlinch);
             if (count != 1) return;
 
             if (hud != null) hud.ShadowSays(flinchLine);

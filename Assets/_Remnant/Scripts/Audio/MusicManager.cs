@@ -45,6 +45,9 @@ namespace Remnant.Audio
         private float scale = 1f;
 
         public AudioLibrary Library => library;
+
+        /// <summary>The cue library of the audio system, or null before it exists. Null-safe shortcut for one-shot hooks.</summary>
+        public static AudioLibrary Cues => Instance != null ? Instance.library : null;
         public float BaselineBoostDb => baselineBoostDb;
 
         /// <summary>The cue playing (or fading in) right now, null when nothing is.</summary>

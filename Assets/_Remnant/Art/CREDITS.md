@@ -18,6 +18,15 @@ Every pack used in the project.
 | Track (transition) — Music/music_transition | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | the Shadow's red/black flashing transitions | |
 | Sound effect (shadow appears) — SFX/sfx_shadow_appear | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | the Shadow separating on Day 2 | |
 | Sound effect (game over) — SFX/sfx_game_over | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | the game over screen | |
+| Sound effect (dialogue blip source) — SFX/sfx_dialogue_source (one blip is cut out of it into sfx_blip.wav; sfx_blip_shadow.wav is made from that blip) | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | Typing blips of every speaker and the Shadow | |
+| Sound effect (door open) — SFX/sfx_door_open | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | Every door that opens or changes scene | |
+| Sound effect (door locked) — SFX/sfx_door_locked | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | Every locked door | |
+| Sound effect (menu select) — SFX/sfx_menu_select | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | Title and pause menu buttons | |
+| Sound effect (paper turn) — SFX/sfx_paper_turn | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | Every diary page opening | |
+| Sound effect (heartbeat) — SFX/sfx_heartbeat | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | Day 1 freeze, the blood on her desk, the ghost encounter | |
+| Sound effect (ghost breathing) — SFX/sfx_ghost_breathing | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | The monster and Aiko's ghost | |
+| Ambience (rain on windows) — Ambience/amb_rain_light | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | Day 1 and Back to Day 1 | |
+| Ambience (heavy rain) — Ambience/amb_rain_heavy | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | Day 2 | |
 
 ## Music (placeholders to fill in)
 

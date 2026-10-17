@@ -1,3 +1,4 @@
+using Remnant.Audio;
 using Remnant.Core;
 using System;
 using Remnant.Interaction;
@@ -62,6 +63,7 @@ namespace Remnant.Story
             InteractionLock.Acquire();
             if (player != null) player.SetMovementLocked(true);
             if (panelRoot != null) panelRoot.SetActive(true);
+            SfxPlayer.Play(MusicManager.Cues?.PaperTurn);
         }
 
         private void Update()

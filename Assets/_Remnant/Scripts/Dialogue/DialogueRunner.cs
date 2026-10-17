@@ -93,12 +93,35 @@ namespace Remnant.Dialogue
         [Header("Continue indicator")]
         [SerializeField, Min(0.05f)] private float indicatorBlinkSeconds = 0.4f;
 
-        [Header("Typing sounds (clips are optional)")]
+        [Serializable]
+        private struct SpeakerBlip
+        {
+            public Speaker speaker;
+            [Tooltip("Typing blips for this speaker. A line can override it (DialogueLine.blips).")]
+            public bool blips;
+        }
+
+        [Header("Typing blips (clips are optional)")]
+        [Tooltip("Goes through the SFX mixer group.")]
         [SerializeField] private AudioSource blipSource;
         [SerializeField] private AudioClip defaultBlip;
         [SerializeField] private AudioClip shadowBlip;
-        [SerializeField, Min(1)] private int blipEveryCharacters = 2;
+        [SerializeField, Range(0f, 1f)] private float defaultBlipVolume = 0.125f;
+        [SerializeField, Range(0f, 1f)] private float shadowBlipVolume = 0.1f;
+        [Tooltip("At least this long between two blips, so fast typing does not turn into a buzz.")]
+        [SerializeField, Min(0f)] private float minBlipGapSeconds = 0.055f;
         [SerializeField] private Vector2 blipPitchRange = new Vector2(0.95f, 1.05f);
+        [Tooltip("Which speakers blip. The Narration never does; the protagonist only when he speaks aloud (not in parentheses).")]
+        [SerializeField] private SpeakerBlip[] speakerBlips = new SpeakerBlip[]
+        {
+            new SpeakerBlip { speaker = Speaker.Protagonist, blips = true },
+            new SpeakerBlip { speaker = Speaker.Shadow, blips = true },
+            new SpeakerBlip { speaker = Speaker.Narration, blips = false },
+            new SpeakerBlip { speaker = Speaker.Aiko, blips = true },
+            new SpeakerBlip { speaker = Speaker.Reina, blips = true },
+            new SpeakerBlip { speaker = Speaker.Mika, blips = true },
+            new SpeakerBlip { speaker = Speaker.Saki, blips = true },
+        };
 
         private int startFrame = -1;
         private int endFrame = -1;
@@ -158,6 +181,9 @@ namespace Remnant.Dialogue
             return seconds;
         }
 
+        /// <summary>How many typing blips were played in total (a diagnostic for tests).</summary>
+        public int BlipsPlayed { get; private set; }
+
         /// <summary>The dialogue that is open right now (null when none).</summary>
         public DialogueData CurrentDialogue { get; private set; }
 
@@ -168,6 +194,10 @@ namespace Remnant.Dialogue
         public event Action Ended;
         /// <summary>Raised when a line starts: the dialogue and the index of the line in it.</summary>
         public event Action<DialogueData, int> LineStarted;
+        /// <summary>Raised when a dialogue opens (its first line is about to appear).</summary>
+        public event Action<DialogueData> DialogueStarted;
+        /// <summary>Raised when a dialogue has been played to its end and closed (not on a teardown).</summary>
+        public event Action<DialogueData> DialogueFinished;
 
         private void Awake()
         {
@@ -216,6 +246,7 @@ namespace Remnant.Dialogue
             Canvas.ForceUpdateCanvases();
 
             Started?.Invoke();
+            DialogueStarted?.Invoke(data);
             routine = StartCoroutine(Run(data));
         }
 
@@ -311,12 +342,13 @@ namespace Remnant.Dialogue
             bodyText.ForceMeshUpdate();
             int total = bodyText.textInfo.characterCount;
             float cps = CharsPerSecond(line.mode);
-            AudioClip blip = line.mode == DialogueMode.Auto ? null : (shadow ? shadowBlip : defaultBlip);
+            AudioClip blip = BlipsFor(line) ? (shadow ? shadowBlip : defaultBlip) : null;
+            float blipVolume = (shadow ? shadowBlipVolume : defaultBlipVolume) * Mathf.Pow(10f, line.blipGainDb / 20f);
+            float lastBlipAt = -10f;
 
             float acc = 0f;
             float nextDelay = 0f;
             int shown = 0;
-            int blipCounter = 0;
 
             while (shown < total)
             {
@@ -331,10 +363,11 @@ namespace Remnant.Dialogue
                     bodyText.maxVisibleCharacters = shown;
 
                     char c = text[shown - 1];
-                    if (blip != null && !char.IsWhiteSpace(c) && !char.IsPunctuation(c))
+                    // one blip per typed letter or digit (never spaces or punctuation), at most one per minimum gap
+                    if (blip != null && !char.IsWhiteSpace(c) && !char.IsPunctuation(c) && Time.unscaledTime - lastBlipAt >= minBlipGapSeconds)
                     {
-                        if (blipCounter % Mathf.Max(1, blipEveryCharacters) == 0) PlayBlip(blip);
-                        blipCounter++;
+                        lastBlipAt = Time.unscaledTime;
+                        PlayBlip(blip, blipVolume);
                     }
 
                     nextDelay = 1f / cps + PauseAfter(text, shown - 1, line.mode);
@@ -351,6 +384,9 @@ namespace Remnant.Dialogue
 
                 yield return null;
             }
+
+            // typing is over (finished or skipped): the blip stops at once
+            if (blipSource != null) blipSource.Stop();
 
             bodyText.maxVisibleCharacters = int.MaxValue;
             if (line.fadeColor)
@@ -571,11 +607,39 @@ namespace Remnant.Dialogue
             return interactAction != null && interactAction.action.WasPressedThisFrame();
         }
 
-        private void PlayBlip(AudioClip clip)
+        /// <summary>
+        /// Does this line blip while it types? Auto never; a per-line override wins; otherwise the speaker's setting, except
+        /// that a protagonist line in parentheses is a thought and stays silent.
+        /// </summary>
+        private bool BlipsFor(DialogueLine line)
+        {
+            // a per-line override wins over everything, even over the Auto rule
+            if (line.blips == BlipOverride.On) return true;
+            if (line.blips == BlipOverride.Off) return false;
+            if (line.mode == DialogueMode.Auto) return false;
+
+            bool speakerBlips = false;
+            for (int i = 0; i < this.speakerBlips.Length; i++)
+            {
+                if (this.speakerBlips[i].speaker == line.speaker) speakerBlips = this.speakerBlips[i].blips;
+            }
+
+            if (!speakerBlips) return false;
+            if (line.speaker == Speaker.Protagonist)
+            {
+                string text = (line.text ?? string.Empty).Trim();
+                if (text.StartsWith("(")) return false;
+            }
+
+            return true;
+        }
+
+        private void PlayBlip(AudioClip clip, float volume)
         {
             if (blipSource == null || clip == null) return;
             blipSource.pitch = UnityEngine.Random.Range(blipPitchRange.x, blipPitchRange.y);
-            blipSource.PlayOneShot(clip);
+            blipSource.PlayOneShot(clip, volume);
+            BlipsPlayed++;
         }
 
         private void SetBoxAlpha(float alpha)
@@ -627,9 +691,11 @@ namespace Remnant.Dialogue
                 routine = null;
             }
 
+            DialogueData finished = CurrentDialogue;
             IsOpen = false;
             CurrentDialogue = null;
             indicatorActive = false;
+            if (blipSource != null) blipSource.Stop();
             endFrame = Time.frameCount;
 
             if (jitter != null)
@@ -654,6 +720,7 @@ namespace Remnant.Dialogue
             }
 
             Ended?.Invoke();
+            DialogueFinished?.Invoke(finished);
             callback?.Invoke();
 
             // a dialogue that was asked for while this one was open goes next (unless the callback already started one)
