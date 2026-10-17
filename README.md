@@ -2,19 +2,25 @@
 
 A 2D psychological horror game about guilt, silence and being unseen. You are a student who watched a classmate, Aiko, get bullied and did nothing. When she disappears, your own shadow wakes up and leads you into a dark, changed version of your school. Something is hunting you in the corridors, a classroom holds her diary, and at the end of the hallway is what happens when everyone looks away. Then you get to go back and decide whether you look this time.
 
-Made with Unity by **Squad Zero**. One ending. Windows.
+Made with Unity by **Squad Zero**. One ending. Windows. **Version 2.0.** Estimated playtime: about 35 minutes (30-45, more if you search every corner).
 
 ## Content warning
 
-Remnant deals with **bullying, child abuse, parental death, depression and suicide.** Abuse and death are only ever mentioned in words, and the suicide is implied, not shown graphically. The game still deals with heavy themes and may be upsetting.
+**Content warning: this game contains depictions of suicide, bullying, domestic abuse and death of a parent.** The abuse and the father's death are only ever mentioned in words, and the suicide is implied (a still image, no gore). It deals with heavy themes and may be upsetting. Please take care of yourself while playing.
 
 If you are struggling, you are not alone. Please reach out to someone you trust, or find a helpline near you at **[findahelpline.com](https://findahelpline.com)**.
 
 ## How to play
 
-1. Go to the [Releases page](../../releases) and download the latest release zip (`Remnant-v1.0-Windows.zip`).
-2. Extract the whole zip.
+1. Go to the [Releases page](../../releases) and download `Remnant_v2.0_Windows.zip` from the latest release.
+2. Unzip it (extract the whole folder, do not run it from inside the zip).
 3. Run `Remnant.exe`.
+
+Windows 64-bit. About 160 MB unpacked. The game saves automatically at checkpoints; **Continue** on the title screen resumes. Mouse, keyboard and gamepad all work.
+
+## Playtime
+
+About **35 minutes** for a first playthrough (30-45): around 8 minutes of dialogue read at the game's own pace, 5 minutes of slow scripted scenes (the awakening, the hallway walk, the reveal, the reunion), 10-15 minutes of walking, searching for the eight diary pages and the chase in the corridor, and about 2.5 minutes of credits. There is one ending.
 
 ## Controls
 
@@ -23,7 +29,7 @@ If you are struggling, you are not alone. Please reach out to someone you trust,
 | Move | WASD / arrow keys | Left stick |
 | Run | Shift | Left stick press |
 | Interact / continue dialogue | E | North button (Y / Triangle) |
-| Aim the flashlight | Mouse | Right stick |
+| Aim the flashlight (it is always on in the Future) | Mouse | Right stick |
 | Lower the light (late in the game) | F | East button |
 | Pause menu | Esc | Start |
 
