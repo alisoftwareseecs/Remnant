@@ -778,7 +778,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<size=120><b>REMNANT</b></size>\n\n<size=46>A game by Squad Zero</size>\n\n\n\n<size=60>Art</size>\n\n<size=42>Top
+  m_text: "<size=120><b>REMNANT</b></size>\n\n<size=46>A game by Squad Zero</size>\n\n\n\n<size=34><color=#9a9a9a>Written
+    and Directed by</color></size>\n<size=46>Muhammad Ali</size>\n\n\n<size=34><color=#9a9a9a>Soundtrack
+    by</color></size>\n<size=46>Abdul Rafay</size>\n\n\n<size=34><color=#9a9a9a>Sound
+    Effects by</color></size>\n<size=46>Muhammad Haroon Ahmed</size>\n\n\n\n<size=60>Art</size>\n\n<size=42>Top
     Down Pixel Art Horror</size>\n<size=34>by kamisama887 (AnisAous)</size>\n<size=26><color=#9a9a9a>https://kamisama887.itch.io/lorenz-fries-school-horror</color></size>\n\n\n<size=42>Horror
     Pixel Art Assets</size>\n<size=34>by lenidev</size>\n<size=26><color=#9a9a9a>https://lenidev.itch.io/horror-pixel-art-assets</color></size>\n\n\n<size=42>RPG
     Maker VX ACE: FREE 300 Modern Charas</size>\n<size=34>by adanoliva</size>\n<size=26><color=#9a9a9a>https://adanoliva.itch.io/rpg-maker-free-300-modern-charas</color></size>\n\n\n\n   
@@ -786,21 +789,8 @@ MonoBehaviour:
     (SIL Open Font License)</size>\n\n<size=26><color=#9a9a9a>https://fonts.google.com/specimen/Gloria+Hallelujah</color></size>\n\n\n\n<size=42>Pixel
     Operator Mono (dialogue font)</size>\n\n<size=34>by Jayvee Enaguas (CC0)</size>\n\n<size=26><color=#9a9a9a>https://www.dafont.com/pixel-operator.font</color></size>\n\n\n\n<size=60>Sound</size>\n\n\n<size=42>Writing
     on Black Board 3</size>\n\n<size=34>by freesound_community (Pixabay)</size>\n\n<size=26><color=#9a9a9a>https://pixabay.com/sound-effects/film-special-effects-writing-on-black-board-3-86723/</color></size>\n\n\n\n<size=42>Scraping</size>\n\n<size=34>by
-    freesound_community (Pixabay)</size>\n\n<size=26><color=#9a9a9a>https://pixabay.com/sound-effects/film-special-effects-scraping-68271/</color></size>\n\n\n\n<size=60>Music</size>\n\n\n<size=34>Track
-    (pleasant) \u2014 Artist (Pixabay)</size>\n\n<size=34>Track (corridor) \u2014
-    Artist (Pixabay)</size>\n\n<size=34>Track (diary) \u2014 Artist (Pixabay)</size>\n\n<size=34>Track
-    (storage) \u2014 Artist (Pixabay)</size>\n\n<size=34>Track (transition) \u2014
-    Artist (Pixabay)</size>\n\n<size=34>Sound effect (shadow appears) \u2014 Artist
-    (Pixabay)</size>\n\n<size=34>Sound effect (game over) \u2014 Artist (Pixabay)</size>\n\n<size=34>Sound
-    effect (dialogue blip source) \u2014 Artist (Pixabay)</size>\n\n<size=34>Sound
-    effect (door open) \u2014 Artist (Pixabay)</size>\n\n<size=34>Sound effect (door
-    locked) \u2014 Artist (Pixabay)</size>\n\n<size=34>Sound effect (menu select)
-    \u2014 Artist (Pixabay)</size>\n\n<size=34>Sound effect (paper turn) \u2014 Artist
-    (Pixabay)</size>\n\n<size=34>Sound effect (heartbeat) \u2014 Artist (Pixabay)</size>\n\n<size=34>Sound
-    effect (ghost breathing) \u2014 Artist (Pixabay)</size>\n\n<size=34>Ambience
-    (rain on windows) \u2014 Artist (Pixabay)</size>\n\n<size=34>Ambience (heavy
-    rain) \u2014 Artist (Pixabay)</size>\n\n\n\n<size=44>Made with Unity</size>\n\n\n\n<size=56>Thank
-    you for playing.</size>\n"
+    freesound_community (Pixabay)</size>\n\n<size=26><color=#9a9a9a>https://pixabay.com/sound-effects/film-special-effects-scraping-68271/</color></size>\n\n\n\n<size=44>Made
+    with Unity</size>\n\n\n\n<size=56>Thank you for playing.</size>\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

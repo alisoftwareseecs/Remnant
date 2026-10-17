@@ -45,6 +45,10 @@ Note: "Download ZIP" on GitHub includes the real LFS files only because the repo
 
 **Game by Squad Zero.** Made with Unity.
 
+- **Written and Directed by** Muhammad Ali
+- **Soundtrack by** Abdul Rafay
+- **Sound Effects by** Muhammad Haroon Ahmed
+
 Art, font and sound packs used (full list in [`Assets/_Remnant/Art/CREDITS.md`](Assets/_Remnant/Art/CREDITS.md)):
 
 | Pack | Author | URL | License / terms |
