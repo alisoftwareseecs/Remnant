@@ -27,6 +27,9 @@ namespace Remnant.Core
         private readonly HashSet<string> checkpointFlags = new HashSet<string>();
         private readonly List<string> flagScratch = new List<string>();
 
+        /// <summary>All story flags that are set right now.</summary>
+        public IEnumerable<string> Flags => flags;
+
         public bool HasCheckpoint { get; private set; }
         public string CheckpointScene { get; private set; }
         public Vector2 CheckpointPosition { get; private set; }
@@ -105,6 +108,25 @@ namespace Remnant.Core
             if (flags.Remove(flag)) FlagChanged?.Invoke(flag, false);
         }
 
+        /// <summary>Clears every flag and the checkpoint: the start of a new game.</summary>
+        public void ResetAll()
+        {
+            flagScratch.Clear();
+            flagScratch.AddRange(flags);
+            foreach (string flag in flagScratch) ClearFlag(flag);
+
+            checkpointFlags.Clear();
+            HasCheckpoint = false;
+            CheckpointScene = null;
+        }
+
+        /// <summary>Makes exactly these flags the set flags (loading a save).</summary>
+        public void ReplaceFlags(IEnumerable<string> newFlags)
+        {
+            ResetAll();
+            foreach (string flag in newFlags) SetFlag(flag);
+        }
+
         /// <summary>Remembers where to restart (scene + position) together with the flags as they are now.</summary>
         public void SaveCheckpoint(string sceneName, Vector2 position)
         {
@@ -112,6 +134,7 @@ namespace Remnant.Core
             CheckpointScene = sceneName;
             CheckpointPosition = position;
             RefreshCheckpointFlags();
+            SaveSystem.Save(sceneName, position, flags);
         }
 
         /// <summary>Updates the saved flags to the current ones, keeping the saved scene and position.</summary>

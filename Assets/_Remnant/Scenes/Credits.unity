@@ -458,7 +458,7 @@ MonoBehaviour:
   m_text: '<size=120><b>REMNANT</b></size>
 
 
-    <size=46>A game by [Team Name]</size>
+    <size=46>A game by Squad Zero</size>
 
 
 
@@ -748,7 +748,7 @@ MonoBehaviour:
     holdSeconds: 5
     pauseSeconds: 1.5
   completedKey: remnant_completed
-  nextScene: Present_Classroom
+  nextScene: Title
 --- !u!4 &1769218928
 Transform:
   m_ObjectHideFlags: 0

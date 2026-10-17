@@ -14,6 +14,8 @@ namespace Remnant.Story
     {
         [SerializeField] private DialogueRunner dialogueRunner;
         [SerializeField] private DialogueData shadowDialogue;
+        [Tooltip("Used instead when the game has been completed before: the Shadow remembers.")]
+        [SerializeField] private DialogueData returningDialogue;
         [SerializeField] private string awakeFlag = "shadow_awake";
 
         [Tooltip("Time for the Shadow to fade in and separate before it speaks.")]
@@ -42,7 +44,7 @@ namespace Remnant.Story
             yield return new WaitForSecondsRealtime(appearSeconds);
 
             bool spoken = false;
-            if (dialogueRunner != null) dialogueRunner.Play(shadowDialogue, () => spoken = true);
+            if (dialogueRunner != null) dialogueRunner.Play(SaveSystem.Completed && returningDialogue != null ? returningDialogue : shadowDialogue, () => spoken = true);
             else spoken = true;
             while (!spoken) yield return null;
 

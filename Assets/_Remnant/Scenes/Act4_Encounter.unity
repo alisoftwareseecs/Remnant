@@ -2441,9 +2441,8 @@ MonoBehaviour:
   timePeriod: 0
   allowRunning: 1
   walkSpeedMultiplier: 1
-  debugStartFlags:
-  - act4
-  - shadow_awake
+  liftLimitsFlag: 
+  debugStartFlags: []
 --- !u!4 &908342438
 Transform:
   m_ObjectHideFlags: 0

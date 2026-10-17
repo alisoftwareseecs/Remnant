@@ -9,8 +9,8 @@ namespace Remnant.Story
 {
     /// <summary>
     /// The credits (a slow scroll on black) followed by the closing screen: a few white lines, one at a time, with fades
-    /// and pauses. At the end it records that the game was completed (PlayerPrefs "remnant_completed" = 1) and goes to
-    /// the next scene (the future title screen).
+    /// and pauses. At the end it records that the game was completed (PlayerPrefs "remnant_completed" = 1) and returns
+    /// to the title screen.
     /// </summary>
     public class CreditsSequence : MonoBehaviour
     {
@@ -48,8 +48,7 @@ namespace Remnant.Story
 
         [Header("After")]
         [SerializeField] private string completedKey = "remnant_completed";
-        [Tooltip("Becomes the title screen later.")]
-        [SerializeField] private string nextScene = "Present_Classroom";
+        [SerializeField] private string nextScene = "Title";
 
         private IEnumerator Start()
         {

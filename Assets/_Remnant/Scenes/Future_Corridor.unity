@@ -6707,10 +6707,7 @@ MonoBehaviour:
   allowRunning: 1
   walkSpeedMultiplier: 1
   liftLimitsFlag: 
-  debugStartFlags:
-  - ending_light
-  - shadow_awake
-  - shadow_normal
+  debugStartFlags: []
 --- !u!4 &908342438
 Transform:
   m_ObjectHideFlags: 0

@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/_Remnant/Scenes/ContentWarning.unity
+    guid: 25eea315e1b1ab8419e577f92dac9e47
+  - enabled: 1
+    path: Assets/_Remnant/Scenes/Title.unity
+    guid: 83feeb9f7909a6745807181f9af9d5e9
   - enabled: 1
     path: Assets/_Remnant/Scenes/Present_Classroom.unity
     guid: 7a2f308be5c0925459d831ec4c401e22

@@ -127,6 +127,7 @@ namespace Remnant.Core
             yield return null;
             PlacePlayer(spawnId, worldPosition);
             SetPlayerLocked(true);
+            SaveProgress(sceneName);
             yield return null;
 
             if (hasTitle) StartCoroutine(FadeTitle(1f, 0f, titleFadeSeconds));
@@ -199,6 +200,16 @@ namespace Remnant.Core
         private void SetTitle(float alpha)
         {
             if (titleGroup != null) titleGroup.alpha = alpha;
+        }
+
+        /// <summary>Every scene with a player is a save point: scene, position and flags go to the save slot.</summary>
+        private static void SaveProgress(string sceneName)
+        {
+            PlayerController player = FindFirstObjectByType<PlayerController>();
+            GameState state = GameState.Instance;
+            if (player == null || state == null) return;
+
+            SaveSystem.Save(sceneName, player.transform.position, state.Flags);
         }
 
         private static void SetPlayerLocked(bool locked)

@@ -45,6 +45,20 @@ namespace Remnant.Story
 
         private bool started;
 
+        /// <summary>True from the moment the legs are lit until the scene changes (no pause menu then).</summary>
+        public static bool IsRunning { get; private set; }
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetStatics()
+        {
+            IsRunning = false;
+        }
+
+        private void OnDestroy()
+        {
+            IsRunning = false;
+        }
+
         private void Update()
         {
             if (started || lookTarget == null) return;
@@ -53,6 +67,7 @@ namespace Remnant.Story
             if (flashlight == null || !flashlight.Illuminates(lookTarget.position, lookTarget)) return;
 
             started = true;
+            IsRunning = true;
             StartCoroutine(Reveal(flashlight));
         }
 
