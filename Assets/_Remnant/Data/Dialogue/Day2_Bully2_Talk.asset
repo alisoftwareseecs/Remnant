@@ -15,3 +15,4 @@ MonoBehaviour:
   lines:
   - speaker: 5
     text: Good riddance.
+    mode: 1

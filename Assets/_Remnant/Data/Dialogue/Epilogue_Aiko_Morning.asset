@@ -15,5 +15,7 @@ MonoBehaviour:
   lines:
   - speaker: 3
     text: Morning.
+    mode: 0
   - speaker: 3
     text: You said you'd read it.
+    mode: 0

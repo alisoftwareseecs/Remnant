@@ -15,7 +15,10 @@ MonoBehaviour:
   lines:
   - speaker: 2
     text: Aiko glances up. She looks tired, like she has not slept in a while.
+    mode: 0
   - speaker: 3
-    text: '...You should go. They''re right about me.'
+    text: ...You should go. They're right about me.
+    mode: 0
   - speaker: 0
     text: (I should say something. I don't.)
+    mode: 0

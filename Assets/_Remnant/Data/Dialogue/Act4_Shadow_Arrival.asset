@@ -15,3 +15,4 @@ MonoBehaviour:
   lines:
   - speaker: 1
     text: It's not your business. It never was.
+    mode: 1

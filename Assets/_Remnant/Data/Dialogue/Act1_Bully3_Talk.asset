@@ -15,5 +15,7 @@ MonoBehaviour:
   lines:
   - speaker: 6
     text: Mind your own business. Unless you want to be next.
+    mode: 0
   - speaker: 0
     text: (I should say something. That is what I tell myself.)
+    mode: 0

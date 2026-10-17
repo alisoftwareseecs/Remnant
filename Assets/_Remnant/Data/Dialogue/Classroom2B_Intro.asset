@@ -15,5 +15,7 @@ MonoBehaviour:
   lines:
   - speaker: 1
     text: She wrote everything down.
+    mode: 0
   - speaker: 1
     text: Nobody ever read it.
+    mode: 0

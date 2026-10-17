@@ -15,5 +15,7 @@ MonoBehaviour:
   lines:
   - speaker: 1
     text: The storage room.
+    mode: 1
   - speaker: 1
     text: You know where it is. You've walked past it every day.
+    mode: 1

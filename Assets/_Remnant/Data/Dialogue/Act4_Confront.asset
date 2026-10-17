@@ -15,11 +15,16 @@ MonoBehaviour:
   lines:
   - speaker: 0
     text: Leave her alone.
+    mode: 0
   - speaker: 4
     text: Or what? You want to end up like her dad?
+    mode: 0
   - speaker: 0
     text: She didn't do anything wrong. Leave.
+    mode: 0
   - speaker: 5
     text: ...Whatever. This is boring.
+    mode: 0
   - speaker: 6
-    text: Enjoy your little killer.
+    text: Enjoy your little <shake>killer</shake>.
+    mode: 0

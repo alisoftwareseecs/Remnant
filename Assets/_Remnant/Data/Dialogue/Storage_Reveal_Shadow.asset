@@ -15,9 +15,13 @@ MonoBehaviour:
   lines:
   - speaker: 1
     text: Not this time.
+    mode: 2
   - speaker: 1
     text: Everyone saw her. No one looked.
+    mode: 2
   - speaker: 1
     text: I know. I'm the one who turned your head away.
+    mode: 2
   - speaker: 1
     text: Go back. Look at her this time.
+    mode: 2

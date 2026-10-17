@@ -15,5 +15,7 @@ MonoBehaviour:
   lines:
   - speaker: 2
     text: The game is finished.
+    mode: 0
   - speaker: 2
     text: The word was her name.
+    mode: 0

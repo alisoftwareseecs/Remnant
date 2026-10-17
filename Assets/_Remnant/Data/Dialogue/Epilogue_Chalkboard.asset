@@ -15,5 +15,7 @@ MonoBehaviour:
   lines:
   - speaker: 2
     text: Someone erased the hangman game.
+    mode: 0
   - speaker: 2
     text: Only a faint smudge is left.
+    mode: 0

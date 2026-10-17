@@ -16,5 +16,7 @@ MonoBehaviour:
   - speaker: 0
     text: Her desk. The lid has been scratched, then rubbed down, as if someone tried
       to hide it.
+    mode: 0
   - speaker: 2
     text: Her bag is still hanging from the side. It looks heavier than it should.
+    mode: 0

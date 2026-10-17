@@ -15,7 +15,10 @@ MonoBehaviour:
   lines:
   - speaker: 1
     text: You saw everything yesterday.
+    mode: 1
   - speaker: 1
     text: And you looked away.
+    mode: 1
   - speaker: 1
     text: Do you want to see where looking away leads?
+    mode: 1

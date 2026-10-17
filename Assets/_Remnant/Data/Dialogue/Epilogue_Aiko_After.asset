@@ -15,5 +15,7 @@ MonoBehaviour:
   lines:
   - speaker: 3
     text: I'll write more tomorrow.
+    mode: 0
   - speaker: 0
     text: I'll read it.
+    mode: 0

@@ -15,5 +15,7 @@ MonoBehaviour:
   lines:
   - speaker: 1
     text: This is where looking away leads.
+    mode: 1
   - speaker: 1
     text: It can't stand being seen. Keep your light on it.
+    mode: 1

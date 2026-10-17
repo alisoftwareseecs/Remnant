@@ -4688,11 +4688,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f44c3ffa45261444b4589fbf7c0e5dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Story.EncounterHud
-  shadowColor: {r: 0.62, g: 0.3, b: 0.3, a: 1}
-  captionSize: 30
+  font: {fileID: 11400000, guid: e350eaf1817e58241aabdf92d30fb7ca, type: 2}
+  shadowColor: {r: 0.69, g: 0.063, b: 0.165, a: 1}
+  captionSize: 48
+  captionJitter: 1.5
   captionFadeSeconds: 0.25
   captionHoldSeconds: 2.2
-  promptSize: 22
+  promptSize: 32
   promptMaxAlpha: 0.45
   promptFadeSeconds: 2.5
 --- !u!4 &1440932489

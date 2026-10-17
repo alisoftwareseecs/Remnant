@@ -15,5 +15,7 @@ MonoBehaviour:
   lines:
   - speaker: 3
     text: ...Why didn't you run?
+    mode: 0
   - speaker: 0
     text: Because I'm done looking away.
+    mode: 0

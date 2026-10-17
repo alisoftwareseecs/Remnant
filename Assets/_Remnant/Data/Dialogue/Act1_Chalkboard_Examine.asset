@@ -16,5 +16,7 @@ MonoBehaviour:
   - speaker: 2
     text: 'The board is half erased. One line is still readable: "Write about something
       you could not say out loud."'
+    mode: 0
   - speaker: 0
     text: (Nobody ever finished that assignment.)
+    mode: 0

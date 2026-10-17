@@ -15,5 +15,7 @@ MonoBehaviour:
   lines:
   - speaker: 2
     text: A small brass key, cold to the touch.
+    mode: 0
   - speaker: 1
     text: Take it. Doors only open for people who stay.
+    mode: 0

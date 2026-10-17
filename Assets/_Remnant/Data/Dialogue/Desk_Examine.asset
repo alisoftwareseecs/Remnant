@@ -15,5 +15,7 @@ MonoBehaviour:
   lines:
   - speaker: 0
     text: Someone carved a name into the wood. It has been scratched out.
+    mode: 0
   - speaker: 1
     text: You know whose desk this is. You always did.
+    mode: 0

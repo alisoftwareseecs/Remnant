@@ -15,10 +15,14 @@ MonoBehaviour:
   lines:
   - speaker: 2
     text: Someone's been playing hangman in the corner.
+    mode: 0
   - speaker: 2
     text: Four letters. Only the head is drawn.
+    mode: 0
   - speaker: 2
     text: 'The board is half erased. One line is still readable: "Write about something
       you could not say out loud."'
+    mode: 0
   - speaker: 0
     text: (Nobody ever finished that assignment.)
+    mode: 0

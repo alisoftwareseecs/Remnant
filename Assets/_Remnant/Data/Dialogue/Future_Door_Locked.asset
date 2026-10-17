@@ -15,3 +15,7 @@ MonoBehaviour:
   lines:
   - speaker: 2
     text: Locked.
+    mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 0, g: 0, b: 0, a: 0}
+    fadeTo: {r: 0, g: 0, b: 0, a: 0}

@@ -15,5 +15,7 @@ MonoBehaviour:
   lines:
   - speaker: 0
     text: Aiko's desk. Her bag isn't here.
+    mode: 1
   - speaker: 0
     text: She never misses class.
+    mode: 1

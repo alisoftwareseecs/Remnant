@@ -15,5 +15,13 @@ MonoBehaviour:
   lines:
   - speaker: 1
     text: Don't look so surprised.
+    mode: 1
+    fadeColor: 0
+    fadeFrom: {r: 0, g: 0, b: 0, a: 0}
+    fadeTo: {r: 0, g: 0, b: 0, a: 0}
   - speaker: 1
     text: I was never part of you. I'm just what you chose not to see.
+    mode: 1
+    fadeColor: 0
+    fadeFrom: {r: 0, g: 0, b: 0, a: 0}
+    fadeTo: {r: 0, g: 0, b: 0, a: 0}

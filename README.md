@@ -53,6 +53,7 @@ Art, font and sound packs used (full list in [`Assets/_Remnant/Art/CREDITS.md`](
 | Horror Pixel Art Assets | lenidev | https://lenidev.itch.io/horror-pixel-art-assets | Described as free to use; there is no formal license. |
 | RPG Maker VX ACE: FREE 300 Modern Charas (MV pack) | adanoliva | https://adanoliva.itch.io/rpg-maker-free-300-modern-charas | Free for commercial and non-commercial use. |
 | Gloria Hallelujah (font) | Kimberly Geswein | https://fonts.google.com/specimen/Gloria+Hallelujah | SIL Open Font License 1.1. |
+| Pixel Operator Mono (font) | Jayvee Enaguas (HarvettFox96) | https://www.dafont.com/pixel-operator.font | CC0 1.0. |
 | Writing on Black Board 3 (sound effect, ID 86723) | freesound_community (Pixabay) | https://pixabay.com/sound-effects/film-special-effects-writing-on-black-board-3-86723/ | Pixabay Content License. |
 | Scraping (sound effect, ID 68271) | freesound_community (Pixabay) | https://pixabay.com/sound-effects/film-special-effects-scraping-68271/ | Pixabay Content License. |
 

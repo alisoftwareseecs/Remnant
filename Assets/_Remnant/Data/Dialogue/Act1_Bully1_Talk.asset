@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Dialogue.DialogueData
   lines:
   - speaker: 4
-    text: 'Don''t stand so close. She''s dangerous.'
+    text: Don't stand so close. She's dangerous.
+    mode: 0

@@ -15,5 +15,7 @@ MonoBehaviour:
   lines:
   - speaker: 2
     text: The hangman game is still there.
+    mode: 1
   - speaker: 2
     text: More of him is drawn now. Nobody erased it.
+    mode: 1

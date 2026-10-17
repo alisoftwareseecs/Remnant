@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Remnant.Dialogue;
 using TMPro;
 using UnityEngine;
 
@@ -13,13 +14,18 @@ namespace Remnant.Story
     public class EncounterHud : MonoBehaviour
     {
         [Header("Shadow lines")]
-        [SerializeField] private Color shadowColor = new Color(0.62f, 0.30f, 0.30f);
-        [SerializeField, Min(8f)] private float captionSize = 30f;
+        [Tooltip("The pixel font of the dialogue box.")]
+        [SerializeField] private TMP_FontAsset font;
+        [Tooltip("Same crimson as the Shadow in the dialogue box.")]
+        [SerializeField] private Color shadowColor = new Color(0.690f, 0.063f, 0.165f);
+        [SerializeField, Min(8f)] private float captionSize = 48f;
+        [Tooltip("Letter jitter of the Shadow's shouted lines (tense delivery).")]
+        [SerializeField, Min(0f)] private float captionJitter = 1.5f;
         [SerializeField, Min(0.1f)] private float captionFadeSeconds = 0.25f;
         [SerializeField, Min(0.2f)] private float captionHoldSeconds = 2.2f;
 
         [Header("Prompt")]
-        [SerializeField, Min(8f)] private float promptSize = 22f;
+        [SerializeField, Min(8f)] private float promptSize = 32f;
         [Range(0.05f, 1f)] [SerializeField] private float promptMaxAlpha = 0.45f;
         [SerializeField, Min(0.1f)] private float promptFadeSeconds = 2.5f;
 
@@ -38,9 +44,10 @@ namespace Remnant.Story
             // Below the dialogue panel (50) and the scene transition overlay.
             canvas.sortingOrder = 40;
 
-            caption = CreateText(canvas.transform, "ShadowLine", captionSize, FontStyles.Italic,
+            caption = CreateText(canvas.transform, "ShadowLine", captionSize, FontStyles.Normal,
                 new Vector2(0.5f, 0f), new Vector2(0f, 190f), TextAlignmentOptions.Center);
             caption.color = Transparent(shadowColor);
+            caption.gameObject.AddComponent<JitterText>().BaseAmplitude = captionJitter;
 
             prompt = CreateText(canvas.transform, "Prompt", promptSize, FontStyles.Normal,
                 new Vector2(0.5f, 0f), new Vector2(0f, 110f), TextAlignmentOptions.Center);
@@ -114,13 +121,14 @@ namespace Remnant.Story
             return color;
         }
 
-        private static TextMeshProUGUI CreateText(Transform parent, string objectName, float size, FontStyles style,
+        private TextMeshProUGUI CreateText(Transform parent, string objectName, float size, FontStyles style,
             Vector2 anchor, Vector2 anchoredPosition, TextAlignmentOptions alignment)
         {
             GameObject textObject = new GameObject(objectName);
             textObject.transform.SetParent(parent, false);
 
             TextMeshProUGUI text = textObject.AddComponent<TextMeshProUGUI>();
+            if (font != null) text.font = font;
             text.fontSize = size;
             text.fontStyle = style;
             text.alignment = alignment;
