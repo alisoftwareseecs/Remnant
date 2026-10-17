@@ -45,14 +45,17 @@ Note: "Download ZIP" on GitHub includes the real LFS files only because the repo
 
 **Game by Squad Zero.** Made with Unity.
 
-Art packs used (full list in [`Assets/_Remnant/Art/CREDITS.md`](Assets/_Remnant/Art/CREDITS.md)):
+Art, font and sound packs used (full list in [`Assets/_Remnant/Art/CREDITS.md`](Assets/_Remnant/Art/CREDITS.md)):
 
 | Pack | Author | URL | License / terms |
 |---|---|---|---|
 | Top Down Pixel Art Horror (school tiles) | kamisama887 (credit name: AnisAous) | https://kamisama887.itch.io/lorenz-fries-school-horror | Free for personal use on any engine. Commercial use requires a donation of 4.50 USD or more. Modifications and adaptations allowed; selling or separately re-uploading the pack is not allowed. Credit not required but appreciated. |
 | Horror Pixel Art Assets | lenidev | https://lenidev.itch.io/horror-pixel-art-assets | Described as free to use; there is no formal license. |
 | RPG Maker VX ACE: FREE 300 Modern Charas (MV pack) | adanoliva | https://adanoliva.itch.io/rpg-maker-free-300-modern-charas | Free for commercial and non-commercial use. |
+| Gloria Hallelujah (font) | Kimberly Geswein | https://fonts.google.com/specimen/Gloria+Hallelujah | SIL Open Font License 1.1. |
+| Writing on Black Board 3 (sound effect, ID 86723) | freesound_community (Pixabay) | https://pixabay.com/sound-effects/film-special-effects-writing-on-black-board-3-86723/ | Pixabay Content License. |
+| Scraping (sound effect, ID 68271) | freesound_community (Pixabay) | https://pixabay.com/sound-effects/film-special-effects-scraping-68271/ | Pixabay Content License. |
 
-Also generated in this project: the chalk hangman states, diary page, cracked mirror, and the reveal art, drawn with Python/Pillow scripts in `Tools/`.
+Also generated in this project: the chalk hangman states, diary page, cracked mirror, the reveal art and the content-warning chalkboard, drawn with Python/Pillow scripts in `Tools/`.
 
 The third-party art keeps its own license; it is not covered by any license of this repository's code.
