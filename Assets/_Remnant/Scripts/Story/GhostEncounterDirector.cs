@@ -1,4 +1,5 @@
 using System.Collections;
+using Remnant.Audio;
 using Remnant.Core;
 using Remnant.Enemies;
 using Remnant.Flashlight;
@@ -85,11 +86,21 @@ namespace Remnant.Story
             if (!promptAvailable || reached || lowerLightAction == null) return;
             if (!lowerLightAction.action.WasPressedThisFrame()) return;
 
+            LowerLight();
+        }
+
+        /// <summary>
+        /// The player lowers the light (F). The music hard cuts on this very frame, at the same moment the Shadow's caption
+        /// is cut off mid-word; the beam points at the floor for good.
+        /// </summary>
+        public void LowerLight()
+        {
             FlashlightController flashlight = FlashlightController.Active;
             if (flashlight == null || flashlight.IsLowered) return;
 
             flashlight.LowerBeam();
             promptAvailable = false;
+            if (MusicManager.Instance != null) MusicManager.Instance.HardCut();
             if (hud != null)
             {
                 // whatever the Shadow is shouting stops dead, mid-word. Silence.

@@ -1,4 +1,5 @@
 using System.Collections;
+using Remnant.Audio;
 using Remnant.Characters;
 using Remnant.Core;
 using Remnant.Dialogue;
@@ -89,6 +90,8 @@ namespace Remnant.Story
         [SerializeField] private string darkFlag = "act4_dark";
         [SerializeField] private string reunionFlag = "act4_reunion";
         [SerializeField] private string stepInFlag = "act4_stepin";
+        [Tooltip("When the lights come back the pleasant music fades in over this long.")]
+        [SerializeField, Min(0f)] private float lightsBackMusicFadeSeconds = 2.5f;
         [SerializeField] private string confrontedFlag = "act4_confronted";
         [SerializeField] private string doneFlag = "act4_done";
         [SerializeField] private string epilogueFlag = "epilogue";
@@ -191,6 +194,8 @@ namespace Remnant.Story
             if (globalLight != null) globalLight.intensity = deadLightIntensity;
             yield return new WaitForSeconds(0.35f);
 
+            // "The lights die.": the music cuts dead.
+            if (MusicManager.Instance != null) MusicManager.Instance.HardCut();
             yield return Speak(lightsDieDialogue);
 
             if (SceneTransition.Instance != null)
@@ -256,6 +261,9 @@ namespace Remnant.Story
             // Time resumes: the light is back and so are the girls.
             state.SetFlag(stepInFlag);
             state.RefreshCheckpointFlags();
+            // The lights come back and the pleasant music fades in.
+            MusicManager music = MusicManager.Instance;
+            if (music != null && music.Library != null) music.Play(music.Library.Pleasant, lightsBackMusicFadeSeconds);
             PlaceGirls();
 
             float elapsed = 0f;

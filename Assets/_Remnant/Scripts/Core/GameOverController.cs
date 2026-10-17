@@ -1,4 +1,5 @@
 using System.Collections;
+using Remnant.Audio;
 using Remnant.Player;
 using TMPro;
 using UnityEngine;
@@ -70,6 +71,15 @@ namespace Remnant.Core
         {
             if (IsActive) return;
             IsActive = true;
+
+            // The ghost caught him: the music cuts dead, the game over sound plays once, and the screen is silent after it.
+            MusicManager music = MusicManager.Instance;
+            if (music != null)
+            {
+                music.HardCut();
+                if (music.Library != null) SfxPlayer.Play(music.Library.GameOver);
+            }
+
             StartCoroutine(Sequence());
         }
 
@@ -127,6 +137,7 @@ namespace Remnant.Core
             }
 
             IsActive = false;
+            SfxPlayer.StopAll(0.3f);
 
             if (SceneTransition.Instance != null)
             {

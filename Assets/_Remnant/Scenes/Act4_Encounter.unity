@@ -1073,6 +1073,57 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &591233702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 591233704}
+  - component: {fileID: 591233703}
+  m_Layer: 0
+  m_Name: SceneMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &591233703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591233702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9757a441f26671429afbd1b6793e6e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Audio.SceneMusic
+  rules:
+  - label: 'ghost encounter: corridor'
+    whenFlags: 
+    unlessFlags: 
+    action: 0
+    cue: {fileID: 11400000, guid: 773cccee7b44c6b4e924df20783e18fa, type: 2}
+    fadeSeconds: 0.5
+--- !u!4 &591233704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591233702}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &683534527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4661,15 +4712,13 @@ MonoBehaviour:
   ghost: {fileID: 290348872821137690}
   hud: {fileID: 1440932488}
   lowerLightAction: {fileID: -7375473734076096025, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  openingLine: Light! NOW! Before it reaches you!
   ghostFirstDelaySeconds: 2
-  banishLines:
-  - Good.
-  - Again.
-  - Keep it on her.
-  - Just like them.
-  repeatLine: Just like them.
+  appearLine: Light! Keep it on her!
+  flinchLine: Look at her flinch. Just like in class.
+  comingLine: Don't let her near you. She ruins everyone who gets close.
   dontLine: Don't you dare.
+  hesitationLine: "Put it back on her! PUT IT BACK\u2014"
+  hesitationSeconds: 4
   promptText: '[F] Lower the light'
   flickerSeconds: 1.4
   promptDelaySeconds: 1.6
@@ -4693,6 +4742,7 @@ MonoBehaviour:
   captionSize: 48
   captionJitter: 1.5
   captionFadeSeconds: 0.25
+  captionCharsPerSecond: 34
   captionHoldSeconds: 2.2
   promptSize: 32
   promptMaxAlpha: 0.45
@@ -5527,3 +5577,4 @@ SceneRoots:
   - {fileID: 1759229946}
   - {fileID: 290348872821137689}
   - {fileID: 1440932489}
+  - {fileID: 591233704}

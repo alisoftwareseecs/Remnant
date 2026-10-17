@@ -11,6 +11,17 @@ Every pack used in the project.
 | Pixel Operator Mono (font) | Jayvee Enaguas (HarvettFox96) | https://www.dafont.com/pixel-operator.font | CC0 1.0 (public domain dedication; no credit required). | Fonts/ (dialogue box and Shadow captions) | Assets/Fonts/PixelOperatorMono.ttf, Assets/Fonts/LICENSE.txt |
 | Writing on Black Board 3 (sound effect, Pixabay ID 86723) | freesound_community (Pixabay; original artist ta8keiteasy on Freesound) | https://pixabay.com/sound-effects/film-special-effects-writing-on-black-board-3-86723/ | Pixabay Content License (free use, no attribution required). | Audio/SFX/chalk_writing.mp3 (content-warning screen) | Downloaded file name: freesound_community-writing-on-black-board-3-86723.mp3 |
 | Scraping (sound effect, Pixabay ID 68271) | freesound_community (Pixabay; original artist takeabeat on Freesound) | https://pixabay.com/sound-effects/film-special-effects-scraping-68271/ | Pixabay Content License (free use, no attribution required). | Audio/SFX/eraser_scraping.mp3 (content-warning screen) | Downloaded file name: freesound_community-scraping-68271.mp3 |
+| Track (pleasant) — Music/music_pleasant | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | Present_Classroom, credits | |
+| Track (corridor) — Music/music_corridor | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | Future_Corridor, Act4_Encounter | |
+| Track (diary) — Music/music_diary | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | Future_Classroom2B | |
+| Track (storage) — Music/music_storage | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | Storage_Hallway | |
+| Track (transition) — Music/music_transition | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | the Shadow's red/black flashing transitions | |
+| Sound effect (shadow appears) — SFX/sfx_shadow_appear | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | the Shadow separating on Day 2 | |
+| Sound effect (game over) — SFX/sfx_game_over | Artist (Pixabay) | link to fill in | Pixabay Content License (confirm) | the game over screen | |
+
+## Music (placeholders to fill in)
+
+The tracks come from Pixabay; the rows above are placeholders ("Track — Artist (Pixabay)") until the real names and links are filled in. The Credits scene has the same placeholder lines in its Music section: update both. Loudness of every track was measured with `Tools/audio/measure.py` and corrected by the gain on its AudioCue asset (Data/Audio). Note: Shadow Appearing.wav carries C2PA (content credentials) metadata, so check how it was produced before release.
 
 ## Generated in this project
 

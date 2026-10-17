@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using Remnant.Audio;
 using Remnant.Player;
 using TMPro;
 using Unity.Cinemachine;
@@ -37,6 +39,12 @@ namespace Remnant.Core
 
         [Header("Distort style")]
         [SerializeField, Min(0f)] private float distortSeconds = 0.9f;
+        [Tooltip("Length of one red flash (random between the two).")]
+        [SerializeField] private Vector2 redFlashSeconds = new Vector2(0.04f, 0.1f);
+        [Tooltip("Length of one black frame between two red flashes (random between the two).")]
+        [SerializeField] private Vector2 blackFrameSeconds = new Vector2(0.03f, 0.07f);
+        [Tooltip("How long the last, solid red lasts before the screen goes black.")]
+        [SerializeField, Min(0f)] private float finalRedSeconds = 0.08f;
         [SerializeField] private Color distortColor = new Color(0.45f, 0f, 0f, 1f);
 
         [Header("Flash style")]
@@ -81,7 +89,7 @@ namespace Remnant.Core
         /// <param name="fadeOutOverride">Optional length of the fade to black, for a slower fade. Negative uses the default.</param>
         public void GoTo(string sceneName, string spawnId = null, string title = null,
             TransitionStyle style = TransitionStyle.Fade, string flagToSet = null, Vector2? worldPosition = null,
-            float fadeOutOverride = -1f)
+            float fadeOutOverride = -1f, bool flashMusic = false)
         {
             if (IsTransitioning) return;
 
@@ -91,11 +99,11 @@ namespace Remnant.Core
                 return;
             }
 
-            StartCoroutine(Run(sceneName, spawnId, title, style, flagToSet, worldPosition, fadeOutOverride));
+            StartCoroutine(Run(sceneName, spawnId, title, style, flagToSet, worldPosition, fadeOutOverride, flashMusic));
         }
 
         private IEnumerator Run(string sceneName, string spawnId, string title, TransitionStyle style,
-            string flagToSet, Vector2? worldPosition, float fadeOutOverride)
+            string flagToSet, Vector2? worldPosition, float fadeOutOverride, bool flashMusic)
         {
             IsTransitioning = true;
             HasTransitioned = true;
@@ -104,7 +112,7 @@ namespace Remnant.Core
             // A flash goes to white and comes back from white; everything else uses black.
             Color fadeColor = style == TransitionStyle.Flash ? Color.white : Color.black;
 
-            if (style == TransitionStyle.Distort) yield return Distort();
+            if (style == TransitionStyle.Distort) yield return Distort(flashMusic);
             else if (style == TransitionStyle.Flash) yield return FadeOverlay(0f, 1f, fadeOutOverride >= 0f ? fadeOutOverride : flashSeconds, fadeColor);
             else yield return FadeOverlay(0f, 1f, fadeOutOverride >= 0f ? fadeOutOverride : fadeOutSeconds, fadeColor);
 
@@ -137,28 +145,54 @@ namespace Remnant.Core
             IsTransitioning = false;
         }
 
-        private IEnumerator Distort()
+        // The flashing is planned first (alternating red flashes and black frames), so the music can be sliced to the
+        // very same flashes: each red flash plays the next slice of the clip, each black frame is silence.
+        private IEnumerator Distort(bool flashMusic)
         {
-            float elapsed = 0f;
-            float nextFlicker = 0f;
-
-            while (elapsed < distortSeconds)
+            List<float> reds = new List<float>();
+            List<float> blacks = new List<float>();
+            float planned = 0f;
+            while (planned < distortSeconds)
             {
-                float t = elapsed / distortSeconds;
-                if (elapsed >= nextFlicker)
-                {
-                    Color color = Random.value < 0.5f ? Color.black : distortColor;
-                    SetOverlay(Random.Range(0.15f, 0.35f + 0.65f * t), color);
-                    nextFlicker = elapsed + Random.Range(0.03f, 0.09f);
-                }
+                float red = Random.Range(redFlashSeconds.x, redFlashSeconds.y);
+                float black = Random.Range(blackFrameSeconds.x, blackFrameSeconds.y);
+                reds.Add(red);
+                blacks.Add(black);
+                planned += red + black;
+            }
 
-                elapsed += Time.unscaledDeltaTime;
-                yield return null;
+            FlashSliceMusic slicer = flashMusic ? FlashSliceMusic.Instance : null;
+            if (slicer != null) slicer.Begin();
+
+            float elapsed = 0f;
+            for (int i = 0; i < reds.Count; i++)
+            {
+                float t = Mathf.Clamp01(elapsed / distortSeconds);
+                SetOverlay(Random.Range(0.35f, 0.6f + 0.4f * t), distortColor);
+                if (slicer != null) slicer.Red(reds[i]);
+                yield return WaitUnscaled(reds[i]);
+                elapsed += reds[i];
+
+                SetOverlay(Random.Range(0.15f, 0.35f + 0.65f * t), Color.black);
+                if (slicer != null) slicer.Black();
+                yield return WaitUnscaled(blacks[i]);
+                elapsed += blacks[i];
             }
 
             SetOverlay(1f, distortColor);
-            yield return new WaitForSecondsRealtime(0.08f);
+            if (slicer != null) slicer.Finish();
+            yield return WaitUnscaled(finalRedSeconds);
             SetOverlay(1f, Color.black);
+        }
+
+        private static IEnumerator WaitUnscaled(float seconds)
+        {
+            float elapsed = 0f;
+            while (elapsed < seconds)
+            {
+                elapsed += Time.unscaledDeltaTime;
+                yield return null;
+            }
         }
 
         private IEnumerator FadeOverlay(float from, float to, float seconds, Color color)

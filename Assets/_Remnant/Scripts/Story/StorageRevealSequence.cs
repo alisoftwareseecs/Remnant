@@ -1,4 +1,5 @@
 using System.Collections;
+using Remnant.Audio;
 using Remnant.Core;
 using Remnant.Dialogue;
 using Remnant.Flashlight;
@@ -42,7 +43,6 @@ namespace Remnant.Story
         [SerializeField] private string nextScene = "Present_Classroom";
         [SerializeField] private string nextSpawnId = SpawnPoint.DefaultId;
         [SerializeField] private string titleCard = "Back.";
-        [SerializeField, Min(0f)] private float fadeOutSeconds = 3f;
 
         private bool started;
 
@@ -77,6 +77,9 @@ namespace Remnant.Story
 
         private IEnumerator Reveal(FlashlightController flashlight)
         {
+            // The reveal, the still and the lines after it are in complete silence (the hallway music has already faded out by distance).
+            if (MusicManager.Instance != null) MusicManager.Instance.HardCut();
+
             PlayerController player = FindFirstObjectByType<PlayerController>();
             if (player != null) player.SetMovementLocked(true);
 
@@ -112,7 +115,8 @@ namespace Remnant.Story
 
             if (SceneTransition.Instance != null)
             {
-                SceneTransition.Instance.GoTo(nextScene, nextSpawnId, titleCard, TransitionStyle.Fade, actFlag, null, fadeOutSeconds);
+                // The Shadow sends him back with the same flashing pull as the one into the Future.
+                SceneTransition.Instance.GoTo(nextScene, nextSpawnId, titleCard, TransitionStyle.Distort, actFlag, null, -1f, true);
             }
             else
             {

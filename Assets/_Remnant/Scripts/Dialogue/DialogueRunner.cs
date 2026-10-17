@@ -166,6 +166,8 @@ namespace Remnant.Dialogue
 
         public event Action Started;
         public event Action Ended;
+        /// <summary>Raised when a line starts: the dialogue and the index of the line in it.</summary>
+        public event Action<DialogueData, int> LineStarted;
 
         private void Awake()
         {
@@ -247,6 +249,7 @@ namespace Remnant.Dialogue
             {
                 currentLineIndex = i;
                 currentLineStartedAt = Time.unscaledTime;
+                LineStarted?.Invoke(data, i);
                 yield return ShowLine(lines[i]);
             }
 

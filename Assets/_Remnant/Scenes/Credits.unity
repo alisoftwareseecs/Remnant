@@ -630,6 +630,57 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!1 &921220258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 921220260}
+  - component: {fileID: 921220259}
+  m_Layer: 0
+  m_Name: SceneMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &921220259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921220258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9757a441f26671429afbd1b6793e6e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Audio.SceneMusic
+  rules:
+  - label: 'credits: pleasant'
+    whenFlags: 
+    unlessFlags: 
+    action: 0
+    cue: {fileID: 11400000, guid: 673d96295f82f954bad0499ff12b7335, type: 2}
+    fadeSeconds: 1.5
+--- !u!4 &921220260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921220258}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &968341423
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,7 +727,12 @@ MonoBehaviour:
     (SIL Open Font License)</size>\n\n<size=26><color=#9a9a9a>https://fonts.google.com/specimen/Gloria+Hallelujah</color></size>\n\n\n\n<size=42>Pixel
     Operator Mono (dialogue font)</size>\n\n<size=34>by Jayvee Enaguas (CC0)</size>\n\n<size=26><color=#9a9a9a>https://www.dafont.com/pixel-operator.font</color></size>\n\n\n\n<size=60>Sound</size>\n\n\n<size=42>Writing
     on Black Board 3</size>\n\n<size=34>by freesound_community (Pixabay)</size>\n\n<size=26><color=#9a9a9a>https://pixabay.com/sound-effects/film-special-effects-writing-on-black-board-3-86723/</color></size>\n\n\n\n<size=42>Scraping</size>\n\n<size=34>by
-    freesound_community (Pixabay)</size>\n\n<size=26><color=#9a9a9a>https://pixabay.com/sound-effects/film-special-effects-scraping-68271/</color></size>\n\n\n\n<size=44>Made
+    freesound_community (Pixabay)</size>\n\n<size=26><color=#9a9a9a>https://pixabay.com/sound-effects/film-special-effects-scraping-68271/</color></size>\n\n\n\n<size=60>Music</size>\n\n\n<size=34>Track
+    (pleasant) \u2014 Artist (Pixabay)</size>\n\n<size=34>Track (corridor) \u2014
+    Artist (Pixabay)</size>\n\n<size=34>Track (diary) \u2014 Artist (Pixabay)</size>\n\n<size=34>Track
+    (storage) \u2014 Artist (Pixabay)</size>\n\n<size=34>Track (transition) \u2014
+    Artist (Pixabay)</size>\n\n<size=34>Sound effect (shadow appears) \u2014 Artist
+    (Pixabay)</size>\n\n<size=34>Sound effect (game over) \u2014 Artist (Pixabay)</size>\n\n\n\n<size=44>Made
     with Unity</size>\n\n\n\n<size=56>Thank you for playing.</size>\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1001,3 +1057,4 @@ SceneRoots:
   - {fileID: 1072166922}
   - {fileID: 275104272}
   - {fileID: 1769218928}
+  - {fileID: 921220260}
