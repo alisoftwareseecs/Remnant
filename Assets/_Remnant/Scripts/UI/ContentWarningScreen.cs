@@ -187,7 +187,7 @@ namespace Remnant.UI
             if (writingSource == null || writingSource.clip == null) return;
 
             // start somewhere different in the clip each line, far enough from its end that it does not wrap
-            float expected = characters / Mathf.Max(1f, charsPerSecond) * 1.3f + 0.5f;
+            float expected = characters / Mathf.Max(1f, charsPerSecond) * 1.3f + 1.2f;
             float latestStart = Mathf.Max(0f, writingSource.clip.length - 0.5f - expected);
 
             if (writingFade != null) StopCoroutine(writingFade);

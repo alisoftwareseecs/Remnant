@@ -1702,6 +1702,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &280403301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 280403303}
+  - component: {fileID: 280403302}
+  m_Layer: 0
+  m_Name: DeskCloseUp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &280403302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280403301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b72aa91f8563583439f5d89695107a3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Story.DeskCloseUp
+  sortingOrder: 60
+  fadeSeconds: 0.5
+--- !u!4 &280403303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280403301}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &284499056
 GameObject:
   m_ObjectHideFlags: 0
@@ -2876,6 +2922,7 @@ GameObject:
   - component: {fileID: 332169440}
   - component: {fileID: 332169439}
   - component: {fileID: 332169441}
+  - component: {fileID: 332169442}
   m_Layer: 0
   m_Name: AikoDesk
   m_TagString: Untagged
@@ -2895,7 +2942,8 @@ Transform:
   m_LocalPosition: {x: 10, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 439441091}
   m_Father: {fileID: 2119118955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &332169439
@@ -2993,7 +3041,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1241167287, guid: ae109e35371d8d84a8bff7144ac1f757, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 430f522b38aee054f94b6ec3892c1409, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3028,6 +3076,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: cc58666c705209747ac28bd6ead1fa31, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    closeUp: {fileID: 21300000, guid: 2bc3b3da9cd5f8443aae4b523cabd404, type: 3}
     changeScene: 0
     sceneName: 
     spawnId: 
@@ -3039,6 +3088,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: e9e66f22bf2680b40ace8f98d10f720a, type: 2}
     setFlag: 
     sequence: {fileID: 1847081352}
+    closeUp: {fileID: 21300000, guid: 59d4f0c452dc0a64cbfa4c51ae72048b, type: 3}
     changeScene: 0
     sceneName: 
     spawnId: 
@@ -3050,12 +3100,30 @@ MonoBehaviour:
     dialogue: {fileID: 0}
     setFlag: 
     sequence: {fileID: 0}
+    closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
     spawnId: 
     titleCard: 
     flagDuringTransition: 
     style: 0
+--- !u!114 &332169442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332169436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d227df482904758468d42858a756a597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.SpriteByFlag
+  entries:
+  - flag: epilogue
+    sprite: {fileID: 21300000, guid: 70b7fb8f17b1c9f45a987b66b07ea30f, type: 3}
+  - flag: day2
+    sprite: {fileID: 21300000, guid: c228470cc31dab64f992e4a973e3938c, type: 3}
 --- !u!1 &344403631
 GameObject:
   m_ObjectHideFlags: 0
@@ -4609,6 +4677,114 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &439441090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 439441091}
+  - component: {fileID: 439441093}
+  - component: {fileID: 439441092}
+  m_Layer: 0
+  m_Name: Shavings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &439441091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439441090}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.099999905, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 332169437}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &439441092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439441090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db099ed75de710847b45f828576046c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
+  flag: epilogue
+  mode: 1
+  alsoHiddenByFlags: 
+  target: {fileID: 0}
+--- !u!212 &439441093
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439441090}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 21300000, guid: e1826bbe14a4c5a4f8e2cafb9a303843, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2, y: 2}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
 --- !u!1 &467449424
 GameObject:
   m_ObjectHideFlags: 0
@@ -6366,6 +6542,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: fbbecf9dbb8df584d8a5ccc8ee0d9270, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
     spawnId: 
@@ -6377,6 +6554,7 @@ MonoBehaviour:
     dialogue: {fileID: 0}
     setFlag: 
     sequence: {fileID: 0}
+    closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
     spawnId: 
@@ -6388,6 +6566,7 @@ MonoBehaviour:
     dialogue: {fileID: 0}
     setFlag: 
     sequence: {fileID: 0}
+    closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
     spawnId: 
@@ -6399,6 +6578,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: b6e26123293205941857cb7dab74e8aa, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
     spawnId: 
@@ -6876,7 +7056,7 @@ Transform:
   m_GameObject: {fileID: 1351497479}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.2, y: 3.2, z: 0}
+  m_LocalPosition: {x: 10.95, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7539,7 +7719,7 @@ Transform:
   m_GameObject: {fileID: 1470012179}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.4, y: 1.9, z: 0}
+  m_LocalPosition: {x: 12.75, y: 1.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7808,9 +7988,9 @@ MonoBehaviour:
   shrinkSeconds: 5
   lightsReturnSeconds: 1.6
   girlOffsets:
-  - {x: -1.5, y: 0.5}
-  - {x: 1.5, y: 0.5}
-  - {x: 0, y: 1.4}
+  - {x: -1.2, y: 0.05}
+  - {x: 1.5, y: 0.6}
+  - {x: 0.3, y: 1.5}
   aikoSeat: {fileID: 496949671}
   nextDayScene: Present_Classroom
   nextDaySpawnId: start
@@ -8470,6 +8650,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: 3f14fa05dbb200443801a74a4ebc10c7, type: 2}
     setFlag: 
     sequence: {fileID: 711551031}
+    closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
     spawnId: 
@@ -8481,6 +8662,7 @@ MonoBehaviour:
     dialogue: {fileID: 0}
     setFlag: 
     sequence: {fileID: 0}
+    closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
     spawnId: 
@@ -8598,6 +8780,7 @@ MonoBehaviour:
     dialogue: {fileID: 0}
     setFlag: 
     sequence: {fileID: 0}
+    closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
     spawnId: 
@@ -8609,6 +8792,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: 56b53fcf9e157754694859189c4a26a9, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
     spawnId: 
@@ -8620,6 +8804,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: f666873bdb52b59449afed691d4e51ac, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
     spawnId: 
@@ -9338,7 +9523,7 @@ Transform:
   m_GameObject: {fileID: 1894145104}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.6, y: 3.2, z: 0}
+  m_LocalPosition: {x: 13.7, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9846,6 +10031,7 @@ MonoBehaviour:
     dialogue: {fileID: 0}
     setFlag: 
     sequence: {fileID: 0}
+    closeUp: {fileID: 0}
     changeScene: 1
     sceneName: Future_Corridor
     spawnId: start
@@ -9857,6 +10043,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: 4260e54f2259c7d479e411fd51ea6960, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    closeUp: {fileID: 0}
     changeScene: 1
     sceneName: Present_Classroom
     spawnId: door
@@ -10085,3 +10272,4 @@ SceneRoots:
   - {fileID: 711551032}
   - {fileID: 1793484580}
   - {fileID: 1752175475}
+  - {fileID: 280403303}

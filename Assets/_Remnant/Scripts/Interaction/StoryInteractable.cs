@@ -27,6 +27,8 @@ namespace Remnant.Interaction
             [Tooltip("Set when the dialogue finishes.")]
             [SerializeField] private string setFlag;
             [SerializeField] private StorySequence sequence;
+            [Tooltip("A readable close-up of the object, faded in behind the dialogue box while the dialogue plays and out when it ends.")]
+            [SerializeField] private Sprite closeUp;
 
             [Header("Scene change after the dialogue")]
             [SerializeField] private bool changeScene;
@@ -40,6 +42,7 @@ namespace Remnant.Interaction
             public DialogueData Dialogue => dialogue;
             public string SetFlag => setFlag;
             public StorySequence Sequence => sequence;
+            public Sprite CloseUp => closeUp;
             public bool ChangeScene => changeScene;
             public string SceneName => sceneName;
             public string SpawnId => spawnId;
@@ -107,7 +110,14 @@ namespace Remnant.Interaction
 
             if (variant.Dialogue != null && dialogueRunner != null)
             {
-                dialogueRunner.Play(variant.Dialogue, () => Finish(variant));
+                DeskCloseUp closeUp = variant.CloseUp != null ? FindFirstObjectByType<DeskCloseUp>() : null;
+                if (closeUp != null) closeUp.Show(variant.CloseUp);
+
+                dialogueRunner.Play(variant.Dialogue, () =>
+                {
+                    if (closeUp != null) closeUp.Hide();
+                    Finish(variant);
+                });
             }
             else
             {

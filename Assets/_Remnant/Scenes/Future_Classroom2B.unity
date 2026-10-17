@@ -828,6 +828,7 @@ MonoBehaviour:
   dialogueRunner: {fileID: 1180829029}
   requiresFlags: 
   beforeDialogue: {fileID: 0}
+  closeUpBefore: {fileID: 0}
   reactionDialogue: {fileID: 0}
 --- !u!58 &84851405
 CircleCollider2D:
@@ -1098,6 +1099,7 @@ MonoBehaviour:
   dialogueRunner: {fileID: 1180829029}
   requiresFlags: 
   beforeDialogue: {fileID: 0}
+  closeUpBefore: {fileID: 0}
   reactionDialogue: {fileID: 11400000, guid: c17e7f1405ba1af4a94a11f2fcc67358, type: 2}
 --- !u!58 &90209137
 CircleCollider2D:
@@ -2102,6 +2104,7 @@ MonoBehaviour:
   dialogueRunner: {fileID: 1180829029}
   requiresFlags: 
   beforeDialogue: {fileID: 0}
+  closeUpBefore: {fileID: 0}
   reactionDialogue: {fileID: 11400000, guid: 23122508fb9b35942b0890aae77951d4, type: 2}
 --- !u!58 &226866771
 CircleCollider2D:
@@ -3716,6 +3719,7 @@ MonoBehaviour:
   dialogueRunner: {fileID: 1180829029}
   requiresFlags: page_1,page_2,page_3,page_4,page_5,page_6,page_7
   beforeDialogue: {fileID: 11400000, guid: 1f161a48af35bf64ab2efb68ec10d2eb, type: 2}
+  closeUpBefore: {fileID: 21300000, guid: 4328db655b55d964991cf28fb55122d7, type: 3}
   reactionDialogue: {fileID: 11400000, guid: b7efc41ac5ace3f429cd61d116ca8a94, type: 2}
 --- !u!58 &308853557
 CircleCollider2D:
@@ -3986,7 +3990,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1241167287, guid: ae109e35371d8d84a8bff7144ac1f757, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 40fa4fe32fb63b147884009827f8600a, type: 3}
   m_Color: {r: 0.5, g: 0.58, b: 0.76, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4218,6 +4222,7 @@ MonoBehaviour:
   dialogueRunner: {fileID: 1180829029}
   requiresFlags: 
   beforeDialogue: {fileID: 0}
+  closeUpBefore: {fileID: 0}
   reactionDialogue: {fileID: 0}
 --- !u!58 &406962026
 CircleCollider2D:
@@ -8174,6 +8179,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: 1e4116c724f10f646b07bd58e4f62643, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
     spawnId: 
@@ -9224,6 +9230,7 @@ MonoBehaviour:
     dialogue: {fileID: 0}
     setFlag: 
     sequence: {fileID: 0}
+    closeUp: {fileID: 0}
     changeScene: 1
     sceneName: Storage_Hallway
     spawnId: start
@@ -9235,6 +9242,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: b35248a251df6b1469a46fe8f889003d, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    closeUp: {fileID: 0}
     changeScene: 0
     sceneName: Present_Classroom
     spawnId: door
@@ -9377,6 +9385,52 @@ Transform:
   m_Children:
   - {fileID: 287816494}
   - {fileID: 1626535974}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1394641069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1394641071}
+  - component: {fileID: 1394641070}
+  m_Layer: 0
+  m_Name: DeskCloseUp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1394641070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394641069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b72aa91f8563583439f5d89695107a3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Story.DeskCloseUp
+  sortingOrder: 60
+  fadeSeconds: 0.5
+--- !u!4 &1394641071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394641069}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1397654050
@@ -10141,6 +10195,7 @@ MonoBehaviour:
   dialogueRunner: {fileID: 1180829029}
   requiresFlags: 
   beforeDialogue: {fileID: 0}
+  closeUpBefore: {fileID: 0}
   reactionDialogue: {fileID: 11400000, guid: 4a4cc8666c220f5468d27fc34b4314f0, type: 2}
 --- !u!58 &1573938135
 CircleCollider2D:
@@ -10273,6 +10328,7 @@ MonoBehaviour:
   forbidsFlag: classroom2b_intro
   setFlag: classroom2b_intro
   refreshCheckpointFlags: 1
+  playerBodyOnly: 0
 --- !u!61 &1576599393
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10423,6 +10479,7 @@ MonoBehaviour:
   dialogueRunner: {fileID: 1180829029}
   requiresFlags: 
   beforeDialogue: {fileID: 0}
+  closeUpBefore: {fileID: 0}
   reactionDialogue: {fileID: 11400000, guid: b5733dd8d34e4ca41b54baf09634fcf8, type: 2}
 --- !u!58 &1602282547
 CircleCollider2D:
@@ -11052,6 +11109,7 @@ MonoBehaviour:
   dialogueRunner: {fileID: 1180829029}
   requiresFlags: 
   beforeDialogue: {fileID: 0}
+  closeUpBefore: {fileID: 0}
   reactionDialogue: {fileID: 0}
 --- !u!58 &1720954972
 CircleCollider2D:
@@ -12054,6 +12112,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: b35248a251df6b1469a46fe8f889003d, type: 2}
     setFlag: 
     sequence: {fileID: 0}
+    closeUp: {fileID: 0}
     changeScene: 0
     sceneName: Present_Classroom
     spawnId: door
@@ -12435,6 +12494,7 @@ MonoBehaviour:
     dialogue: {fileID: 11400000, guid: 33ec51bced51de249a64db9cfb9891cb, type: 2}
     setFlag: mirror_seen
     sequence: {fileID: 0}
+    closeUp: {fileID: 0}
     changeScene: 0
     sceneName: 
     spawnId: 
@@ -12648,3 +12708,4 @@ SceneRoots:
   - {fileID: 1703576975}
   - {fileID: 1576599394}
   - {fileID: 1706365599}
+  - {fileID: 1394641071}

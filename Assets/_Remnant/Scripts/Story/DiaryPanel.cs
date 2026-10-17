@@ -1,3 +1,4 @@
+using Remnant.Core;
 using System;
 using Remnant.Interaction;
 using Remnant.Player;
@@ -43,7 +44,7 @@ namespace Remnant.Story
 
         private void OnDisable()
         {
-            if (IsOpen) Close();
+            if (IsOpen) Close(!AppLifetime.IsTearingDown(gameObject));
         }
 
         public void Show(string title, string text, Action closed = null)
@@ -60,7 +61,7 @@ namespace Remnant.Story
 
             InteractionLock.Acquire();
             if (player != null) player.SetMovementLocked(true);
-            panelRoot.SetActive(true);
+            if (panelRoot != null) panelRoot.SetActive(true);
         }
 
         private void Update()
@@ -69,12 +70,18 @@ namespace Remnant.Story
             if (interactAction != null && interactAction.action.WasPressedThisFrame()) Close();
         }
 
-        private void Close()
+        private void Close(bool notify = true)
         {
             IsOpen = false;
-            panelRoot.SetActive(false);
+            if (panelRoot != null) panelRoot.SetActive(false);
             InteractionLock.Release();
             if (player != null) player.SetMovementLocked(false);
+
+            if (!notify)
+            {
+                onClosed = null;
+                return;
+            }
 
             Action callback = onClosed;
             onClosed = null;

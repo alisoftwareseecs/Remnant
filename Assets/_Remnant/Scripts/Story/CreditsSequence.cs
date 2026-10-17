@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using Remnant.Core;
+using Remnant.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Remnant.Story
 {
@@ -46,6 +48,15 @@ namespace Remnant.Story
             new ClosingLine { text = "Don't look away.", holdSeconds = 5f, pauseSeconds = 1.5f },
         };
 
+        [Header("Support line (stays under the last closing line)")]
+        [Tooltip("A quiet, clickable line that fades in under the last closing line. Leave empty to skip it.")]
+        [SerializeField] private CanvasGroup supportGroup;
+        [SerializeField] private Button supportButton;
+        [SerializeField] private string supportUrl = "https://findahelpline.com";
+        [SerializeField, Min(0.1f)] private float supportFadeSeconds = 2f;
+        [Tooltip("How long the closing screen stays up with the support line, so there is time to click it.")]
+        [SerializeField, Min(0f)] private float supportHoldSeconds = 15f;
+
         [Header("After")]
         [SerializeField] private string completedKey = "remnant_completed";
         [SerializeField] private string nextScene = "Title";
@@ -53,6 +64,11 @@ namespace Remnant.Story
         private IEnumerator Start()
         {
             if (closingGroup != null) closingGroup.alpha = 0f;
+            if (supportGroup != null) supportGroup.alpha = 0f;
+            if (supportButton != null) supportButton.onClick.AddListener(OpenSupport);
+
+            // The pause menu object carries the project's EventSystem; the support line is clickable.
+            PauseMenu.EnsureExists();
 
             // Wait for the fade in from white.
             while (SceneTransition.Instance != null && SceneTransition.Instance.IsTransitioning) yield return null;
@@ -97,9 +113,47 @@ namespace Remnant.Story
                 closingText.text = lines[i].text;
                 yield return Fade(0f, 1f);
                 yield return new WaitForSeconds(lines[i].holdSeconds);
+
+                // the last line stays, and the quiet support line appears under it
+                if (i == lines.Length - 1 && supportGroup != null) break;
+
                 yield return Fade(1f, 0f);
                 yield return new WaitForSeconds(lines[i].pauseSeconds);
             }
+
+            if (supportGroup != null)
+            {
+                yield return FadeGroup(supportGroup, 0f, 1f, supportFadeSeconds);
+                // the parent group would swallow the click, so it takes part while the link is up
+                closingGroup.blocksRaycasts = true;
+                closingGroup.interactable = true;
+                supportGroup.blocksRaycasts = true;
+                supportGroup.interactable = true;
+                yield return new WaitForSeconds(supportHoldSeconds);
+                closingGroup.blocksRaycasts = false;
+                closingGroup.interactable = false;
+                supportGroup.blocksRaycasts = false;
+                supportGroup.interactable = false;
+                yield return Fade(1f, 0f);
+            }
+        }
+
+        private void OpenSupport()
+        {
+            Application.OpenURL(supportUrl);
+        }
+
+        private static IEnumerator FadeGroup(CanvasGroup group, float from, float to, float seconds)
+        {
+            float elapsed = 0f;
+            while (elapsed < seconds)
+            {
+                group.alpha = Mathf.Lerp(from, to, elapsed / seconds);
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            group.alpha = to;
         }
 
         private IEnumerator Fade(float from, float to)

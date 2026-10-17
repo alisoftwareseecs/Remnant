@@ -28,6 +28,8 @@ namespace Remnant.Story
         [SerializeField] private string requiresFlags;
         [Tooltip("Played before the page opens (e.g. the blood on her desk).")]
         [SerializeField] private DialogueData beforeDialogue;
+        [Tooltip("A close-up shown behind the dialogue box during the before-dialogue (the desk with this page still lying on it). It fades out as the page is picked up.")]
+        [SerializeField] private Sprite closeUpBefore;
         [Tooltip("Played after the page was closed. Leave empty for pages that only get a counter update.")]
         [SerializeField] private DialogueData reactionDialogue;
 
@@ -56,8 +58,21 @@ namespace Remnant.Story
                 return;
             }
 
-            if (beforeDialogue != null && dialogueRunner != null) dialogueRunner.Play(beforeDialogue, OpenPage);
-            else OpenPage();
+            if (beforeDialogue != null && dialogueRunner != null)
+            {
+                DeskCloseUp closeUp = closeUpBefore != null ? FindFirstObjectByType<DeskCloseUp>() : null;
+                if (closeUp != null) closeUp.Show(closeUpBefore);
+
+                dialogueRunner.Play(beforeDialogue, () =>
+                {
+                    if (closeUp != null) closeUp.Hide();
+                    OpenPage();
+                });
+            }
+            else
+            {
+                OpenPage();
+            }
         }
 
         private void OpenPage()

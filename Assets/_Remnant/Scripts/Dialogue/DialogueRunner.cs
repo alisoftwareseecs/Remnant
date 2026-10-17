@@ -1,3 +1,4 @@
+using Remnant.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -181,7 +182,9 @@ namespace Remnant.Dialogue
 
         private void OnDisable()
         {
-            if (IsOpen) Close();
+            // while everything is being destroyed (Play mode stop, scene unload, quit) the box just shuts; the completion
+            // callbacks would touch objects that are already gone
+            if (IsOpen) Close(!AppLifetime.IsTearingDown(gameObject));
         }
 
         /// <summary>Plays a dialogue. If another one is open, this one waits its turn (its callback still fires).</summary>
@@ -613,7 +616,7 @@ namespace Remnant.Dialogue
             }
         }
 
-        private void Close()
+        private void Close(bool notify = true)
         {
             if (routine != null)
             {
@@ -640,6 +643,12 @@ namespace Remnant.Dialogue
 
             Action callback = onComplete;
             onComplete = null;
+
+            if (!notify)
+            {
+                pending.Clear();
+                return;
+            }
 
             Ended?.Invoke();
             callback?.Invoke();
