@@ -14,6 +14,8 @@ namespace Remnant.Core
         [Tooltip("One flag, or several separated by commas (any of them counts as set).")]
         [SerializeField] private string flag;
         [SerializeField] private Mode mode = Mode.ShowIfFlagSet;
+        [Tooltip("Optional. While any of these flags (comma separated) is set the object is hidden, whatever the first flag says.")]
+        [SerializeField] private string alsoHiddenByFlags;
         [Tooltip("Optional. Defaults to this GameObject.")]
         [SerializeField] private GameObject target;
 
@@ -35,13 +37,14 @@ namespace Remnant.Core
 
         private void OnFlagChanged(string changedFlag, bool value)
         {
-            if (flag != null && flag.Contains(changedFlag)) Apply();
+            if ((flag != null && flag.Contains(changedFlag)) || (alsoHiddenByFlags != null && alsoHiddenByFlags.Contains(changedFlag))) Apply();
         }
 
         private void Apply()
         {
             bool isSet = subscribedState != null && subscribedState.HasAnyFlag(flag);
             bool visible = mode == Mode.ShowIfFlagSet ? isSet : !isSet;
+            if (visible && subscribedState != null && subscribedState.HasAnyFlag(alsoHiddenByFlags)) visible = false;
             Target.SetActive(visible);
         }
     }

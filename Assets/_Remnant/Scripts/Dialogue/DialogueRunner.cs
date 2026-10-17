@@ -51,23 +51,37 @@ namespace Remnant.Dialogue
         [SerializeField, Min(1)] private int maxLines = 3;
         [SerializeField, Min(0f)] private float speakerLabelPadding = 36f;
 
+        [Header("Punctuation pauses at Normal speed (seconds)")]
+        [Tooltip("After a comma, semicolon, colon or dash.")]
+        [SerializeField, Min(0f)] private float commaPauseSeconds = 0.14f;
+        [Tooltip("After . ? or !")]
+        [SerializeField, Min(0f)] private float sentencePauseSeconds = 0.28f;
+        [Tooltip("After each dot inside an ellipsis (...) except the last.")]
+        [SerializeField, Min(0f)] private float ellipsisDotPauseSeconds = 0.05f;
+        [Tooltip("After the end of an ellipsis (...) or an ellipsis character.")]
+        [SerializeField, Min(0f)] private float normalEllipsisSeconds = 0.45f;
+
         [Header("Normal")]
         [SerializeField, Min(1f)] private float normalCharsPerSecond = 35f;
 
         [Header("Tense")]
-        [SerializeField, Min(1f)] private float tenseCharsPerSecond = 12f;
-        [Tooltip("Multiplies every punctuation pause.")]
-        [SerializeField, Min(1f)] private float tensePauseScale = 2f;
-        [SerializeField, Min(0f)] private float tenseEllipsisSeconds = 0.6f;
+        [SerializeField, Min(1f)] private float tenseCharsPerSecond = 18f;
+        [Tooltip("Multiplies the comma and sentence pauses.")]
+        [SerializeField, Min(0.1f)] private float tensePauseScale = 1.33f;
+        [Tooltip("The pause after an ellipsis (...) in Tense mode.")]
+        [SerializeField, Min(0f)] private float tenseEllipsisSeconds = 0.4f;
         [SerializeField, Min(0f)] private float tenseJitter = 1.5f;
 
         [Header("Auto (hanging reveal)")]
-        [SerializeField, Min(1f)] private float autoCharsPerSecond = 8f;
-        [SerializeField, Min(1f)] private float autoPauseScale = 3f;
-        [SerializeField, Min(0f)] private float autoEllipsisSeconds = 0.9f;
+        [SerializeField, Min(1f)] private float autoCharsPerSecond = 12f;
+        [Tooltip("Multiplies the comma and sentence pauses.")]
+        [SerializeField, Min(0.1f)] private float autoPauseScale = 3f;
+        [Tooltip("The pause after an ellipsis (...) in Auto mode.")]
+        [SerializeField, Min(0f)] private float autoEllipsisSeconds = 1.35f;
         [SerializeField, Min(0f)] private float autoJitter = 0.5f;
-        [SerializeField, Min(0f)] private float autoHoldMinSeconds = 3f;
-        [SerializeField, Min(0f)] private float autoHoldPerCharacter = 0.09f;
+        [Tooltip("A finished page stays on screen for max(Hold Min, characters x Hold Per Character) seconds.")]
+        [SerializeField, Min(0f)] private float autoHoldMinSeconds = 2.2f;
+        [SerializeField, Min(0f)] private float autoHoldPerCharacter = 0.065f;
         [SerializeField, Min(0.1f)] private float autoTextFadeSeconds = 0.8f;
         [SerializeField, Min(0f)] private float autoSilenceSeconds = 0.5f;
         [SerializeField, Min(0.1f)] private float autoBoxFadeSeconds = 1f;
@@ -90,8 +104,61 @@ namespace Remnant.Dialogue
         private Action onComplete;
         private Coroutine routine;
         private bool indicatorActive;
+        private bool lockedPlayer;
+        private int currentLineIndex;
+        private float currentLineStartedAt;
+        private readonly Queue<KeyValuePair<DialogueData, Action>> pending = new Queue<KeyValuePair<DialogueData, Action>>();
 
         public bool IsOpen { get; private set; }
+
+        /// <summary>
+        /// For a dialogue that paces itself (Auto): roughly how many seconds it still needs, from the typing, pauses, holds and
+        /// fades of the lines that are left. Other modes wait for the player, so only their typing time is counted.
+        /// </summary>
+        public float EstimatedRemainingSeconds
+        {
+            get
+            {
+                if (!IsOpen || CurrentDialogue == null) return 0f;
+
+                DialogueLine[] lines = CurrentDialogue.Lines;
+                float remaining = Mathf.Max(0f, EstimateLineSeconds(lines[currentLineIndex]) - (Time.unscaledTime - currentLineStartedAt));
+                for (int i = currentLineIndex + 1; i < lines.Length; i++) remaining += EstimateLineSeconds(lines[i]);
+                if (lines[lines.Length - 1].mode == DialogueMode.Auto) remaining += autoBoxFadeSeconds;
+                return remaining;
+            }
+        }
+
+        /// <summary>How long a dialogue (its typing, holds and fades) takes from its first character to its last fade, in seconds.</summary>
+        public float EstimateDurationSeconds(DialogueData data)
+        {
+            if (data == null) return 0f;
+
+            float total = 0f;
+            foreach (DialogueLine line in data.Lines) total += EstimateLineSeconds(line);
+            if (data.Lines.Length > 0 && data.Lines[0].mode == DialogueMode.Auto) total += autoBoxFadeSeconds;
+            if (data.Lines.Length > 0 && data.Lines[data.Lines.Length - 1].mode == DialogueMode.Auto) total += autoBoxFadeSeconds;
+            return total;
+        }
+
+        private float EstimateLineSeconds(DialogueLine line)
+        {
+            string plain = ParseMarkup(line.text ?? string.Empty, out List<Vector2Int> unused);
+            float seconds = 0f;
+            float perCharacter = 1f / CharsPerSecond(line.mode);
+            // the first letter appears at once and nothing waits after the last one, so only the gaps between letters count
+            for (int i = 0; i < plain.Length - 1; i++) seconds += perCharacter + PauseAfter(plain, i, line.mode);
+
+            if (line.mode == DialogueMode.Auto)
+            {
+                seconds += Mathf.Max(autoHoldMinSeconds, plain.Length * autoHoldPerCharacter) + autoTextFadeSeconds + autoSilenceSeconds;
+            }
+
+            return seconds;
+        }
+
+        /// <summary>The dialogue that is open right now (null when none).</summary>
+        public DialogueData CurrentDialogue { get; private set; }
 
         /// <summary>True while a dialogue is open, and on the frame it closed, so the closing press is not reused.</summary>
         public bool BlocksInteraction => IsOpen || Time.frameCount == endFrame;
@@ -117,9 +184,14 @@ namespace Remnant.Dialogue
             if (IsOpen) Close();
         }
 
+        /// <summary>Plays a dialogue. If another one is open, this one waits its turn (its callback still fires).</summary>
         public void Play(DialogueData data, Action completed = null)
         {
-            if (IsOpen) return;
+            if (IsOpen)
+            {
+                pending.Enqueue(new KeyValuePair<DialogueData, Action>(data, completed));
+                return;
+            }
 
             if (data == null || data.Lines == null || data.Lines.Length == 0)
             {
@@ -128,10 +200,12 @@ namespace Remnant.Dialogue
             }
 
             onComplete = completed;
+            CurrentDialogue = data;
             IsOpen = true;
             startFrame = Time.frameCount;
 
-            if (player != null) player.SetMovementLocked(true);
+            lockedPlayer = data.LockPlayer && player != null;
+            if (lockedPlayer) player.SetMovementLocked(true);
             if (panel != null) panel.SetActive(true);
             if (boxGroup != null) boxGroup.alpha = 1f;
             Canvas.ForceUpdateCanvases();
@@ -168,6 +242,8 @@ namespace Remnant.Dialogue
 
             for (int i = 0; i < lines.Length; i++)
             {
+                currentLineIndex = i;
+                currentLineStartedAt = Time.unscaledTime;
                 yield return ShowLine(lines[i]);
             }
 
@@ -410,19 +486,19 @@ namespace Remnant.Dialogue
             char c = text[i];
             float scale = mode == DialogueMode.Tense ? tensePauseScale : mode == DialogueMode.Auto ? autoPauseScale : 1f;
 
-            if (c == '…') return Mathf.Max(0.45f * scale, EllipsisSeconds(mode));
+            if (c == '\u2026') return EllipsisSeconds(mode);
 
             if (c == '.')
             {
                 bool nextIsDot = i + 1 < text.Length && text[i + 1] == '.';
-                if (nextIsDot) return 0.05f * scale;
+                if (nextIsDot) return ellipsisDotPauseSeconds * scale;
                 bool endOfEllipsis = i >= 2 && text[i - 1] == '.' && text[i - 2] == '.';
-                if (endOfEllipsis) return Mathf.Max(0.45f * scale, EllipsisSeconds(mode));
-                return 0.28f * scale;
+                if (endOfEllipsis) return EllipsisSeconds(mode);
+                return sentencePauseSeconds * scale;
             }
 
-            if (c == '?' || c == '!') return 0.28f * scale;
-            if (c == ',' || c == ';' || c == ':' || c == '—') return 0.14f * scale;
+            if (c == '?' || c == '!') return sentencePauseSeconds * scale;
+            if (c == ',' || c == ';' || c == ':' || c == '\u2014') return commaPauseSeconds * scale;
             return 0f;
         }
 
@@ -432,7 +508,7 @@ namespace Remnant.Dialogue
             {
                 case DialogueMode.Tense: return tenseEllipsisSeconds;
                 case DialogueMode.Auto: return autoEllipsisSeconds;
-                default: return 0f;
+                default: return normalEllipsisSeconds;
             }
         }
 
@@ -470,9 +546,9 @@ namespace Remnant.Dialogue
             {
                 case Speaker.Shadow: return "SHADOW";
                 case Speaker.Aiko: return "AIKO";
-                case Speaker.Bully1: return "BULLY 1";
-                case Speaker.Bully2: return "BULLY 2";
-                case Speaker.Bully3: return "BULLY 3";
+                case Speaker.Reina: return "REINA";
+                case Speaker.Mika: return "MIKA";
+                case Speaker.Saki: return "SAKI";
                 default: return string.Empty;
             }
         }
@@ -546,6 +622,7 @@ namespace Remnant.Dialogue
             }
 
             IsOpen = false;
+            CurrentDialogue = null;
             indicatorActive = false;
             endFrame = Time.frameCount;
 
@@ -558,13 +635,21 @@ namespace Remnant.Dialogue
             if (continueIndicator != null) continueIndicator.SetActive(false);
             if (panel != null) panel.SetActive(false);
             if (boxGroup != null) boxGroup.alpha = 1f;
-            if (player != null) player.SetMovementLocked(false);
+            if (lockedPlayer && player != null) player.SetMovementLocked(false);
+            lockedPlayer = false;
 
             Action callback = onComplete;
             onComplete = null;
 
             Ended?.Invoke();
             callback?.Invoke();
+
+            // a dialogue that was asked for while this one was open goes next (unless the callback already started one)
+            if (!IsOpen && pending.Count > 0)
+            {
+                KeyValuePair<DialogueData, Action> next = pending.Dequeue();
+                Play(next.Key, next.Value);
+            }
         }
     }
 }

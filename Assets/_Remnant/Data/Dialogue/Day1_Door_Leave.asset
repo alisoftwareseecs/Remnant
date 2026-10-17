@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Day1_Door_Leave
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Dialogue.DialogueData
   lines:
-  - speaker: 0
-    text: ...It's not my business.
+  - speaker: 2
+    text: Behind you, someone laughs. You don't turn around.
     mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  lockPlayer: 1

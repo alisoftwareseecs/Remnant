@@ -1,4 +1,5 @@
 using Remnant.Core;
+using Remnant.Dialogue;
 using Remnant.Player;
 using UnityEngine;
 
@@ -12,6 +13,9 @@ namespace Remnant.Story
     public class EndingSequence : MonoBehaviour
     {
         [SerializeField] private string requiresFlag = "ending_light";
+        [SerializeField] private DialogueRunner dialogueRunner;
+        [Tooltip("Spoken at the open storage room door before the screen fades to white.")]
+        [SerializeField] private DialogueData dialogue;
         [SerializeField] private string creditsScene = "Credits";
         [SerializeField, Min(0.5f)] private float fadeToWhiteSeconds = 4f;
 
@@ -39,6 +43,15 @@ namespace Remnant.Story
 
             started = true;
             player.SetMovementLocked(true);
+
+            if (dialogueRunner != null && dialogue != null) dialogueRunner.Play(dialogue, Leave);
+            else Leave();
+        }
+
+        private void Leave()
+        {
+            PlayerController player = FindFirstObjectByType<PlayerController>();
+            if (player != null) player.SetMovementLocked(true);
             SceneTransition.Instance.GoTo(creditsScene, null, null, TransitionStyle.Flash, null, null, fadeToWhiteSeconds);
         }
     }

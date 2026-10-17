@@ -14,8 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Dialogue.DialogueData
   lines:
   - speaker: 1
-    text: The storage room.
+    text: The storage room. End of the east hallway.
     mode: 1
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
   - speaker: 1
-    text: You know where it is. You've walked past it every day.
+    text: You walked away from her every single day.
     mode: 1
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 1
+    text: Go on. Walk toward her once. Go see what your silence built.
+    mode: 1
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  lockPlayer: 1

@@ -13,9 +13,32 @@ MonoBehaviour:
   m_Name: Act4_Reunion_Talk
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Dialogue.DialogueData
   lines:
+  - speaker: 2
+    text: Her hands are cold. She's shaking.
+    mode: 2
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 2
+    text: She isn't attacking you. She's holding on.
+    mode: 2
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
   - speaker: 3
     text: ...Why didn't you run?
-    mode: 0
+    mode: 2
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
   - speaker: 0
     text: Because I'm done looking away.
-    mode: 0
+    mode: 2
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  lockPlayer: 1

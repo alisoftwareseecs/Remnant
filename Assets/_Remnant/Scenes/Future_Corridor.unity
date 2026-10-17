@@ -225,6 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &12392246
 GameObject:
@@ -501,6 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &77087536
 GameObject:
@@ -608,6 +610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &93655220
 GameObject:
@@ -833,6 +836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &135864993
 GameObject:
@@ -1187,6 +1191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &229139046
 GameObject:
@@ -1637,6 +1642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1001 &392339542
 PrefabInstance:
@@ -1726,6 +1732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 0
+  alsoHiddenByFlags: 
   target: {fileID: 1622074289}
 --- !u!4 &398039233
 Transform:
@@ -1841,6 +1848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &449585542
 GameObject:
@@ -1948,6 +1956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &498775108
 GameObject:
@@ -2406,6 +2415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &532544376
 GameObject:
@@ -2597,6 +2607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &555745075
 GameObject:
@@ -2704,6 +2715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &596335427
 GameObject:
@@ -6543,6 +6555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &846465013
 GameObject:
@@ -6673,6 +6686,56 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &903915783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 903915785}
+  - component: {fileID: 903915784}
+  m_Layer: 0
+  m_Name: CorridorBeats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &903915784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903915783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f86235513f825942b4bd40bb8ef043a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Story.CorridorBeats
+  monster: {fileID: 1973329272}
+  dialogueRunner: {fileID: 2029178920}
+  sightDialogue: {fileID: 11400000, guid: 282faa5e2837f924bb1a177aa69b3e17, type: 2}
+  driveBackDialogue: {fileID: 11400000, guid: 52192a7fc4799cd4eab143a8aa73f0e5, type: 2}
+  sightFlag: corridor_monster_seen
+  driveBackFlag: corridor_monster_driven_back
+--- !u!4 &903915785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903915783}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &908342436
 GameObject:
   m_ObjectHideFlags: 0
@@ -6829,6 +6892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &910744193
 GameObject:
@@ -6936,6 +7000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &925686846
 GameObject:
@@ -7043,6 +7108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &982832669
 GameObject:
@@ -7150,6 +7216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &988810072
 GameObject:
@@ -7592,6 +7659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &1139098817
 GameObject:
@@ -7699,6 +7767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &1153994653
 GameObject:
@@ -7806,6 +7875,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &1162864702
 GameObject:
@@ -7913,6 +7983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &1192228052
 GameObject:
@@ -8104,6 +8175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &1202575687
 GameObject:
@@ -8498,6 +8570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &1235689296
 GameObject:
@@ -8696,6 +8769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &1283803387
 GameObject:
@@ -11484,6 +11558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1001 &1606346558
 PrefabInstance:
@@ -11660,6 +11735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &1622074289
 GameObject:
@@ -11874,6 +11950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &1633875918
 GameObject:
@@ -12082,6 +12159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &1700158991
 GameObject:
@@ -12280,6 +12358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1 &1859196306
 GameObject:
@@ -12603,6 +12682,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fb7638b7db30b940bdd8112c44e0ec8, type: 3}
+--- !u!114 &1973329272 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1442701886650651930, guid: 6fb7638b7db30b940bdd8112c44e0ec8, type: 3}
+  m_PrefabInstance: {fileID: 1973329271}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef6eca475ac5544ca0f1e53afbce1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Remnant.Enemies.MonsterController
 --- !u!1 &2005026504
 GameObject:
   m_ObjectHideFlags: 0
@@ -12709,6 +12799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1001 &2029178919
 PrefabInstance:
@@ -12924,6 +13015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: ending_light
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -12950,3 +13042,4 @@ SceneRoots:
   - {fileID: 1211850039}
   - {fileID: 1622074290}
   - {fileID: 398039233}
+  - {fileID: 903915785}

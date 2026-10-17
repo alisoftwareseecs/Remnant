@@ -13,18 +13,60 @@ MonoBehaviour:
   m_Name: Act4_Confront
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Dialogue.DialogueData
   lines:
+  - speaker: 4
+    text: '"Please." Is that what your dad said too?'
+    mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
   - speaker: 0
     text: Leave her alone.
     mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 4
+    text: ...Since when do you talk?
+    mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 0
+    text: Since today.
+    mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
   - speaker: 4
     text: Or what? You want to end up like her dad?
     mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
   - speaker: 0
     text: She didn't do anything wrong. Leave.
     mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
   - speaker: 5
     text: ...Whatever. This is boring.
     mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
   - speaker: 6
     text: Enjoy your little <shake>killer</shake>.
     mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  lockPlayer: 1

@@ -14,8 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Dialogue.DialogueData
   lines:
   - speaker: 2
-    text: The game is finished.
+    text: The hangman is complete. Every letter filled in.
     mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
   - speaker: 2
-    text: The word was her name.
+    text: A. I. K. O.
     mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 1
+    text: Four letters. You knew the answer on the first day.
+    mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 1
+    text: You just never wanted to say her name.
+    mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  lockPlayer: 1

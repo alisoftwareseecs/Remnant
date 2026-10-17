@@ -96,6 +96,20 @@ namespace Remnant.Core
             return false;
         }
 
+        /// <summary>True when every flag in a comma separated list is set (an empty list counts as true).</summary>
+        public bool HasAllFlags(string commaSeparatedFlags)
+        {
+            if (string.IsNullOrWhiteSpace(commaSeparatedFlags)) return true;
+
+            foreach (string flag in commaSeparatedFlags.Split(','))
+            {
+                string trimmed = flag.Trim();
+                if (trimmed.Length > 0 && !flags.Contains(trimmed)) return false;
+            }
+
+            return true;
+        }
+
         public void SetFlag(string flag)
         {
             if (string.IsNullOrEmpty(flag)) return;

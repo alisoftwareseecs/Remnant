@@ -14,6 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Dialogue.DialogueData
   lines:
   - speaker: 1
+    text: ...Fine.
+    mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 1
+    text: You think one day fixes it? You'll look away again. Everyone does.
+    mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 0
+    text: Maybe. But not today.
+    mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 1
     text: I'm what's left of every time you looked away.
     mode: 0
     fadeColor: 0
@@ -27,3 +48,4 @@ MonoBehaviour:
     fadeFrom: {r: 0.6901961, g: 0.0627451, b: 0.16470589, a: 1}
     fadeTo: {r: 1, g: 1, b: 1, a: 1}
     fadeLabel: 1
+  lockPlayer: 1

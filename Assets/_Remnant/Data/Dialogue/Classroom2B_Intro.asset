@@ -13,9 +13,32 @@ MonoBehaviour:
   m_Name: Classroom2B_Intro
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Dialogue.DialogueData
   lines:
-  - speaker: 1
-    text: She wrote everything down.
+  - speaker: 2
+    text: Classroom 2-B. Her classroom. Your classroom.
     mode: 0
-  - speaker: 1
-    text: Nobody ever read it.
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 0
+    text: (Paper on the floor. That's her handwriting.)
     mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 0
+    text: (Pages from her diary. They're everywhere.)
+    mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 0
+    text: (I have to find all of them.)
+    mode: 0
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  lockPlayer: 1

@@ -3,6 +3,7 @@ using Remnant.Core;
 using Remnant.Dialogue;
 using Remnant.Player;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace Remnant.Story
 {
@@ -13,13 +14,18 @@ namespace Remnant.Story
     public class ShadowAwakeningSequence : StorySequence
     {
         [SerializeField] private DialogueRunner dialogueRunner;
+        [Tooltip("Narration while the Shadow separates (\"The lights flicker...\").")]
+        [SerializeField] private DialogueData introDialogue;
+        [Tooltip("Always played, after the intro.")]
         [SerializeField] private DialogueData shadowDialogue;
-        [Tooltip("Used instead when the game has been completed before: the Shadow remembers.")]
+        [Tooltip("Played before the Shadow's lines when the game has been completed before: the Shadow remembers.")]
         [SerializeField] private DialogueData returningDialogue;
         [SerializeField] private string awakeFlag = "shadow_awake";
 
-        [Tooltip("Time for the Shadow to fade in and separate before it speaks.")]
-        [SerializeField, Min(0f)] private float appearSeconds = 4f;
+        [Tooltip("The intro narration starts this long after the Shadow starts to wake; the lights flicker meanwhile.")]
+        [SerializeField, Min(0f)] private float introDelaySeconds = 1.6f;
+        [Tooltip("The classroom's light, which flickers when the Shadow wakes.")]
+        [SerializeField] private Light2D globalLight;
 
         [Header("Shift to the Future")]
         [SerializeField] private string nextScene = "Future_Corridor";
@@ -27,6 +33,34 @@ namespace Remnant.Story
         [SerializeField] private TransitionStyle style = TransitionStyle.Distort;
 
         private bool running;
+
+        private IEnumerator Speak(DialogueData dialogue)
+        {
+            if (dialogue == null || dialogueRunner == null) yield break;
+
+            bool spoken = false;
+            dialogueRunner.Play(dialogue, () => spoken = true);
+            while (!spoken) yield return null;
+
+            // the runner unlocks the player when it closes; the sequence keeps control until the scene changes
+            PlayerController player = FindFirstObjectByType<PlayerController>();
+            if (player != null) player.SetMovementLocked(true);
+        }
+
+        private IEnumerator Flicker(float seconds)
+        {
+            float normal = globalLight != null ? globalLight.intensity : 1f;
+            float elapsed = 0f;
+            while (elapsed < seconds)
+            {
+                if (globalLight != null) globalLight.intensity = Random.value < 0.5f ? Random.Range(0.05f, 0.3f) * normal : normal;
+                float wait = Random.Range(0.05f, 0.16f);
+                elapsed += wait;
+                yield return new WaitForSecondsRealtime(wait);
+            }
+
+            if (globalLight != null) globalLight.intensity = normal;
+        }
 
         public override void Run()
         {
@@ -41,12 +75,13 @@ namespace Remnant.Story
             if (player != null) player.SetMovementLocked(true);
 
             if (GameState.Instance != null) GameState.Instance.SetFlag(awakeFlag);
-            yield return new WaitForSecondsRealtime(appearSeconds);
+            yield return Flicker(introDelaySeconds);
 
-            bool spoken = false;
-            if (dialogueRunner != null) dialogueRunner.Play(SaveSystem.Completed && returningDialogue != null ? returningDialogue : shadowDialogue, () => spoken = true);
-            else spoken = true;
-            while (!spoken) yield return null;
+            yield return Speak(introDialogue);
+            yield return new WaitForSecondsRealtime(0.8f);
+
+            if (SaveSystem.Completed && returningDialogue != null) yield return Speak(returningDialogue);
+            yield return Speak(shadowDialogue);
 
             if (SceneTransition.Instance != null)
             {

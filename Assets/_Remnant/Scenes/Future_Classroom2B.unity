@@ -795,6 +795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: page_3
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!114 &84851404
 MonoBehaviour:
@@ -815,9 +816,19 @@ MonoBehaviour:
   onceOnly: 0
   promptOffset: {x: 0, y: 0.55, z: 0}
   pageNumber: 3
-  pageText: They wrote it on my desk again. KILLER. I scrubbed until my hands hurt.
-    It's still there. It's always there.
+  dateHeader: May 8th
+  pageText: 'Long sleeves again, even though it''s warm.
+
+    The bruise on my arm
+    is turning yellow. Yellow means it''s almost gone. I''ve learned the colours.
+
+    Nobody
+    at school asks. That''s the worst part. Not that it happens. That nobody asks.'
   panel: {fileID: 1101804383}
+  dialogueRunner: {fileID: 1180829029}
+  requiresFlags: 
+  beforeDialogue: {fileID: 0}
+  reactionDialogue: {fileID: 0}
 --- !u!58 &84851405
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1054,6 +1065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: page_7
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!114 &90209136
 MonoBehaviour:
@@ -1074,9 +1086,19 @@ MonoBehaviour:
   onceOnly: 0
   promptOffset: {x: 0, y: 0.55, z: 0}
   pageNumber: 7
-  pageText: Today a boy in my class saw them. He looked right at me. Then he looked
-    away.
+  dateHeader: June 20th
+  pageText: 'There''s a boy who sits two rows over. He sees everything.
+
+    Today
+    Reina pulled my hair, and he looked right at me. Then he looked down at his desk.
+
+    I''m
+    not angry. I understand. I''d look away from me too.'
   panel: {fileID: 1101804383}
+  dialogueRunner: {fileID: 1180829029}
+  requiresFlags: 
+  beforeDialogue: {fileID: 0}
+  reactionDialogue: {fileID: 11400000, guid: c17e7f1405ba1af4a94a11f2fcc67358, type: 2}
 --- !u!58 &90209137
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2046,6 +2068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: page_1
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!114 &226866770
 MonoBehaviour:
@@ -2066,8 +2089,20 @@ MonoBehaviour:
   onceOnly: 0
   promptOffset: {x: 0, y: 0.55, z: 0}
   pageNumber: 1
-  pageText: They hid my shoes again. I walked home in my socks. Nobody asked why.
+  dateHeader: April 3rd
+  pageText: 'Today I turned sixteen. It''s also the day Mom died. She died giving
+    birth to me.
+
+    Dad doesn''t celebrate. He sits in front of her photo until
+    the bottle is empty.
+
+    I''ve never been allowed to be happy on my birthday.
+    I don''t think I know how.'
   panel: {fileID: 1101804383}
+  dialogueRunner: {fileID: 1180829029}
+  requiresFlags: 
+  beforeDialogue: {fileID: 0}
+  reactionDialogue: {fileID: 11400000, guid: 23122508fb9b35942b0890aae77951d4, type: 2}
 --- !u!58 &226866771
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3624,7 +3659,7 @@ Transform:
   m_GameObject: {fileID: 308853553}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.2419219, w: 0.9702957}
-  m_LocalPosition: {x: 8.5, y: 1.4, z: 0}
+  m_LocalPosition: {x: 10, y: 3.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3645,6 +3680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: page_8
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!114 &308853556
 MonoBehaviour:
@@ -3665,10 +3701,22 @@ MonoBehaviour:
   onceOnly: 0
   promptOffset: {x: 0, y: 0.55, z: 0}
   pageNumber: 8
-  pageText: When they get bored, they lock me in the old storage room. They shine
-    their phone lights in my face and laugh. I close my eyes and wait for it to be
-    over. It's the only place no one ever looks.
+  dateHeader: June 23rd
+  pageText: 'I''m so tired. Not sleepy. The kind of tired sleep doesn''t fix.
+
+    There''s
+    a storage room at the end of the east hallway. Nobody goes there.
+
+    Nobody
+    will have to see me. Nobody will have to look away anymore.
+
+    I''m sorry,
+    Mom. I tried to be worth it.'
   panel: {fileID: 1101804383}
+  dialogueRunner: {fileID: 1180829029}
+  requiresFlags: page_1,page_2,page_3,page_4,page_5,page_6,page_7
+  beforeDialogue: {fileID: 11400000, guid: 1f161a48af35bf64ab2efb68ec10d2eb, type: 2}
+  reactionDialogue: {fileID: 11400000, guid: b7efc41ac5ace3f429cd61d116ca8a94, type: 2}
 --- !u!58 &308853557
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4136,6 +4184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: page_6
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!114 &406962025
 MonoBehaviour:
@@ -4156,8 +4205,20 @@ MonoBehaviour:
   onceOnly: 0
   promptOffset: {x: 0, y: 0.55, z: 0}
   pageNumber: 6
-  pageText: I only pushed him away. I just wanted him to stop.
+  dateHeader: June 14th
+  pageText: 'Reina wrote KILLER on my desk in marker. Mika poured water into my bag.
+    Saki laughed until she cried.
+
+    When I scrubbed the desk, they said, "Look,
+    she''s cleaning up the evidence."
+
+    The teacher saw the desk. She told me
+    to take better care of my things.'
   panel: {fileID: 1101804383}
+  dialogueRunner: {fileID: 1180829029}
+  requiresFlags: 
+  beforeDialogue: {fileID: 0}
+  reactionDialogue: {fileID: 0}
 --- !u!58 &406962026
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10046,6 +10107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: page_5
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!114 &1573938134
 MonoBehaviour:
@@ -10066,8 +10128,20 @@ MonoBehaviour:
   onceOnly: 0
   promptOffset: {x: 0, y: 0.55, z: 0}
   pageNumber: 5
-  pageText: Dad always said I took Mom from him. Now they say I took him too.
+  dateHeader: June 2nd
+  pageText: 'The police said it was self-defence. An accident. They saw the bruises.
+    They said I did nothing wrong.
+
+    Nobody at school heard that part. They only
+    heard "she pushed him."
+
+    I live with my aunt now. She doesn''t talk to me.
+    Every night I dream about the stairs.'
   panel: {fileID: 1101804383}
+  dialogueRunner: {fileID: 1180829029}
+  requiresFlags: 
+  beforeDialogue: {fileID: 0}
+  reactionDialogue: {fileID: 11400000, guid: 4a4cc8666c220f5468d27fc34b4314f0, type: 2}
 --- !u!58 &1573938135
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10310,6 +10384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: page_4
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!114 &1602282546
 MonoBehaviour:
@@ -10330,8 +10405,25 @@ MonoBehaviour:
   onceOnly: 0
   promptOffset: {x: 0, y: 0.55, z: 0}
   pageNumber: 4
-  pageText: No one at home asks how school was. There's no one at home.
+  dateHeader: May 21st
+  pageText: 'I have to write it down or I''ll go crazy.
+
+    He came home angrier
+    than I''ve ever seen him. He pinned me against the wall at the top of the stairs.
+    I couldn''t breathe.
+
+    I pushed him. I only wanted him to let go.
+
+    He
+    fell. He didn''t get up.
+
+    I called the ambulance myself. I held his hand
+    until they came. It was the first time I ever held his hand.'
   panel: {fileID: 1101804383}
+  dialogueRunner: {fileID: 1180829029}
+  requiresFlags: 
+  beforeDialogue: {fileID: 0}
+  reactionDialogue: {fileID: 11400000, guid: b5733dd8d34e4ca41b54baf09634fcf8, type: 2}
 --- !u!58 &1602282547
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10767,10 +10859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f66ab8a0e4dd7c4c843e9c2292e7ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Story.DiaryController
-  panel: {fileID: 1101804383}
   counterText: {fileID: 1101804382}
-  dialogueRunner: {fileID: 1180829029}
-  completionDialogue: {fileID: 11400000, guid: b7efc41ac5ace3f429cd61d116ca8a94, type: 2}
   totalPages: 8
   completionFlag: diary_complete
 --- !u!4 &1703576975
@@ -10929,6 +11018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Core.StoryFlagObject
   flag: page_2
   mode: 1
+  alsoHiddenByFlags: 
   target: {fileID: 0}
 --- !u!114 &1720954971
 MonoBehaviour:
@@ -10949,8 +11039,20 @@ MonoBehaviour:
   onceOnly: 0
   promptOffset: {x: 0, y: 0.55, z: 0}
   pageNumber: 2
-  pageText: I smiled at lunch so no one would worry. No one was worried.
+  dateHeader: April 19th
+  pageText: 'He calls me by her name when he''s drunk. Then he remembers I''m not
+    her, and that''s worse.
+
+    "You took her from me." He says it like it''s a
+    fact. Like the weather.
+
+    I used to think if I was quiet enough, he''d stop.
+    I''ve been quiet for sixteen years.'
   panel: {fileID: 1101804383}
+  dialogueRunner: {fileID: 1180829029}
+  requiresFlags: 
+  beforeDialogue: {fileID: 0}
+  reactionDialogue: {fileID: 0}
 --- !u!58 &1720954972
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12328,20 +12430,9 @@ MonoBehaviour:
   promptOffset: {x: 0, y: 1.5, z: 0}
   dialogueRunner: {fileID: 1180829029}
   variants:
-  - requiresFlag: mirror_seen,diary_complete
-    forbidsFlag: 
-    dialogue: {fileID: 11400000, guid: 0a2e65b0bd115a943af0efa2beaa345a, type: 2}
-    setFlag: 
-    sequence: {fileID: 0}
-    changeScene: 0
-    sceneName: 
-    spawnId: 
-    titleCard: 
-    flagDuringTransition: 
-    style: 0
   - requiresFlag: 
     forbidsFlag: 
-    dialogue: {fileID: 11400000, guid: 1f9c631a3a5a673409ef99726c6c6989, type: 2}
+    dialogue: {fileID: 11400000, guid: 33ec51bced51de249a64db9cfb9891cb, type: 2}
     setFlag: mirror_seen
     sequence: {fileID: 0}
     changeScene: 0

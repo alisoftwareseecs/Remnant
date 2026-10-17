@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using Remnant.Dialogue;
 using TMPro;
 using UnityEngine;
@@ -22,6 +21,8 @@ namespace Remnant.Story
         [Tooltip("Letter jitter of the Shadow's shouted lines (tense delivery).")]
         [SerializeField, Min(0f)] private float captionJitter = 1.5f;
         [SerializeField, Min(0.1f)] private float captionFadeSeconds = 0.25f;
+        [Tooltip("The caption types out; a line that is cut off shows only what was typed so far.")]
+        [SerializeField, Min(1f)] private float captionCharsPerSecond = 34f;
         [SerializeField, Min(0.2f)] private float captionHoldSeconds = 2.2f;
 
         [Header("Prompt")]
@@ -29,7 +30,6 @@ namespace Remnant.Story
         [Range(0.05f, 1f)] [SerializeField] private float promptMaxAlpha = 0.45f;
         [SerializeField, Min(0.1f)] private float promptFadeSeconds = 2.5f;
 
-        private readonly Queue<string> queue = new Queue<string>();
         private TextMeshProUGUI caption;
         private TextMeshProUGUI prompt;
         private Coroutine captionRoutine;
@@ -54,11 +54,29 @@ namespace Remnant.Story
             prompt.color = new Color(1f, 1f, 1f, 0f);
         }
 
-        /// <summary>Shows a Shadow line; lines queue up so none is lost when several come close together.</summary>
+        /// <summary>
+        /// Stops the Shadow's caption at once, mid-word if it is still typing, and drops any queued lines.
+        /// </summary>
+        public void CutOff()
+        {
+            if (captionRoutine != null)
+            {
+                StopCoroutine(captionRoutine);
+                captionRoutine = null;
+            }
+
+            caption.text = string.Empty;
+            caption.color = Transparent(shadowColor);
+        }
+
+        /// <summary>
+        /// Shows a Shadow line. Captions do not queue: a new one replaces the one on screen at once, so every line
+        /// appears at the moment it is meant to.
+        /// </summary>
         public void ShadowSays(string text)
         {
-            queue.Enqueue(text);
-            if (captionRoutine == null) captionRoutine = StartCoroutine(RunCaptions());
+            if (captionRoutine != null) StopCoroutine(captionRoutine);
+            captionRoutine = StartCoroutine(RunCaption(text));
         }
 
         public void ShowPrompt(string text)
@@ -74,15 +92,25 @@ namespace Remnant.Story
             promptRoutine = StartCoroutine(FadePrompt(0f, 0.4f));
         }
 
-        private IEnumerator RunCaptions()
+        private IEnumerator RunCaption(string text)
         {
-            while (queue.Count > 0)
+            caption.text = text;
+            caption.maxVisibleCharacters = 0;
+            caption.color = new Color(shadowColor.r, shadowColor.g, shadowColor.b, 1f);
+            caption.ForceMeshUpdate();
+
+            int total = caption.textInfo.characterCount;
+            float typed = 0f;
+            while (typed < total)
             {
-                caption.text = queue.Dequeue();
-                yield return FadeCaption(0f, 1f, captionFadeSeconds);
-                yield return new WaitForSeconds(captionHoldSeconds);
-                yield return FadeCaption(1f, 0f, captionFadeSeconds);
+                typed += captionCharsPerSecond * Time.deltaTime;
+                caption.maxVisibleCharacters = Mathf.Min(total, Mathf.FloorToInt(typed));
+                yield return null;
             }
+
+            caption.maxVisibleCharacters = int.MaxValue;
+            yield return new WaitForSeconds(captionHoldSeconds);
+            yield return FadeCaption(1f, 0f, captionFadeSeconds);
 
             captionRoutine = null;
         }

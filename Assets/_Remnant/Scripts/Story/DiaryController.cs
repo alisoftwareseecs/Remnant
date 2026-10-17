@@ -1,39 +1,38 @@
-using System.Collections;
 using Remnant.Core;
-using Remnant.Dialogue;
 using TMPro;
 using UnityEngine;
 
 namespace Remnant.Story
 {
     /// <summary>
-    /// Keeps the "Pages: N/8" counter and, once the last page has been read and closed, lets the Shadow speak
-    /// and sets the completion flag (which unlocks the back door through StoryInteractable variants).
+    /// Keeps the "Pages N/8" counter (top-right, pixel font): it is shown from the moment the classroom is entered
+    /// until the last page has been read, closed and answered. The last page also sets the completion flag, which
+    /// unlocks the back door through StoryInteractable variants. The Shadow's lines after the last page belong to that
+    /// page (its reaction dialogue).
     /// </summary>
     public class DiaryController : MonoBehaviour
     {
-        [SerializeField] private DiaryPanel panel;
         [SerializeField] private TMP_Text counterText;
-        [SerializeField] private DialogueRunner dialogueRunner;
-        [SerializeField] private DialogueData completionDialogue;
         [SerializeField, Min(1)] private int totalPages = 8;
         [SerializeField] private string completionFlag = "diary_complete";
 
         private GameState state;
-        private bool completing;
 
         private void Start()
         {
             state = GameState.Instance;
             if (state != null) state.FlagChanged += OnFlagChanged;
-            if (panel != null) panel.Closed += OnPanelClosed;
+            DiaryPageInteractable.PageFinished += OnPageFinished;
+
+            bool done = state != null && state.HasFlag(completionFlag);
+            if (counterText != null) counterText.gameObject.SetActive(!done);
             UpdateCounter();
         }
 
         private void OnDestroy()
         {
             if (state != null) state.FlagChanged -= OnFlagChanged;
-            if (panel != null) panel.Closed -= OnPanelClosed;
+            DiaryPageInteractable.PageFinished -= OnPageFinished;
         }
 
         private int CountPages()
@@ -56,31 +55,16 @@ namespace Remnant.Story
 
         private void UpdateCounter()
         {
-            if (counterText != null) counterText.text = "Pages: " + CountPages() + "/" + totalPages;
+            if (counterText != null) counterText.text = "Pages " + CountPages() + "/" + totalPages;
         }
 
-        private void OnPanelClosed()
+        private void OnPageFinished(int page)
         {
-            if (completing || state == null || state.HasFlag(completionFlag)) return;
-            if (CountPages() < totalPages) return;
-
-            completing = true;
-            StartCoroutine(Complete());
-        }
-
-        private IEnumerator Complete()
-        {
-            // Let the page panel finish closing before the Shadow speaks.
-            yield return null;
-
-            bool spoken = false;
-            if (dialogueRunner != null) dialogueRunner.Play(completionDialogue, () => spoken = true);
-            else spoken = true;
-            while (!spoken) yield return null;
+            if (page != totalPages || state == null) return;
 
             state.SetFlag(completionFlag);
             state.RefreshCheckpointFlags();
-            completing = false;
+            if (counterText != null) counterText.gameObject.SetActive(false);
         }
     }
 }

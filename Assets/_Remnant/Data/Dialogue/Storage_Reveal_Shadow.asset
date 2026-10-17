@@ -13,15 +13,53 @@ MonoBehaviour:
   m_Name: Storage_Reveal_Shadow
   m_EditorClassIdentifier: Assembly-CSharp::Remnant.Dialogue.DialogueData
   lines:
-  - speaker: 1
-    text: Not this time.
+  - speaker: 0
+    text: (...)
     mode: 2
-  - speaker: 1
-    text: Everyone saw her. No one looked.
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 0
+    text: (Aiko.)
     mode: 2
-  - speaker: 1
-    text: I know. I'm the one who turned your head away.
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 0
+    text: (I knew her name. I always knew her name.)
     mode: 2
-  - speaker: 1
-    text: Go back. Look at her this time.
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 0
+    text: (I could have said it. Just once.)
     mode: 2
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 1
+    text: There. Now you've seen it.
+    mode: 2
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 1
+    text: Go back. Watch it again.
+    mode: 2
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  - speaker: 1
+    text: And look away again. It's what you're good at.
+    mode: 2
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  lockPlayer: 1

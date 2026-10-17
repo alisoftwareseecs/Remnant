@@ -23,17 +23,24 @@ namespace Remnant.Story
         [SerializeField] private InputActionReference lowerLightAction;
 
         [Header("Opening")]
-        [SerializeField] private string openingLine = "Light! NOW! Before it reaches you!";
-        [Tooltip("How long after the opening line the ghost first appears.")]
+        [Tooltip("How long after the scene starts the ghost first appears.")]
         [SerializeField, Min(0f)] private float ghostFirstDelaySeconds = 2f;
 
-        [Header("After each banish")]
-        [SerializeField] private string[] banishLines = { "Good.", "Again.", "Keep it on her.", "Just like them." };
-        [Tooltip("Used for every banish after the list is used up.")]
-        [SerializeField] private string repeatLine = "Just like them.";
+        [Header("The Shadow's captions (non-blocking, see Docs/SCRIPT.md)")]
+        [Tooltip("When the ghost appears.")]
+        [SerializeField] private string appearLine = "Light! Keep it on her!";
+        [Tooltip("When the light first hits her and she flinches.")]
+        [SerializeField] private string flinchLine = "Look at her flinch. Just like in class.";
+        [Tooltip("When she comes back for the second time.")]
+        [SerializeField] private string comingLine = "Don't let her near you. She ruins everyone who gets close.";
+        [Tooltip("When the [F] Lower the light prompt appears.")]
         [SerializeField] private string dontLine = "Don't you dare.";
+        [Tooltip("If the light is not lowered within Hesitation Seconds of the prompt.")]
+        [SerializeField] private string hesitationLine = "Put it back on her! PUT IT BACK—";
+        [SerializeField, Min(0.5f)] private float hesitationSeconds = 4f;
         [SerializeField] private string promptText = "[F] Lower the light";
         [SerializeField, Min(0f)] private float flickerSeconds = 1.4f;
+        [Tooltip("After her second appearance, how long until the prompt appears.")]
         [SerializeField, Min(0f)] private float promptDelaySeconds = 1.6f;
 
         [Header("When she reaches you")]
@@ -49,6 +56,7 @@ namespace Remnant.Story
             if (lowerLightAction != null) lowerLightAction.action.Enable();
             if (ghost != null)
             {
+                ghost.Appeared += OnAppeared;
                 ghost.Banished += OnBanished;
                 ghost.ReachedPlayer += OnReachedPlayer;
             }
@@ -58,6 +66,7 @@ namespace Remnant.Story
         {
             if (ghost != null)
             {
+                ghost.Appeared -= OnAppeared;
                 ghost.Banished -= OnBanished;
                 ghost.ReachedPlayer -= OnReachedPlayer;
             }
@@ -68,7 +77,6 @@ namespace Remnant.Story
             // Wait for the distort transition to finish fading in, then the Shadow shouts at once.
             while (SceneTransition.Instance != null && SceneTransition.Instance.IsTransitioning) yield return null;
 
-            if (hud != null) hud.ShadowSays(openingLine);
             if (ghost != null) ghost.Begin(ghostFirstDelaySeconds);
         }
 
@@ -82,25 +90,40 @@ namespace Remnant.Story
 
             flashlight.LowerBeam();
             promptAvailable = false;
-            if (hud != null) hud.HidePrompt();
+            if (hud != null)
+            {
+                // whatever the Shadow is shouting stops dead, mid-word. Silence.
+                hud.CutOff();
+                hud.HidePrompt();
+            }
+        }
+
+        private void OnAppeared(int count)
+        {
+            if (hud == null) return;
+
+            if (count == 1)
+            {
+                hud.ShadowSays(appearLine);
+            }
+            else if (count == 2)
+            {
+                hud.ShadowSays(comingLine);
+                StartCoroutine(OfferLowering());
+            }
         }
 
         private void OnBanished(int count)
         {
-            if (hud != null)
-            {
-                string line = count <= banishLines.Length ? banishLines[count - 1] : repeatLine;
-                hud.ShadowSays(line);
-            }
+            if (count != 1) return;
 
-            if (count == 1) StartCoroutine(FirstBanish());
-        }
-
-        private IEnumerator FirstBanish()
-        {
+            if (hud != null) hud.ShadowSays(flinchLine);
             FlashlightController flashlight = FlashlightController.Active;
             if (flashlight != null) flashlight.Flicker(flickerSeconds);
+        }
 
+        private IEnumerator OfferLowering()
+        {
             yield return new WaitForSeconds(promptDelaySeconds);
 
             promptAvailable = true;
@@ -109,6 +132,10 @@ namespace Remnant.Story
                 hud.ShowPrompt(promptText);
                 hud.ShadowSays(dontLine);
             }
+
+            // Hesitating: the Shadow gets desperate.
+            yield return new WaitForSeconds(hesitationSeconds);
+            if (promptAvailable && !reached && hud != null) hud.ShadowSays(hesitationLine);
         }
 
         private void OnReachedPlayer()

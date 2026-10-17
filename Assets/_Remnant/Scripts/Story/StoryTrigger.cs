@@ -17,6 +17,7 @@ namespace Remnant.Story
         [SerializeField] private DialogueData dialogue;
 
         [Header("Conditions (both optional)")]
+        [Tooltip("Every listed flag must be set (comma separated).")]
         [SerializeField] private string requiresFlag;
         [Tooltip("Normally the same as Set Flag, so the beat plays only once. Several flags may be listed, separated by commas.")]
         [SerializeField] private string forbidsFlag;
@@ -25,6 +26,10 @@ namespace Remnant.Story
         [SerializeField] private string setFlag;
         [Tooltip("Also store the new flag in the saved checkpoint, so retrying does not replay this beat.")]
         [SerializeField] private bool refreshCheckpointFlags = true;
+
+        [Header("Detection")]
+        [Tooltip("Only the player's body counts, not its wide interaction trigger. Use this for triggers that must fire at an exact distance.")]
+        [SerializeField] private bool playerBodyOnly;
 
         private bool running;
 
@@ -36,9 +41,10 @@ namespace Remnant.Story
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (running || other.GetComponentInParent<PlayerController>() == null) return;
+            if (playerBodyOnly && other.isTrigger) return;
 
             GameState state = GameState.Instance;
-            if (!string.IsNullOrEmpty(requiresFlag) && (state == null || !state.HasFlag(requiresFlag))) return;
+            if (!string.IsNullOrWhiteSpace(requiresFlag) && (state == null || !state.HasAllFlags(requiresFlag))) return;
             if (state != null && state.HasAnyFlag(forbidsFlag)) return;
 
             running = true;

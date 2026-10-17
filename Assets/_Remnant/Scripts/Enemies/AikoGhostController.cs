@@ -82,11 +82,15 @@ namespace Remnant.Enemies
         private float pausedUntil;
         private int facing = 1;
         private int banishCount;
+        private int appearCount;
         private Vector3 restPosition;
         private Vector3 baseScale = Vector3.one;
 
         /// <summary>Raised each time she flinches away from the beam. The argument is how many times so far.</summary>
         public event Action<int> Banished;
+
+        /// <summary>Raised each time she appears on screen. The argument is how many times so far (1 = the first time).</summary>
+        public event Action<int> Appeared;
 
         /// <summary>Raised once, when her touch reaches the player with the light lowered.</summary>
         public event Action ReachedPlayer;
@@ -199,6 +203,9 @@ namespace Remnant.Enemies
             ApplyHeadTint();
             SetFrame(0);
             FaceTowardsPlayer();
+
+            appearCount++;
+            Appeared?.Invoke(appearCount);
         }
 
         private void UpdateApproaching()

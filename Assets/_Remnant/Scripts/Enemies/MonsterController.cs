@@ -64,6 +64,13 @@ namespace Remnant.Enemies
         private static readonly int[] IdleLoop = { 0, 0, 2, 0, 0, 2, 1 };
         private const int FirstDissolveFrame = 3;
 
+        /// <summary>Raised once per session, the first time the monster is on screen (in the camera's view).</summary>
+        public event System.Action Sighted;
+
+        /// <summary>Raised each time the monster has been driven back and has faded out completely.</summary>
+        public event System.Action Banished;
+
+        private bool sighted;
         private Phase phase = Phase.Waiting;
         private PlayerController player;
         private float timer;
@@ -193,6 +200,12 @@ namespace Remnant.Enemies
             animationTime += Time.deltaTime * idleFramesPerSecond;
             SetFrame(IdleLoop[Mathf.FloorToInt(animationTime) % IdleLoop.Length]);
 
+            if (!sighted && IsOnScreen())
+            {
+                sighted = true;
+                Sighted?.Invoke();
+            }
+
             if (IsTouchingPlayer())
             {
                 GameOverController controller = GameOverController.Instance;
@@ -231,8 +244,18 @@ namespace Remnant.Enemies
                     phase = Phase.Waiting;
                     SetVisible(false);
                     timer = Random.Range(respawnDelaySeconds.x, respawnDelaySeconds.y);
+                    Banished?.Invoke();
                 }
             }
+        }
+
+        private bool IsOnScreen()
+        {
+            Camera cam = Camera.main;
+            if (cam == null) return false;
+
+            float halfWidth = cam.orthographicSize * cam.aspect;
+            return Mathf.Abs(transform.position.x - cam.transform.position.x) < halfWidth;
         }
 
         private bool IsTouchingPlayer()

@@ -504,17 +504,21 @@ MonoBehaviour:
   starPrefix: 0
   maxLines: 3
   speakerLabelPadding: 36
+  commaPauseSeconds: 0.14
+  sentencePauseSeconds: 0.28
+  ellipsisDotPauseSeconds: 0.05
+  normalEllipsisSeconds: 0.45
   normalCharsPerSecond: 35
-  tenseCharsPerSecond: 12
-  tensePauseScale: 2
-  tenseEllipsisSeconds: 0.6
+  tenseCharsPerSecond: 18
+  tensePauseScale: 1.33
+  tenseEllipsisSeconds: 0.4
   tenseJitter: 1.5
-  autoCharsPerSecond: 8
+  autoCharsPerSecond: 12
   autoPauseScale: 3
-  autoEllipsisSeconds: 0.9
+  autoEllipsisSeconds: 1.35
   autoJitter: 0.5
-  autoHoldMinSeconds: 3
-  autoHoldPerCharacter: 0.09
+  autoHoldMinSeconds: 2.2
+  autoHoldPerCharacter: 0.065
   autoTextFadeSeconds: 0.8
   autoSilenceSeconds: 0.5
   autoBoxFadeSeconds: 1

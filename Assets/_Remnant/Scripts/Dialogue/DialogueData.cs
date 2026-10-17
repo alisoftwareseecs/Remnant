@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Remnant.Dialogue
 {
     // New speakers are appended: dialogue assets store the numeric value.
-    public enum Speaker { Protagonist, Shadow, Narration, Aiko, Bully1, Bully2, Bully3 }
+    public enum Speaker { Protagonist, Shadow, Narration, Aiko, Reina, Mika, Saki }
 
     /// <summary>
     /// How a line is delivered. Normal: brisk typing, confirm skips the typing. Tense: slow typing with jittering
@@ -33,7 +33,11 @@ namespace Remnant.Dialogue
     {
         [SerializeField] private DialogueLine[] lines = Array.Empty<DialogueLine>();
 
+        [Tooltip("Lock the player's movement while this dialogue is open. Off for lines that play while the player keeps walking (the Shadow in the storage hallway).")]
+        [SerializeField] private bool lockPlayer = true;
+
         public DialogueLine[] Lines => lines;
+        public bool LockPlayer => lockPlayer;
 
         /// <summary>Used by editor/setup tooling to fill the asset.</summary>
         public void SetLines(DialogueLine[] newLines)

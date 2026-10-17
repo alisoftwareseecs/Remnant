@@ -16,15 +16,15 @@ MonoBehaviour:
   - speaker: 1
     text: Back again?
     mode: 1
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
   - speaker: 1
-    text: You remember her, don't you?
+    text: You already know how this ends. You came to watch it twice.
     mode: 1
-  - speaker: 1
-    text: You saw everything yesterday.
-    mode: 1
-  - speaker: 1
-    text: And you looked away.
-    mode: 1
-  - speaker: 1
-    text: Do you want to see where looking away leads?
-    mode: 1
+    fadeColor: 0
+    fadeFrom: {r: 1, g: 1, b: 1, a: 1}
+    fadeTo: {r: 1, g: 1, b: 1, a: 1}
+    fadeLabel: 0
+  lockPlayer: 1

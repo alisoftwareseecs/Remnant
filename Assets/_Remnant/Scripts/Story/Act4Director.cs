@@ -6,18 +6,20 @@ using Remnant.Player;
 using Remnant.Shadow;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
 
 namespace Remnant.Story
 {
     /// <summary>
     /// Directs the Present classroom during Act 4 (flag "act4"), which passes through these states:
-    /// 1. Arrival: Day 1 again with the bullies around Aiko. Getting close to them makes the lights flicker and die and
+    /// 1. Arrival: Day 1 again with the girls around Aiko. Getting close to them makes the lights flicker and die and
     ///    sends the player to the dark encounter (flag "act4_dark").
-    /// 2. Reunion ("act4_reunion", set by the encounter): dim light, no bullies, Aiko stands in front of the player. They speak,
+    /// 2. Reunion ("act4_reunion", set by the encounter): dim light, no girls, Aiko stands in front of the player. They speak,
     ///    the Shadow says what it is and becomes an ordinary shadow ("shadow_normal"). Then "act4_stepin": bright light,
-    ///    the bullies are back around Aiko.
-    /// 3. Confrontation ("act4_confronted", set when the player talks to a bully): the bullies walk out through the door.
-    /// 4. The talk with Aiko ("act4_done") is a StoryInteractable on Aiko.
+    ///    the girls are back around Aiko.
+    /// 3. Confrontation ("act4_confronted"): plays by itself once the lights are back (Docs/SCRIPT.md); the girls walk out
+    ///    through the door.
+    /// 4. The talk with Aiko plays by itself, sets "act4_done" and leads to the next morning (the epilogue).
     /// </summary>
     public class Act4Director : MonoBehaviour
     {
@@ -25,8 +27,13 @@ namespace Remnant.Story
         [SerializeField] private Light2D globalLight;
 
         [Header("The dark")]
-        [Tooltip("Getting this close to the middle of the group starts the dark.")]
-        [SerializeField] private Transform bullyGroupCenter;
+        [Tooltip("The dark only starts after this flag is set (the Shadow's lines as the player walks toward her desk).")]
+        [SerializeField] private string requiredBeforeDark = "act4_shadow_walkpast";
+        [Tooltip("Narration when the light is dead.")]
+        [SerializeField] private DialogueData lightsDieDialogue;
+        [Tooltip("Getting this close to this point (Aiko's desk) starts the dark.")]
+        [FormerlySerializedAs("bullyGroupCenter")]
+        [SerializeField] private Transform groupCenter;
         [SerializeField, Min(0.5f)] private float darkDistance = 3f;
         [SerializeField, Min(0.2f)] private float flickerSeconds = 1.5f;
         [Range(0f, 0.3f)] [SerializeField] private float deadLightIntensity = 0.05f;
@@ -35,13 +42,20 @@ namespace Remnant.Story
 
         [Header("Cast (present in the scene)")]
         [SerializeField] private Transform aiko;
-        [SerializeField] private Transform[] bullies = new Transform[3];
-        [Tooltip("Where the bullies walk out. The door.")]
+        [FormerlySerializedAs("bullies")]
+        [SerializeField] private Transform[] girls = new Transform[3];
+        [Tooltip("Where the girls walk out. The door.")]
         [SerializeField] private Transform exitPoint;
 
         [Header("Reunion")]
+        [Tooltip("Her hands are cold... (Auto mode)")]
         [SerializeField] private DialogueData reunionDialogue;
+        [Tooltip("The Shadow fades: ...Fine. ... Your remnant.")]
         [SerializeField] private DialogueData shadowReunionDialogue;
+        [Tooltip("The protagonist stands up to the girls.")]
+        [SerializeField] private DialogueData confrontDialogue;
+        [Tooltip("After the girls left: Why did you do that?")]
+        [SerializeField] private DialogueData aikoTalkDialogue;
         [Tooltip("The spawn point the encounter sends the player to. Aiko stands just in front of it.")]
         [SerializeField] private string reunionSpawnId = "reunion";
         [Tooltip("Distance in front of the player at which Aiko stands.")]
@@ -49,8 +63,9 @@ namespace Remnant.Story
         [Range(0.05f, 1f)] [SerializeField] private float dimIntensity = 0.3f;
         [SerializeField, Min(0.5f)] private float shrinkSeconds = 5f;
         [SerializeField, Min(0.1f)] private float lightsReturnSeconds = 1.6f;
-        [Tooltip("Where the bullies stand again, relative to Aiko (bully 1, 2, 3).")]
-        [SerializeField] private Vector2[] bullyOffsets =
+        [Tooltip("Where the girls stand again, relative to Aiko (girl 1, 2, 3).")]
+        [FormerlySerializedAs("bullyOffsets")]
+        [SerializeField] private Vector2[] girlOffsets =
         {
             new Vector2(-1.5f, 0.5f), new Vector2(1.5f, 0.5f), new Vector2(0f, 1.4f)
         };
@@ -59,9 +74,15 @@ namespace Remnant.Story
         [Tooltip("Where Aiko sits in the epilogue: her chair.")]
         [SerializeField] private Transform aikoSeat;
 
+        [Header("The next morning")]
+        [SerializeField] private string nextDayScene = "Present_Classroom";
+        [SerializeField] private string nextDaySpawnId = "start";
+
         [Header("Leaving")]
-        [SerializeField, Min(0.5f)] private float bullyWalkSpeed = 2.4f;
-        [SerializeField, Min(0f)] private float bullyStagger = 0.5f;
+        [FormerlySerializedAs("bullyWalkSpeed")]
+        [SerializeField, Min(0.5f)] private float girlWalkSpeed = 2.4f;
+        [FormerlySerializedAs("bullyStagger")]
+        [SerializeField, Min(0f)] private float girlStagger = 0.5f;
 
         [Header("Flags")]
         [SerializeField] private string actFlag = "act4";
@@ -69,6 +90,7 @@ namespace Remnant.Story
         [SerializeField] private string reunionFlag = "act4_reunion";
         [SerializeField] private string stepInFlag = "act4_stepin";
         [SerializeField] private string confrontedFlag = "act4_confronted";
+        [SerializeField] private string doneFlag = "act4_done";
         [SerializeField] private string epilogueFlag = "epilogue";
 
         private GameState state;
@@ -82,37 +104,40 @@ namespace Remnant.Story
             if (state == null) return;
 
             if (globalLight != null) brightIntensity = globalLight.intensity;
-            state.FlagChanged += OnFlagChanged;
 
             if (!state.HasFlag(actFlag)) return;
 
+            // The checkpoint can bring the player back in the middle of the scene: pick the story up where it was.
             if (state.HasFlag(epilogueFlag)) StartCoroutine(AfterFrame(Epilogue));
-            else if (state.HasFlag(confrontedFlag)) StartCoroutine(AfterFrame(HideBullies));
-            else if (state.HasFlag(stepInFlag)) StartCoroutine(AfterFrame(PlaceBullies));
+            else if (state.HasFlag(confrontedFlag)) StartCoroutine(AfterFrame(AikoTalkOnLoad));
+            else if (state.HasFlag(stepInFlag)) StartCoroutine(AfterFrame(ConfrontOnLoad));
             else if (state.HasFlag(reunionFlag)) StartCoroutine(Reunion());
         }
 
-        private void OnDestroy()
+        private void ConfrontOnLoad()
         {
-            if (state != null) state.FlagChanged -= OnFlagChanged;
+            PlaceGirls();
+            StartCoroutine(Confrontation());
         }
 
-        private void OnFlagChanged(string flag, bool value)
+        private void AikoTalkOnLoad()
         {
-            if (flag == confrontedFlag && value) StartCoroutine(BulliesLeave());
+            HideGirls();
+            StartCoroutine(AikoTalk());
         }
 
         private void Update()
         {
             if (busy || state == null || !state.HasFlag(actFlag)) return;
-            if (state.HasFlag(darkFlag) || state.HasFlag(reunionFlag) || state.HasFlag(epilogueFlag) || bullyGroupCenter == null) return;
+            if (state.HasFlag(darkFlag) || state.HasFlag(reunionFlag) || state.HasFlag(epilogueFlag) || groupCenter == null) return;
+            if (!string.IsNullOrEmpty(requiredBeforeDark) && !state.HasAllFlags(requiredBeforeDark)) return;
             if (dialogueRunner != null && dialogueRunner.BlocksInteraction) return;
             if (SceneTransition.Instance != null && SceneTransition.Instance.IsTransitioning) return;
 
             if (player == null) player = FindFirstObjectByType<PlayerController>();
             if (player == null) return;
 
-            if (Vector2.Distance(player.transform.position, bullyGroupCenter.position) > darkDistance) return;
+            if (Vector2.Distance(player.transform.position, groupCenter.position) > darkDistance) return;
 
             busy = true;
             StartCoroutine(TheDark());
@@ -122,8 +147,8 @@ namespace Remnant.Story
 
         private void Epilogue()
         {
-            // A normal day: the bullies are not in the room and Aiko sits at her desk.
-            HideBullies();
+            // A normal day: the girls are not in the room and Aiko sits at her desk.
+            HideGirls();
             if (aiko == null || aikoSeat == null) return;
 
             aiko.gameObject.SetActive(true);
@@ -166,6 +191,8 @@ namespace Remnant.Story
             if (globalLight != null) globalLight.intensity = deadLightIntensity;
             yield return new WaitForSeconds(0.35f);
 
+            yield return Speak(lightsDieDialogue);
+
             if (SceneTransition.Instance != null)
             {
                 SceneTransition.Instance.GoTo(encounterScene, encounterSpawnId, null, TransitionStyle.Distort, darkFlag);
@@ -190,7 +217,7 @@ namespace Remnant.Story
             player.SetMovementLocked(true);
 
             if (globalLight != null) globalLight.intensity = dimIntensity;
-            HideBullies();
+            HideGirls();
 
             // The transition puts the player on the spawn point only after the scene has loaded, so use the spawn point itself.
             SpawnPoint spawn = SpawnPoint.Find(reunionSpawnId);
@@ -226,10 +253,10 @@ namespace Remnant.Story
             yield return Speak(shadowReunionDialogue);
             while (!shrunk) yield return null;
 
-            // Time resumes: the light is back and so are the bullies.
+            // Time resumes: the light is back and so are the girls.
             state.SetFlag(stepInFlag);
             state.RefreshCheckpointFlags();
-            PlaceBullies();
+            PlaceGirls();
 
             float elapsed = 0f;
             while (elapsed < lightsReturnSeconds)
@@ -240,8 +267,8 @@ namespace Remnant.Story
             }
 
             if (globalLight != null) globalLight.intensity = brightIntensity;
-            player.SetMovementLocked(false);
             busy = false;
+            yield return Confrontation();
         }
 
         private IEnumerator Shrink(ShadowCompanion shadow, System.Action done)
@@ -253,7 +280,7 @@ namespace Remnant.Story
         private IEnumerator Speak(DialogueData dialogue)
         {
             bool spoken = false;
-            if (dialogueRunner != null) dialogueRunner.Play(dialogue, () => spoken = true);
+            if (dialogueRunner != null && dialogue != null) dialogueRunner.Play(dialogue, () => spoken = true);
             else spoken = true;
             while (!spoken) yield return null;
 
@@ -261,38 +288,85 @@ namespace Remnant.Story
             if (player != null) player.SetMovementLocked(true);
         }
 
-        // ---- 3. The bullies ----
+        // ---- 3. The confrontation and the talk ----
 
-        private void PlaceBullies()
+        private IEnumerator Confrontation()
+        {
+            busy = true;
+            if (player == null) player = FindFirstObjectByType<PlayerController>();
+            if (player != null) player.SetMovementLocked(true);
+
+            while (SceneTransition.Instance != null && SceneTransition.Instance.IsTransitioning) yield return null;
+            yield return new WaitForSeconds(0.4f);
+
+            yield return Speak(confrontDialogue);
+
+            state.SetFlag(confrontedFlag);
+            state.RefreshCheckpointFlags();
+            yield return GirlsLeave();
+
+            yield return AikoTalk();
+        }
+
+        private IEnumerator AikoTalk()
+        {
+            busy = true;
+            if (player == null) player = FindFirstObjectByType<PlayerController>();
+            if (player != null) player.SetMovementLocked(true);
+
+            while (SceneTransition.Instance != null && SceneTransition.Instance.IsTransitioning) yield return null;
+            yield return new WaitForSeconds(0.4f);
+
+            yield return Speak(aikoTalkDialogue);
+
+            state.SetFlag(doneFlag);
+            state.RefreshCheckpointFlags();
+
+            // The next morning: the epilogue state is set while the screen is black.
+            if (SceneTransition.Instance != null)
+            {
+                SceneTransition.Instance.GoTo(nextDayScene, nextDaySpawnId, null, TransitionStyle.Fade, epilogueFlag);
+            }
+            else
+            {
+                Debug.LogWarning("Act4Director: no SceneTransition in the scene.", this);
+                if (player != null) player.SetMovementLocked(false);
+                busy = false;
+            }
+        }
+
+        // ---- 4. The girls ----
+
+        private void PlaceGirls()
         {
             if (globalLight != null && state.HasFlag(stepInFlag)) globalLight.intensity = brightIntensity;
 
-            for (int i = 0; i < bullies.Length; i++)
+            for (int i = 0; i < girls.Length; i++)
             {
-                if (bullies[i] == null) continue;
+                if (girls[i] == null) continue;
 
-                bullies[i].gameObject.SetActive(true);
-                if (aiko == null || i >= bullyOffsets.Length) continue;
+                girls[i].gameObject.SetActive(true);
+                if (aiko == null || i >= girlOffsets.Length) continue;
 
-                Vector3 position = aiko.position + (Vector3)bullyOffsets[i];
-                position.z = bullies[i].position.z;
-                bullies[i].position = position;
-                Face(bullies[i], (Vector2)aiko.position - (Vector2)position);
+                Vector3 position = aiko.position + (Vector3)girlOffsets[i];
+                position.z = girls[i].position.z;
+                girls[i].position = position;
+                Face(girls[i], (Vector2)aiko.position - (Vector2)position);
             }
         }
 
-        private void HideBullies()
+        private void HideGirls()
         {
-            foreach (Transform bully in bullies)
+            foreach (Transform girl in girls)
             {
-                if (bully != null) bully.gameObject.SetActive(false);
+                if (girl != null) girl.gameObject.SetActive(false);
             }
         }
 
-        private IEnumerator BulliesLeave()
+        private IEnumerator GirlsLeave()
         {
-            bool[] gone = new bool[bullies.Length];
-            for (int i = 0; i < bullies.Length; i++) StartCoroutine(WalkOut(i, gone));
+            bool[] gone = new bool[girls.Length];
+            for (int i = 0; i < girls.Length; i++) StartCoroutine(WalkOut(i, gone));
 
             bool all = false;
             while (!all)
@@ -309,27 +383,27 @@ namespace Remnant.Story
 
         private IEnumerator WalkOut(int index, bool[] gone)
         {
-            Transform bully = bullies[index];
-            if (bully == null || exitPoint == null)
+            Transform girl = girls[index];
+            if (girl == null || exitPoint == null)
             {
                 gone[index] = true;
                 yield break;
             }
 
-            yield return new WaitForSeconds(bullyStagger * index);
+            yield return new WaitForSeconds(girlStagger * index);
 
             Vector3 target = exitPoint.position;
-            target.z = bully.position.z;
+            target.z = girl.position.z;
 
-            while (Vector2.Distance(bully.position, target) > 0.1f)
+            while (Vector2.Distance(girl.position, target) > 0.1f)
             {
-                Vector3 next = Vector3.MoveTowards(bully.position, target, bullyWalkSpeed * Time.deltaTime);
-                Face(bully, next - bully.position);
-                bully.position = next;
+                Vector3 next = Vector3.MoveTowards(girl.position, target, girlWalkSpeed * Time.deltaTime);
+                Face(girl, next - girl.position);
+                girl.position = next;
                 yield return null;
             }
 
-            bully.gameObject.SetActive(false);
+            girl.gameObject.SetActive(false);
             gone[index] = true;
         }
 

@@ -27,6 +27,7 @@ namespace Remnant.Player
         private int facingOverride;
         private bool runAllowed = true;
         private float speedMultiplier = 1f;
+        private float speedFactor = 1f;
         private GameState subscribedState;
 
         public Perspective CurrentPerspective => perspective;
@@ -100,7 +101,7 @@ namespace Remnant.Player
 
         private void FixedUpdate()
         {
-            float speed = (isRunning ? runSpeed : walkSpeed) * speedMultiplier;
+            float speed = (isRunning ? runSpeed : walkSpeed) * speedMultiplier * speedFactor;
 
             if (perspective == Perspective.SideView)
             {
@@ -110,6 +111,18 @@ namespace Remnant.Player
             {
                 body.linearVelocity = moveInput * speed;
             }
+        }
+
+        /// <summary>The walk speed in this scene (after the scene's limits, before any story speed factor).</summary>
+        public float EffectiveWalkSpeed => walkSpeed * speedMultiplier;
+
+        /// <summary>
+        /// A temporary story-driven speed scale on top of the scene limits (1 = none). Used where the player's legs
+        /// should give out slowly, such as the storage hallway.
+        /// </summary>
+        public void SetSpeedFactor(float factor)
+        {
+            speedFactor = Mathf.Clamp01(factor);
         }
 
         /// <summary>Per-scene movement limits (set by SceneSettings): disable running and/or scale all speeds.</summary>

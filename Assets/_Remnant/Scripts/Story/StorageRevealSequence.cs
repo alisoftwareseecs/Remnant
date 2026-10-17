@@ -21,6 +21,7 @@ namespace Remnant.Story
 
         [Header("Dialogue")]
         [SerializeField] private DialogueRunner dialogueRunner;
+        [Tooltip("Played after the still is up (the protagonist's thoughts and the Shadow). The reveal itself has no dialogue.")]
         [SerializeField] private DialogueData shadowDialogue;
         [Tooltip("How long the beam is held on the legs before the Shadow speaks.")]
         [SerializeField, Min(0f)] private float holdSeconds = 4f;
@@ -62,6 +63,9 @@ namespace Remnant.Story
         private void Update()
         {
             if (started || lookTarget == null) return;
+
+            // the Shadow's lines during the walk finish first; the reveal waits for them
+            if (dialogueRunner != null && dialogueRunner.BlocksInteraction) return;
 
             FlashlightController flashlight = FlashlightController.Active;
             if (flashlight == null || !flashlight.Illuminates(lookTarget.position, lookTarget)) return;

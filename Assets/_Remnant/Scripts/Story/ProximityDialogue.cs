@@ -22,8 +22,9 @@ namespace Remnant.Story
         [SerializeField, Min(0.1f)] private float radius = 5f;
 
         [Header("Conditions")]
+        [Tooltip("Every listed flag must be set (comma separated). Empty = no requirement.")]
         [SerializeField] private string requiresFlag = "act4";
-        [Tooltip("Normally the same as Set Flag, so the beat plays only once.")]
+        [Tooltip("Normally the same as Set Flag, so the beat plays only once. Several flags (comma separated): any of them blocks it.")]
         [SerializeField] private string forbidsFlag;
         [Tooltip("Also forbidden while this other flag is set (for example the dark encounter).")]
         [SerializeField] private string alsoForbidsFlag;
@@ -40,9 +41,9 @@ namespace Remnant.Story
             if (running) return;
 
             GameState state = GameState.Instance;
-            if (!string.IsNullOrEmpty(requiresFlag) && (state == null || !state.HasFlag(requiresFlag))) return;
-            if (state != null && !string.IsNullOrEmpty(forbidsFlag) && state.HasFlag(forbidsFlag)) return;
-            if (state != null && !string.IsNullOrEmpty(alsoForbidsFlag) && state.HasFlag(alsoForbidsFlag)) return;
+            if (!string.IsNullOrWhiteSpace(requiresFlag) && (state == null || !state.HasAllFlags(requiresFlag))) return;
+            if (state != null && state.HasAnyFlag(forbidsFlag)) return;
+            if (state != null && state.HasAnyFlag(alsoForbidsFlag)) return;
             if (SceneTransition.Instance != null && SceneTransition.Instance.IsTransitioning) return;
 
             if (player == null) player = FindFirstObjectByType<PlayerController>();
