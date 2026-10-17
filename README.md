@@ -2,7 +2,7 @@
 
 A 2D psychological horror game about guilt, silence and being unseen. You are a student who watched a classmate, Aiko, get bullied and did nothing. When she disappears, your own shadow wakes up and leads you into a dark, changed version of your school. Something is hunting you in the corridors, a classroom holds her diary, and at the end of the hallway is what happens when everyone looks away. Then you get to go back and decide whether you look this time.
 
-Made with Unity by **Squad Zero**. One ending. Windows. **Version 2.0.** Estimated playtime: about 35 minutes (30-45, more if you search every corner).
+Made with Unity by **Squad Zero**. One ending. Windows. Estimated playtime: about 35 minutes (30-45, more if you search every corner).
 
 ## Content warning
 
@@ -12,7 +12,7 @@ If you are struggling, you are not alone. Please reach out to someone you trust,
 
 ## How to play
 
-1. Go to the [Releases page](../../releases) and download `Remnant_v2.0_Windows.zip` from the latest release.
+1. Go to the [Releases page](../../releases) and download `Remnant_Windows.zip` from the latest release.
 2. Unzip it (extract the whole folder, do not run it from inside the zip).
 3. Run `Remnant.exe`.
 
