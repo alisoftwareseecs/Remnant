@@ -5694,11 +5694,15 @@ MonoBehaviour:
   facing: 3
   framesPerSecond: 8
   runSpeedMultiplier: 1.4
-  sideIdleFrames: []
-  sideWalkFrames: []
-  sideArtFacesRight: 0
-  sideIdleFramesPerSecond: 3
+  sideFrames:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   sideWalkFramesPerSecond: 10
+  sideMinSpeedShare: 0.15
 --- !u!212 &1571454676
 SpriteRenderer:
   serializedVersion: 2

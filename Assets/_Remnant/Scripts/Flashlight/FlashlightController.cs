@@ -36,6 +36,10 @@ namespace Remnant.Flashlight
         [Tooltip("Share of the visible cone that counts as 'lit' for gameplay (monster banishing).")]
         [Range(0.5f, 1f)] [SerializeField] private float effectiveConeShare = 0.85f;
 
+        [Header("Hand (SideView)")]
+        [Tooltip("Where the beam starts in SideView, relative to his feet: x is toward the side he faces (mirrored with him), y is up. It is the hand of the side-view sprite. In TopDown the beam stays where it is in the prefab.")]
+        [SerializeField] private Vector2 sideViewHandOffset = new Vector2(0.1f, 0.3f);
+
         [Header("Aiming")]
         [Range(0.1f, 0.9f)] [SerializeField] private float stickDeadzone = 0.3f;
         [SerializeField, Min(1f)] private float turnSpeedDegrees = 720f;
@@ -50,6 +54,7 @@ namespace Remnant.Flashlight
         private float flickerUntil;
         private bool lit;
         private float noiseSeed;
+        private Vector3 restLocalPosition;
 
         public bool IsOn => lit;
         /// <summary>True once the beam has been pointed at the floor for good.</summary>
@@ -62,6 +67,7 @@ namespace Remnant.Flashlight
         private void Awake()
         {
             noiseSeed = Random.value * 50f;
+            restLocalPosition = transform.localPosition;
             if (player == null) player = GetComponentInParent<PlayerController>();
         }
 
@@ -122,6 +128,7 @@ namespace Remnant.Flashlight
             if (!lit || beam == null) return;
 
             if (mainCamera == null) mainCamera = Camera.main;
+            UpdateOrigin();
             UpdateAim();
             UpdateFlicker();
 
@@ -131,6 +138,17 @@ namespace Remnant.Flashlight
             bool sideView = state != null && state.CurrentPerspective == Perspective.SideView;
             if (sideView && Mathf.Abs(aimDirection.x) > 0.05f) player.SetFacingOverride(aimDirection.x > 0f ? 1 : -1);
             else player.SetFacingOverride(0);
+        }
+
+        // SideView: the beam comes out of his hand, on the side he faces. TopDown: it stays at the prefab position.
+        private void UpdateOrigin()
+        {
+            if (player == null) return;
+
+            bool sideView = state != null && state.CurrentPerspective == Perspective.SideView;
+            transform.localPosition = sideView
+                ? new Vector3(sideViewHandOffset.x * player.FacingDirection, sideViewHandOffset.y, restLocalPosition.z)
+                : restLocalPosition;
         }
 
         /// <summary>Makes the beam turn to this direction and ignore the mouse and stick until UnlockAim().</summary>

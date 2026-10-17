@@ -117,6 +117,11 @@ Flags: `act4_done` -> `epilogue` -> `epilogue_talked` -> `ending_light`. Scripts
 ### Teardown safety
 - `Remnant.Core.AppLifetime.IsTearingDown(gameObject)` is true while quitting, stopping Play mode or unloading the scene. `DialogueRunner.OnDisable` and `DiaryPanel.OnDisable` then close without running completion callbacks (the callbacks open panels, set flags or start sequences on objects that are already destroyed). Any new OnDisable that finishes work and fires callbacks must use the same guard.
 
+### One protagonist (all scenes)
+- The protagonist is the same character everywhere: the MV top-down sprites. Side view uses the same art (no flipping, no separate character): the left and right rows imported as their own sheet at PPU 54 (a sheet pixel is exactly 2 screen pixels at 1080p with the side-view camera, ortho 5), so he stands about 1.24 units tall next to 1.77 doors and the 2.0 monster. Top-down stays at PPU 64. The old lenidev side-view protagonist (daniel_chettiar) is gone; lenidev art is now only the monster and the FutureSide environment.
+- `CharacterSpriteAnimator` plays the 0-1-2-1 walk cycle in both modes; in SideView the cycle speed follows his real speed (`PlayerController.ActualHorizontalSpeed` over the scene's walk speed, floor `sideMinSpeedShare` 0.15), so when `StorageWalkPacer` slows him his steps slow to a shuffle. Idle is the standing frame.
+- The flashlight starts at his hand in SideView (`FlashlightController.sideViewHandOffset` (0.1, 0.3), x mirrored with his facing); in TopDown it stays at the prefab position. The Shadow copies the player's current sprite, so it follows automatically.
+
 ### Mechanics
 - Flashlight (Future, both perspectives): a URP 2D spot light aimed with the mouse or right stick (360 degrees in TopDown; in SideView the protagonist faces the side the beam points to). The Future is nearly dark, so the beam is the main light. Holding the beam on the monster for a short time banishes it (it fades out). It returns after a random delay, preferably from off-screen or behind the player.
 - If the monster touches the player: game over, restart from the last checkpoint.
@@ -132,7 +137,7 @@ MV sheets (TopDown, 2.0x): 768x768, 4x2 characters, each 3 columns x 4 rows of 6
 | Reina (bully 1, the leader) | TopDown/Charas249-256b.png | character #3 (column 2, row 0; x 384-575, y 0-383) | `bully1_*` |
 | Mika (bully 2) | TopDown/Charas81-88b.png | character #2 (column 1, row 0; x 192-383, y 0-383) | `bully2_*` |
 | Saki (bully 3) | TopDown/Charas193-200b.png | character #6 (column 1, row 1; x 192-383, y 384-767) | `bully3_*` |
-| Protagonist (SideView) | SideView/daniel_chettiar.png (lenidev) | 16x16 frames; row 0 = 4 frames (idle), row 1 = 8 frames (walk) | `protagonist_side_idle_0-3`, `protagonist_side_walk_0-7` |
+| Protagonist (SideView) | SideView/protagonist_side.png (made by Tools/protagonist_side/make_side_sheet.py: the protagonist's own left and right rows copied 1:1 from Charas105-112b.png) | 64x96 frames, PPU 54, pivot bottom centre; row 0 = left, row 1 = right, 3 frames each | `protagonist_side_left_0-2`, `protagonist_side_right_0-2` |
 | Monster (SideView) | SideView/monster_sighting-sheet.png (lenidev) | 32x32 frames, 12 in one row | `monster_0-11` |
 
 ## Architecture

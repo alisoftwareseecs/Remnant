@@ -2,4 +2,4 @@ Horror Pixel Art Assets by lenidev
 https://lenidev.itch.io/horror-pixel-art-assets
 Described on the page as free to use. No formal license file was included in the archive.
 Before any commercial release, confirm the terms with the author.
-Files used: Environment/FutureSide/*, Characters/SideView/daniel_chettiar.png, monster_sighting-sheet.png
+Files used: Environment/FutureSide/*, Characters/SideView/monster_sighting-sheet.png

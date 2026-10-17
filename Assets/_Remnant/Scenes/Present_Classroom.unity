@@ -1542,11 +1542,15 @@ MonoBehaviour:
   facing: 3
   framesPerSecond: 8
   runSpeedMultiplier: 1.4
-  sideIdleFrames: []
-  sideWalkFrames: []
-  sideArtFacesRight: 0
-  sideIdleFramesPerSecond: 3
+  sideFrames:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   sideWalkFramesPerSecond: 10
+  sideMinSpeedShare: 0.15
 --- !u!61 &230218987
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5389,11 +5393,15 @@ MonoBehaviour:
   facing: 1
   framesPerSecond: 8
   runSpeedMultiplier: 1.4
-  sideIdleFrames: []
-  sideWalkFrames: []
-  sideArtFacesRight: 0
-  sideIdleFramesPerSecond: 3
+  sideFrames:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   sideWalkFramesPerSecond: 10
+  sideMinSpeedShare: 0.15
 --- !u!61 &574822620
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7091,11 +7099,15 @@ MonoBehaviour:
   facing: 2
   framesPerSecond: 8
   runSpeedMultiplier: 1.4
-  sideIdleFrames: []
-  sideWalkFrames: []
-  sideArtFacesRight: 0
-  sideIdleFramesPerSecond: 3
+  sideFrames:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   sideWalkFramesPerSecond: 10
+  sideMinSpeedShare: 0.15
 --- !u!61 &1351497483
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7754,11 +7766,15 @@ MonoBehaviour:
   facing: 3
   framesPerSecond: 8
   runSpeedMultiplier: 1.4
-  sideIdleFrames: []
-  sideWalkFrames: []
-  sideArtFacesRight: 0
-  sideIdleFramesPerSecond: 3
+  sideFrames:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   sideWalkFramesPerSecond: 10
+  sideMinSpeedShare: 0.15
 --- !u!61 &1470012183
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8098,11 +8114,15 @@ MonoBehaviour:
   facing: 2
   framesPerSecond: 8
   runSpeedMultiplier: 1.4
-  sideIdleFrames: []
-  sideWalkFrames: []
-  sideArtFacesRight: 0
-  sideIdleFramesPerSecond: 3
+  sideFrames:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   sideWalkFramesPerSecond: 10
+  sideMinSpeedShare: 0.15
 --- !u!61 &1526332992
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8499,11 +8519,15 @@ MonoBehaviour:
   facing: 0
   framesPerSecond: 8
   runSpeedMultiplier: 1.4
-  sideIdleFrames: []
-  sideWalkFrames: []
-  sideArtFacesRight: 0
-  sideIdleFramesPerSecond: 3
+  sideFrames:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   sideWalkFramesPerSecond: 10
+  sideMinSpeedShare: 0.15
 --- !u!61 &1571454675
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9558,11 +9582,15 @@ MonoBehaviour:
   facing: 1
   framesPerSecond: 8
   runSpeedMultiplier: 1.4
-  sideIdleFrames: []
-  sideWalkFrames: []
-  sideArtFacesRight: 0
-  sideIdleFramesPerSecond: 3
+  sideFrames:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   sideWalkFramesPerSecond: 10
+  sideMinSpeedShare: 0.15
 --- !u!61 &1894145108
 BoxCollider2D:
   m_ObjectHideFlags: 0

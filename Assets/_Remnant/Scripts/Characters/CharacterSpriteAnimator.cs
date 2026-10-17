@@ -9,8 +9,9 @@ namespace Remnant.Characters
     /// <summary>
     /// Animates RPG Maker style sheets: 4 directions x 3 frames. Walk cycle 0-1-2-1, idle = frame 1.
     /// With a PlayerController assigned it follows the player's movement; without one it shows a fixed facing (NPCs).
-    /// When the player is in SideView and the side-view sprite sets are filled in, it switches to those
-    /// (idle and walk loops, flipped horizontally to face left or right).
+    /// In SideView the player uses the same protagonist art (the left and right rows, imported as a separate sheet so
+    /// it can have its own scale): the same 0-1-2-1 walk cycle, idle = the standing frame, no mirroring. The walk
+    /// cycle runs at the speed he really moves, so when the story slows him down his steps slow down with him.
     /// </summary>
     [RequireComponent(typeof(SpriteRenderer))]
     public class CharacterSpriteAnimator : MonoBehaviour
@@ -30,15 +31,13 @@ namespace Remnant.Characters
         [SerializeField, Min(1f)] private float framesPerSecond = 8f;
         [SerializeField, Min(1f)] private float runSpeedMultiplier = 1.4f;
 
-        [Header("Side view (optional, player only)")]
-        [Tooltip("Idle loop used in SideView. Drawn facing right; flipped for left.")]
-        [SerializeField] private Sprite[] sideIdleFrames = new Sprite[0];
-        [Tooltip("Walk loop used in SideView. Drawn facing right; flipped for left.")]
-        [SerializeField] private Sprite[] sideWalkFrames = new Sprite[0];
-        [Tooltip("Which way the side-view art is drawn. The protagonist sheet faces left.")]
-        [SerializeField] private bool sideArtFacesRight;
-        [SerializeField, Min(0.1f)] private float sideIdleFramesPerSecond = 3f;
-        [SerializeField, Min(0.1f)] private float sideWalkFramesPerSecond = 10f;
+        [Header("Side view (player only)")]
+        [Tooltip("6 sprites ordered Left 0-2, Right 0-2 (the protagonist's side-view sheet).")]
+        [SerializeField] private Sprite[] sideFrames = new Sprite[6];
+        [Tooltip("Walk cycle frames per second at normal walking speed; it scales with his real speed.")]
+        [SerializeField, Min(1f)] private float sideWalkFramesPerSecond = 8f;
+        [Tooltip("The slowest the cycle runs while he is still trying to move (a shuffle instead of standing frozen mid-step).")]
+        [SerializeField, Range(0.05f, 1f)] private float sideMinSpeedShare = 0.15f;
 
         private SpriteRenderer spriteRenderer;
         private float animationTime;
@@ -47,8 +46,7 @@ namespace Remnant.Characters
 
         public FacingDirection Facing => facing;
 
-        private bool HasSideSprites =>
-            sideIdleFrames != null && sideIdleFrames.Length > 0 && sideWalkFrames != null && sideWalkFrames.Length > 0;
+        private bool HasSideSprites => sideFrames != null && sideFrames.Length >= 6;
 
         private void Awake()
         {
@@ -113,17 +111,25 @@ namespace Remnant.Characters
                 sideTime = 0f;
             }
 
+            spriteRenderer.flipX = false;
+
             bool moving = playerSource.IsMoving;
-            Sprite[] set = moving ? sideWalkFrames : sideIdleFrames;
-            float fps = moving ? sideWalkFramesPerSecond * (playerSource.IsRunning ? runSpeedMultiplier : 1f)
-                               : sideIdleFramesPerSecond;
+            int column = 1;   // standing frame
+            if (moving)
+            {
+                float reference = Mathf.Max(0.01f, playerSource.EffectiveWalkSpeed);
+                float share = Mathf.Clamp(playerSource.ActualHorizontalSpeed / reference, sideMinSpeedShare, runSpeedMultiplier * 1.3f);
+                sideTime += Time.deltaTime * sideWalkFramesPerSecond * share;
+                column = WalkCycle[Mathf.FloorToInt(sideTime) % WalkCycle.Length];
+            }
+            else
+            {
+                sideTime = 0f;
+            }
 
-            sideTime += Time.deltaTime * fps;
-            Sprite sprite = set[Mathf.FloorToInt(sideTime) % set.Length];
+            int row = playerSource.FacingDirection < 0 ? 0 : 1;
+            Sprite sprite = sideFrames[row * FramesPerDirection + column];
             if (sprite != null) spriteRenderer.sprite = sprite;
-
-            bool facingLeft = playerSource.FacingDirection < 0;
-            spriteRenderer.flipX = sideArtFacesRight ? facingLeft : !facingLeft;
         }
 
         private void Apply(bool moving)

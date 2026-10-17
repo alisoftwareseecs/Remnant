@@ -36,6 +36,8 @@ namespace Remnant.Player
         public bool IsMoving => moveInput.sqrMagnitude > 0.0001f;
         public bool IsMovementLocked => movementLocked;
         public int FacingDirection { get; private set; } = 1;
+        /// <summary>How fast he is really moving along the floor right now, in units per second (0 when blocked or standing).</summary>
+        public float ActualHorizontalSpeed => body != null ? Mathf.Abs(body.linearVelocity.x) : 0f;
         /// <summary>Last non-zero movement direction (unit vector). Starts facing down. Used for sprite facing.</summary>
         public Vector2 LastMoveDirection { get; private set; } = Vector2.down;
 
